@@ -1,10 +1,10 @@
 #Makefile
 
 loadScene.o: loadScene.cpp loadScene.h
-	g++ -c loadScene.cpp
+	g++ -pedantic-erros -std=c++11 -c loadScene.cpp
 
 main.o: main.cpp loadScene.h
-	g++ -c main.cpp
+	g++ -pedantic-erros -std=c++11 -c main.cpp
 
 main: main.o loadScene.o
-	g++ main.o loadScene.o -o main
+	g++ -pedantic-erros -std=c++11 main.o loadScene.o -o main
