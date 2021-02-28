@@ -3,3 +3,5 @@
 #define LOADSCENE_H
 
 void loadScene(string);
+
+#endif
