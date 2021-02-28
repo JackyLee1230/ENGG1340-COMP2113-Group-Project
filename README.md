@@ -6,7 +6,7 @@ Group No.:      103
 Group Member:   Lee Chi Ho    (u3578552)
                 Cheng Pak Yim (u3578494)
 
-Topic:
+Topic: Turn-based Combat RPG
 
 Link: https://github.com/u3578552/ENGG1340-COMP2113-Group-Project
 </pre>
