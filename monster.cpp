@@ -23,4 +23,16 @@ class Monster{
         DEF = newDEF;
     }
 
+    int calculateHP(int HP){
+        return float(HP) * level * 1.3;
+    }
+
+    int calculateATK(float ATK){
+        return float(ATK) * level * 1.3;
+    }
+
+    int calculateDEF(int DEF){
+        return float(DEF) * level * 1.3;
+    }
+
 };

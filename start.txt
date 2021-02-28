@@ -1,8 +1,9 @@
                 ______   ______ _______ _______ ______   _____   _____  _____ __   _ _______
-                |     \ |_____/ |______ |_____| |     \ |_____] |     |   |   | \  |    |   
-                |_____/ |    \_ |______ |     | |_____/ |       |_____| __|__ |  \_|    |   
-				
-             Welcome to DreadPoint. The aim is to survive the countless dangers! Survive or Die!				
+                |     \ |_____/ |______ |_____| |     \ |_____] |     |   |   | \  |    |
+                |_____/ |    \_ |______ |     | |_____/ |       |_____| __|__ |  \_|    |
+
+             Welcome to DreadPoint. The AIM is to survive the countless dangers! Survive or Die!
+
 x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 (1) New Game (Wipe old game data)
 (2) Continue
