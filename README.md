@@ -1,6 +1,8 @@
 # ENGG1340-COMP2110-Group-Project
 
 <pre>
+Game Name: DreadPoint
+
 Group No.:      103
 
 Group Member:   Lee Chi Ho    (u3578552)
