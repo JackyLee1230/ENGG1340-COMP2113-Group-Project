@@ -5,6 +5,8 @@ using namespace std;
 
 const START_SCENE = "start";
 const END_SCENE = "end";
+const MAIN_SCENE = "mainmenu"
+const COMBAT_SCENE = "combat"
 
 // read .txt and then output
 void loadScene(string scene_name) {
