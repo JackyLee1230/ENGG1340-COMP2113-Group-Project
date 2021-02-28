@@ -2,8 +2,10 @@
 #include <fstream>
 #include <string>
 
+#include "loadScene.h"
+
 using namespace std;
 
 int main(){
-  
+    loadScene("start");
 }
