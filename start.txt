@@ -3,6 +3,10 @@
                 |_____/ |    \_ |______ |     | |_____/ |       |_____| __|__ |  \_|    |
 
              Welcome to DreadPoint. The AIM is to survive the countless dangers! Survive or Die!
+			 Here lies a haunted castle which was well-known for its monsters living inside. 
+			 You, as an explorer, was willing to discover the secrets and mysteries inside it. 
+			 Equipped with a wooden sword, you are going to embark on an amazing adventure. 
+			 Defeat an array of monsters and take back the castle from the devils.
 
 x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 (1) New Game (Wipe old game data)
