@@ -1,4 +1,4 @@
-# ENGG1340-COMP2110-Group-Project
+# ENGG1340-COMP2113-Group-Project
 
 <pre>
 Game Name: DreadPoint
