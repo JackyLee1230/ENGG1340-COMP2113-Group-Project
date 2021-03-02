@@ -21,3 +21,16 @@ void loadScene(string scene_name) {
     myfile.close();
     }
 }
+
+void loadMonsterScene(string monster_name) {
+    string file_name = monster_name + ".txt";
+    string line;
+    ifstream myfile (file_name);
+    if (myfile.is_open()) {
+        while (getline (myfile, line)) {
+          cout << line << '\n';
+        }
+        cout<< endl;
+    myfile.close();
+    }
+}

@@ -8,4 +8,6 @@ using namespace std;
 
 int main(){
     loadScene("start");
+    loadMonsterScene("boss");
+    loadScene("end");
 }

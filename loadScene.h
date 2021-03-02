@@ -4,4 +4,6 @@
 
 void loadScene(std::string);
 
+void loadMonsterScene(std::string);
+
 #endif
