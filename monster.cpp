@@ -3,6 +3,7 @@ class Monster{
       int HP;
       int ATK;
       int DEF;
+      std::string NAME;
 
   public:
     int getHP() {return HP;}
@@ -35,4 +36,9 @@ class Monster{
         return float(DEF) * level * 1.3;
     }
 
+    std::string getNAME() {return NAME;}
+
+    std::string setNAME(std::string newNAME){
+      NAME = newNAME;
+    }
 };

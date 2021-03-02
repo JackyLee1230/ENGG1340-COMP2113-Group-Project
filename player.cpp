@@ -3,6 +3,7 @@ class Player{
       int HP;
       int ATK;
       int DEF;
+      std::string NAME;
 
   public:
     int getHP() {return HP;}
@@ -21,6 +22,12 @@ class Player{
 
     void setDEF(int newDEF){
         DEF = newDEF;
+    }
+
+    std::string getNAME() {return NAME;}
+
+    std::string setNAME(std::string newNAME){
+      NAME = newNAME;
     }
 
 };
