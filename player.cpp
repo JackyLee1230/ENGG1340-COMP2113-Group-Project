@@ -6,25 +6,25 @@ class Player{
       std::string NAME;
 
   public:
-    int getHP() {return HP;}
+    int getHP() { return HP; }
 
     void setHP(int newHP){
         HP = newHP;
     }
 
-    int getATK(){return ATK;}
+    int getATK(){ return ATK; }
 
     void setATK(int newATK){
         ATK = newATK;
     }
 
-    int getDEF() {return DEF;}
+    int getDEF() { return DEF; }
 
     void setDEF(int newDEF){
         DEF = newDEF;
     }
 
-    std::string getNAME() {return NAME;}
+    std::string getNAME() { return NAME; }
 
     std::string setNAME(std::string newNAME){
       NAME = newNAME;

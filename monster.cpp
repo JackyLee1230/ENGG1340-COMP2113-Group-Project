@@ -6,19 +6,19 @@ class Monster{
       std::string NAME;
 
   public:
-    int getHP() {return HP;}
+    int getHP() { return HP; }
 
     void setHP(int newHP){
         HP = newHP;
     }
 
-    int getATK(){return ATK;}
+    int getATK(){ return ATK; }
 
     void setATK(int newATK){
         ATK = newATK;
     }
 
-    int getDEF() {return DEF;}
+    int getDEF() { return DEF; }
 
     void setDEF(int newDEF){
         DEF = newDEF;
@@ -36,7 +36,7 @@ class Monster{
         return float(DEF) * level * 1.3;
     }
 
-    std::string getNAME() {return NAME;}
+    std::string getNAME() { return NAME; }
 
     std::string setNAME(std::string newNAME){
       NAME = newNAME;
