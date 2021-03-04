@@ -1,4 +1,4 @@
-// loadScene.h
+// sceneManager.h
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 

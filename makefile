@@ -1,10 +1,13 @@
 #Makefile
 
 sceneManager.o: sceneManager.cpp sceneManager.h
-	g++ -pedantic-errors -std=c++11 -c sceneManager.cpp
+	g++ -pedantic-errors -std=c++11 -c $<
 
-main.o: main.cpp sceneManager.h
-	g++ -pedantic-errors -std=c++11 -c main.cpp
+titleScene.o: titleScene.cpp titleScene.h sceneManager.h
+	g++ -pedantic-errors -std=c++11 -c $<
 
-main: main.o sceneManager.o
-	g++ -pedantic-errors -std=c++11 main.o sceneManager.o -o main
+main.o: main.cpp titleScene.h
+	g++ -pedantic-errors -std=c++11 -c $<
+
+main: main.o sceneManager.o titleScene.o
+	g++ -pedantic-errors -std=c++11 $^ -o main

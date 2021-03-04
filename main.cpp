@@ -6,8 +6,7 @@
 // so that new things appear on top
 #include <cstdlib>
 
-// #include "loadScene.h"
-#include "sceneManager.h"
+#include "titleScene.h"
 
 using namespace std;
 
@@ -23,5 +22,6 @@ int main(){
     //
     // loadScene("end");
 
-    SceneManager::loadTitleScreen();
+    // SceneManager::loadTitleScreen();
+    TitleScene::playScene();
 }
