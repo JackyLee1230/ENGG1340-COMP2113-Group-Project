@@ -4,8 +4,12 @@
 // exit
 #include <stdlib.h>
 
+// system
+#include <cstdlib>
+
 #include "sceneManager.h"
 #include "titleScene.h"
+#include "monster.h"
 
 using namespace std;
 
@@ -25,10 +29,17 @@ void TitleScene::playScene() {
             break;
     }
 
+
+    Monster test;
     switch (user_input) {
-        case 1:
+
+        case 1: {
             cout << "You inputted: " << user_input << "\n";
-            break;
+
+            system("clear");
+            test.loadAsciiArt("monster_2");
+
+        } break;
         case 2:
             cout << "You inputted: " << user_input << "\n";
             break;

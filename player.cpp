@@ -1,33 +1,27 @@
-class Player{
-  private:
-      int HP;
-      int ATK;
-      int DEF;
-      std::string NAME;
+#include "player.h"
 
-  public:
-    int getHP() { return HP; }
+using namespace std;
 
-    void setHP(int newHP){
-        HP = newHP;
-    }
+int Player::getHP() { return Player::HP; }
 
-    int getATK(){ return ATK; }
+void setHP(int newHP){
+    Player::HP = newHP;
+}
 
-    void setATK(int newATK){
-        ATK = newATK;
-    }
+int getATK(){ return Player::ATK; }
 
-    int getDEF() { return DEF; }
+void setATK(int newATK) {
+    Player::ATK = newATK;
+}
 
-    void setDEF(int newDEF){
-        DEF = newDEF;
-    }
+int getDEF() { return Player::DEF; }
 
-    std::string getNAME() { return NAME; }
+void setDEF(int newDEF) {
+    Player::DEF = newDEF;
+}
 
-    std::string setNAME(std::string newNAME){
-      NAME = newNAME;
-    }
+string getNAME() { return Player::NAME; }
 
-};
+string setNAME(string newNAME) {
+    Player::NAME = newNAME;
+}

@@ -10,6 +10,7 @@ public:
     static const int SCENE_WIDTH;
     static const int SCENE_HEIGHT;
 
+    static const std::string SCENES_FOLDER_PATH;
     // filenames for loading a specific scene
     static const std::string TITLE_SCENE;
     static const std::string END_SCENE;

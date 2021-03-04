@@ -13,6 +13,8 @@ using namespace std;
 const int SceneManager::SCENE_WIDTH = 80;
 const int SceneManager::SCENE_HEIGHT = 45;
 
+const string SceneManager::SCENES_FOLDER_PATH = "scenes_art/";
+
 // filenames for defined scenes
 const string SceneManager::TITLE_SCENE = "title";
 const string SceneManager::END_SCENE = "end";
@@ -29,7 +31,7 @@ void SceneManager::loadTitleScreen() {
     string file_name = TITLE_SCENE + ".txt";
     string line;
 
-    ifstream myfile (file_name);
+    ifstream myfile (SCENES_FOLDER_PATH + file_name);
 
     // load the specific scene only
     if (myfile.is_open()) {
