@@ -17,19 +17,20 @@ void TitleScene::playScene() {
     // load the graphics
     SceneManager::loadTitleScreen();
 
-    int user_input = -1;
+
+    string input = "";
+
+    //user_input = std::stoi(temp);
 
     // TODO
-    // input check
-    while (true) {
-        cin >> user_input;
-        // cout << user_input << "\n";
-
-        if (user_input >= 0 && user_input < 5)
-            break;
+    while(input.length() !=1){// input check
+      while (std::stoi(input) <= 0 or std::stoid(input) >= 5) {
+          cin >> input;
+          // cout << user_input << "\n";
+      }
     }
 
-
+    int user_input = std::stoi(input);
     Monster test;
     switch (user_input) {
 
