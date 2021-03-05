@@ -20,6 +20,7 @@ const string SceneManager::TITLE_SCENE = "title";
 const string SceneManager::END_SCENE = "end";
 const string SceneManager::MAIN_SCENE = "mainmenu";
 const string SceneManager::COMBAT_SCENE = "combat";
+const string SceneManager::SETTING_SCENE = "setting";
 
 // return the number of leading space to center align the text
 // int SceneManager::calculateLeftJustify(int string_width) {

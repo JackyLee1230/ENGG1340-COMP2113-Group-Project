@@ -26,7 +26,7 @@ void TitleScene::playScene() {
 
     // TODO
     // input check
-    while(input.length() !=1 && isdigit(input[0]) == 0 ){
+    while(input.length() !=1 || isdigit(input[0]) == 0 ){
       while (int(input[0]) <= 0 || int(input[0]) >= 5) {
           cin >> input;
           // cout << user_input << "\n";
