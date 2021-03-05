@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
 // exit
 #include <stdlib.h>
@@ -17,23 +18,28 @@ void TitleScene::playScene() {
     // load the graphics
     SceneManager::loadTitleScreen();
 
+
     string input = "";
+    cin >> input;
+
     //user_input = std::stoi(temp);
+
     // TODO
-    while(input.length() !=1){// input check
-      while (std::stoi(input) <= 0 or std::stoid(input) >= 5) {
+    // input check
+    while(input.length() !=1 && isdigit(input[0]) == 0 ){
+      while (int(input[0]) <= 0 || int(input[0]) >= 5) {
           cin >> input;
           // cout << user_input << "\n";
       }
     }
 
-
-    int user_input = std::stoi(input);
+    int user_input = int(input[0]);
     Monster test;
     switch (user_input) {
 
         case 1: {
             cout << "You inputted: " << user_input << "\n";
+
             system("clear");
             test.loadAsciiArt("monster_2");
 
@@ -43,6 +49,8 @@ void TitleScene::playScene() {
             break;
         case 3:
             cout << "You inputted: " << user_input << "\n";
+            system("clear");
+            cout << "Now Accessing SETTINGS";
             break;
         case 4:
             exit(0);
