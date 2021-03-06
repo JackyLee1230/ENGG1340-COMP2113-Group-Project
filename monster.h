@@ -2,6 +2,8 @@
 #ifndef MONSTER_H
 #define MONSTER_H
 
+#include "pugixml/pugixml.hpp"
+
 class Monster
 {
 private:
@@ -12,8 +14,10 @@ private:
 
 public:
     static const std::string MONSTER_ART_FOLDER_PATH;
+    // have to be char [] as the load_file() does not support string
+    static const char MONSTER_STATS_FILE[];
 
-    // Monster();
+    Monster(const char*);
 
     int getHP();
 
@@ -38,6 +42,8 @@ public:
     std::string setNAME(std::string newNAME);
 
     void loadAsciiArt(std::string fileName);
+
+    void loadMonsterStats(pugi::xml_document&);
 };
 
 #endif

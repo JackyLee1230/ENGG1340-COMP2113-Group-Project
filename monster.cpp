@@ -1,22 +1,52 @@
 #include <iostream>
+
+// for ifstream
 #include <fstream>
 #include <string>
 
+// for atoi()
+#include <stdlib.h>
+
 #include "monster.h"
 
+// for reading xml
+#include "pugixml/pugixml.cpp"
+
 using namespace std;
+using namespace pugi;
 
 const string Monster::MONSTER_ART_FOLDER_PATH = "monsters_art/";
+const char Monster::MONSTER_STATS_FILE[] = "monster_stats.xml";
+
+// constructor
+// construct a monster given its name in the xml file
+// have to use const char* to match with the child() function
+Monster::Monster(const char* monster_name) {
+    string monster_name_str(monster_name);
+
+    // get the loaded xml document
+    xml_document doc;
+    Monster::loadMonsterStats(doc);
+
+    // find the specific monster with the name given
+    xml_node monster = doc.find_child_by_attribute("monster", "name", monster_name);
+
+    // set stats
+    NAME = monster_name_str;
+    HP = atoi(monster.child("HP").child_value());
+    ATK = atoi(monster.child("ATK").child_value());
+    DEF = atoi(monster.child("DEF").child_value());
+}
 
 int Monster::getHP() { return HP; }
 
-void Monster::setHP(int newHP){
+void Monster::setHP(int newHP) {
     HP = newHP;
 }
 
-int Monster::getATK(){ return ATK; }
+int Monster::getATK() { return ATK; }
 
-void Monster::setATK(int newATK){
+void Monster::setATK(int newATK) {
     ATK = newATK;
 }
 
@@ -61,4 +91,30 @@ void Monster::loadAsciiArt(string fileName) {
     }
 
     myfile.close();
+}
+
+// load the stats of the monster from a xml file
+// provided the name of the monster
+void Monster::loadMonsterStats(xml_document& doc) {
+
+    // xml_document doc;
+
+    // load the xml first
+    xml_parse_result result = doc.load_file(MONSTER_STATS_FILE);
+
+    // quick check whether we load the file successfully or not
+    if (result) {
+        std::cout << "XML [" << MONSTER_STATS_FILE << "] parsed without errors" << endl;
+    }
+    else {
+        std::cout << "XML [" << MONSTER_STATS_FILE << "] parsed with errors, attr value: [" << doc.child("node").attribute("attr").value() << "]\n";
+        std::cout << "Error description: " << result.description() << "\n";
+        std::cout << "Error offset: " << result.offset << " (error at [..." << (MONSTER_STATS_FILE + result.offset) << "]\n\n";
+    }
+
+    // scan all elements (don't delete, may be useful)
+    // for (pugi::xml_node monster = doc.child("monster"); monster; monster = monster.next_sibling()) {
+    //     cout << "Name of monster: " << monster.attribute("name").value() << endl;
+    //     cout << "HP, ATK = " << monster.child("HP").child_value() << ", " << monster.child("ATK").child_value() << endl;
+    // }
 }

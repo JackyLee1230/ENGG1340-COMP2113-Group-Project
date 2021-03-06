@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<monster name="gatekeeper">
+    <HP>25</HP>
+    <ATK>4</ATK>
+    <DEF>1</DEF>
+</monster>
+
+<monster name="monster_2">
+    <HP>35</HP>
+    <ATK>5</ATK>
+    <DEF>2</DEF>
+</monster>

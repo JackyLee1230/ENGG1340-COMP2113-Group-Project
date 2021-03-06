@@ -33,8 +33,9 @@ void TitleScene::playScene() {
       }
     }
 
+    // construct a monster obj given its name
+    Monster test = Monster("gatekeeper");
     int user_input = int(input[0]);
-    Monster test;
     switch (user_input) {
 
         case 1: {
@@ -42,6 +43,7 @@ void TitleScene::playScene() {
 
             system("clear");
             test.loadAsciiArt("monster_2");
+            cout << test.getHP() << " " << test.getATK() << " " << test.getDEF() << " " << test.getNAME() << endl;
 
         } break;
         case 2:

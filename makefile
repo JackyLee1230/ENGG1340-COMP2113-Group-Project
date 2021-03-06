@@ -1,16 +1,18 @@
 #Makefile
 
-monster.o: monster.cpp monster.h
-	g++ -pedantic-errors -std=c++11 -c $<
+FLAGS = -pedantic-errors -std=c++11
+
+monster.o: monster.cpp monster.h pugixml/pugixml.cpp pugixml/pugixml.hpp
+	g++ $(FLAGS) -c $<
 
 sceneManager.o: sceneManager.cpp sceneManager.h
-	g++ -pedantic-errors -std=c++11 -c $<
+	g++ $(FLAGS) -c $<
 
 titleScene.o: titleScene.cpp titleScene.h sceneManager.h monster.h
-	g++ -pedantic-errors -std=c++11 -c $<
+	g++ $(FLAGS) -c $<
 
 main.o: main.cpp titleScene.h
-	g++ -pedantic-errors -std=c++11 -c $<
+	g++ $(FLAGS) -c $<
 
 main: main.o sceneManager.o titleScene.o monster.o
-	g++ -pedantic-errors -std=c++11 $^ -o main
+	g++ $(FLAGS) $^ -o main
