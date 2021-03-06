@@ -7,6 +7,7 @@
 #include <cstdlib>
 
 #include "titleScene.h"
+#include "sceneManager.h"
 
 using namespace std;
 
@@ -24,4 +25,5 @@ int main(){
 
     // SceneManager::loadTitleScreen();
     TitleScene::playScene();
+
 }

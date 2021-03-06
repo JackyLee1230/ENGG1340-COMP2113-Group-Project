@@ -17,12 +17,18 @@ public:
     static const std::string MAIN_SCENE;
     static const std::string COMBAT_SCENE;
     static const std::string SETTING_SCENE;
+    static const std::string CASTLE_SCENE;
+    //static const std::string ENCOUNTER_SCENE;
+
+    static void loadCastleScreen();
 
     static void loadTitleScreen();
 
+    static void loadSettingScreen();
+
     // static void loadStory();
 
-    static void loadEncouterMonster();
+    static void loadEncouterMonster(std::string);
 
     // int calculateLeftJustify(int);
 };

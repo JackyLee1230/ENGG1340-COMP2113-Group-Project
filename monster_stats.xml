@@ -11,3 +11,33 @@
     <ATK>5</ATK>
     <DEF>2</DEF>
 </monster>
+
+<monster name="monster_3">
+    <HP>45</HP>
+    <ATK>5</ATK>
+    <DEF>2</DEF>
+</monster>
+
+<monster name="monster_4">
+    <HP>55</HP>
+    <ATK>5</ATK>
+    <DEF>2</DEF>
+</monster>
+
+<monster name="monster_5">
+    <HP>65</HP>
+    <ATK>5</ATK>
+    <DEF>2</DEF>
+</monster>
+
+<monster name="monster_6">
+    <HP>75</HP>
+    <ATK>5</ATK>
+    <DEF>2</DEF>
+</monster>
+
+<monster name="Boss">
+    <HP>200</HP>
+    <ATK>20</ATK>
+    <DEF>20</DEF>
+</monster>
