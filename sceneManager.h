@@ -16,6 +16,7 @@ public:
     static const std::string END_SCENE;
     static const std::string MAIN_SCENE;
     static const std::string COMBAT_SCENE;
+    static const std::string SETTING_SCENE;
 
     static void loadTitleScreen();
 

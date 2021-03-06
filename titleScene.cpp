@@ -27,13 +27,14 @@ void TitleScene::playScene() {
     // TODO
     // input check
     while(input.length() !=1 || isdigit(input[0]) == 0 ){
-      while (int(input[0]) <= 0 || int(input[0]) >= 5) {
+      while (std::stoi(input) <= 0 || std::stoi(input) >= 5) {
           cin >> input;
+          cout <<"success";
           // cout << user_input << "\n";
       }
     }
 
-    int user_input = int(input[0]);
+    int user_input = std::stoi(input);
     Monster test;
     switch (user_input) {
 
