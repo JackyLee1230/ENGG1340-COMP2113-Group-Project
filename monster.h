@@ -17,7 +17,7 @@ public:
     // have to be char [] as the load_file() does not support string
     static const char MONSTER_STATS_FILE[];
 
-    Monster(const char*);
+    Monster(int);
 
     int getHP();
 

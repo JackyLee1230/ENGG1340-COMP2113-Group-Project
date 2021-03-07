@@ -4,6 +4,9 @@
 #include <fstream>
 #include <string>
 
+// for c_str() to convert string to const char[]
+#include <cstring>
+
 // for atoi()
 #include <stdlib.h>
 
@@ -19,20 +22,20 @@ const string Monster::MONSTER_ART_FOLDER_PATH = "monsters_art/";
 const char Monster::MONSTER_STATS_FILE[] = "monster_stats.xml";
 
 // constructor
-// construct a monster given its name in the xml file
+// construct a monster given its ID in the xml file
 // have to use const char* to match with the child() function
-Monster::Monster(const char* monster_name) {
-    string monster_name_str(monster_name);
+Monster::Monster(int monster_ID) {
+    string monster_ID_str = to_string(monster_ID);
 
     // get the loaded xml document
     xml_document doc;
     Monster::loadMonsterStats(doc);
 
-    // find the specific monster with the name given
-    xml_node monster = doc.find_child_by_attribute("monster", "name", monster_name);
+    // find the specific monster with the id given
+    xml_node monster = doc.find_child_by_attribute("monster", "id", monster_ID_str.c_str());
 
-    // set stats
-    NAME = monster_name_str;
+    // get stats and its name
+    NAME = monster.child("name").child_value();
     HP = atoi(monster.child("HP").child_value());
     ATK = atoi(monster.child("ATK").child_value());
     DEF = atoi(monster.child("DEF").child_value());
@@ -96,7 +99,6 @@ void Monster::loadAsciiArt(string fileName) {
 // load the stats of the monster from a xml file
 // provided the name of the monster
 void Monster::loadMonsterStats(xml_document& doc) {
-
     // xml_document doc;
 
     // load the xml first

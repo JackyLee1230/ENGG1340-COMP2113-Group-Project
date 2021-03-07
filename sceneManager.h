@@ -28,7 +28,7 @@ public:
 
     // static void loadStory();
 
-    static void loadEncouterMonster(std::string);
+    static void loadEncouterMonster(int);
 
     // int calculateLeftJustify(int);
 };

@@ -1,42 +1,49 @@
 <?xml version="1.0"?>
 
-<monster name="gatekeeper">
+<monster id="1">
+    <name>Hello</name>
     <HP>25</HP>
     <ATK>4</ATK>
     <DEF>1</DEF>
 </monster>
 
-<monster name="monster_2">
+<monster id="2">
+    <name>gatekeeper</name>
     <HP>35</HP>
     <ATK>5</ATK>
     <DEF>2</DEF>
 </monster>
 
-<monster name="monster_3">
+<monster id="3">
+    <name>monster_3</name>
     <HP>45</HP>
     <ATK>5</ATK>
     <DEF>2</DEF>
 </monster>
 
-<monster name="monster_4">
+<monster id="4">
+    <name>monster_4</name>
     <HP>55</HP>
     <ATK>5</ATK>
     <DEF>2</DEF>
 </monster>
 
-<monster name="monster_5">
+<monster id="5">
+    <name>monster_5</name>
     <HP>65</HP>
     <ATK>5</ATK>
     <DEF>2</DEF>
 </monster>
 
-<monster name="monster_6">
+<monster id="6">
+    <name>monster_6</name>
     <HP>75</HP>
     <ATK>5</ATK>
     <DEF>2</DEF>
 </monster>
 
-<monster name="Boss">
+<monster id="7">
+    <name>Boss</name>
     <HP>200</HP>
     <ATK>20</ATK>
     <DEF>20</DEF>

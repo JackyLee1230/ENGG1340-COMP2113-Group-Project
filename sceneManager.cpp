@@ -66,12 +66,12 @@ void SceneManager::loadTitleScreen() {
     myfile.close();
 }
 
-void SceneManager::loadEncouterMonster(std::string monster_ID){
-    string file_name = "monster_" + monster_ID + ".txt";
+void SceneManager::loadEncouterMonster(int monster_ID){
+    string file_name = "monster_" + to_string(monster_ID) + ".txt";
     string line;
-    Monster test = Monster("gatekeeper");
+    Monster test = Monster(monster_ID);
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
-    test.loadAsciiArt("monster_2");
+    test.loadAsciiArt("monster_" + to_string(monster_ID));
     // load the specific scene only
     if (myfile.is_open()) {
         while (getline (myfile, line)) {
