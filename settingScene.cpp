@@ -12,11 +12,12 @@
 #include "titleScene.h"
 #include "monster.h"
 #include "settingScene.h"
+#include "player.h"
 
 using namespace std;
 
-void TitleScene::playScene() {
-
+void SettingScene::playScene() {
+    SceneManager::loadSettingScreen();
 
     string input = "";
     cin >> input;
