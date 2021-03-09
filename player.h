@@ -8,6 +8,7 @@ class Player {
       int ATK;
       int DEF;
       std::string NAME;
+      int DODGE;
 
   public:
     int getHP();
@@ -17,6 +18,10 @@ class Player {
     int getATK();
 
     void setATK(int newATK);
+
+    int getDODGE();
+
+    void setDODGE(int newDODGE);
 
     int getDEF();
 

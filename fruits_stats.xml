@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<fruit id="1">
+    <name>Apple</name>
+    <HP>10</HP>
+    <DODGE>0</DODGE>
+</fruit>
+
+<fruit id="2">
+    <name>Pear</name>
+    <HP>15</HP>
+    <DODGE>0</DODGE>
+</fruit>
+
+<fruit id="3">
+    <name>Grape</name>
+    <HP>0</HP>
+    <DODGE>50</DODGE>
+</fruit>
+
+<fruit id="4">
+    <name>Dragon's Fruit</name>
+    <HP>5</HP>
+    <DODGE>0</DODGE>
+</fruit>
+
+<fruit id="5">
+    <name>Peach</name>
+    <HP>1000</HP>
+    <DODGE>0</DODGE>
+</fruit>

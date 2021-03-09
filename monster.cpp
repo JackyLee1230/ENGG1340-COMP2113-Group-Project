@@ -39,6 +39,8 @@ Monster::Monster(int monster_ID) {
     HP = atoi(monster.child("HP").child_value());
     ATK = atoi(monster.child("ATK").child_value());
     DEF = atoi(monster.child("DEF").child_value());
+    DODGE = atoi(monster.child("DODGE").child_value());
+    FLIGHT = atoi(monster.child("FLIGHT").child_value());
 }
 
 int Monster::getHP() { return HP; }
@@ -51,6 +53,18 @@ int Monster::getATK() { return ATK; }
 
 void Monster::setATK(int newATK) {
     ATK = newATK;
+}
+
+int Monster::getDODGE() { return DODGE; }
+
+void Monster::setDODGE(int newDODGE) {
+    DODGE = newDODGE;
+}
+
+int Monster::getFLIGHT() { return FLIGHT; }
+
+void Monster::setFLIGHT(int newFLIGHT){
+    FLIGHT = newFLIGHT;
 }
 
 int Monster::getDEF() { return DEF; }

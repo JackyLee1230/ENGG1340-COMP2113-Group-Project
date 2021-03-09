@@ -8,6 +8,9 @@
 
 #include "titleScene.h"
 #include "sceneManager.h"
+#include "player.h"
+#include "monster.h"
+#include "settingScene.h"
 
 using namespace std;
 

@@ -11,6 +11,7 @@
 #include "sceneManager.h"
 #include "titleScene.h"
 #include "monster.h"
+#include "player.h"
 #include "settingScene.h"
 
 using namespace std;
@@ -18,7 +19,6 @@ using namespace std;
 void TitleScene::playScene() {
     // load the graphics
     SceneManager::loadTitleScreen();
-
 
     string input = "";
     cin >> input;

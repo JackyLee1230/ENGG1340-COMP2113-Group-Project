@@ -14,6 +14,12 @@ void Player::setATK(int newATK) {
     Player::ATK = newATK;
 }
 
+int Player::getDODGE(){ return Player::DODGE; }
+
+void Player::setDODGE(int newDODGE) {
+    Player::DODGE = newDODGE;
+}
+
 int Player::getDEF() { return Player::DEF; }
 
 void Player::setDEF(int newDEF) {

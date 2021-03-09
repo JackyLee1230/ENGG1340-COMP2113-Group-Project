@@ -11,6 +11,8 @@ private:
     int ATK;
     int DEF;
     std::string NAME;
+    int DODGE;
+    int FLIGHT;
 
 public:
     static const std::string MONSTER_ART_FOLDER_PATH;
@@ -36,6 +38,16 @@ public:
     int calculateATK(float ATK);
 
     int calculateDEF(int DEF);
+
+    int calculateDODGE(int DODGE);
+
+    int getDODGE();
+
+    void setDODGE(int newDODGE);
+
+    int getFLIGHT();
+
+    void setFLIGHT(int newFLIGHT);
 
     std::string getNAME();
 
