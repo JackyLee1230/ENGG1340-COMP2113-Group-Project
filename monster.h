@@ -55,7 +55,7 @@ public:
 
     void loadAsciiArt(std::string fileName);
 
-    void loadMonsterStats(pugi::xml_document&);
+    void loadMonsterXML(pugi::xml_document&);
 };
 
 #endif
