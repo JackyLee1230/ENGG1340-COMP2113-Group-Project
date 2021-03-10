@@ -13,7 +13,7 @@
 #include "monster.h"
 
 // for reading xml
-#include "pugixml/pugixml.cpp"
+#include "pugixml/pugixml.hpp"
 
 using namespace std;
 using namespace pugi;
@@ -110,8 +110,7 @@ void Monster::loadAsciiArt(string fileName) {
     myfile.close();
 }
 
-// load the stats of the monster from a xml file
-// provided the name of the monster
+// load the xml file storing the stats of every monster
 void Monster::loadMonsterXML(xml_document& doc) {
     // xml_document doc;
 
