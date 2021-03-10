@@ -11,6 +11,9 @@ SaveLoad.o: saveLoad.cpp saveLoad.h player.h pugixml.o
 player.o: player.cpp player.h SaveLoad.h pugixml.o
 	g++ $(FLAGS) -c $<
 
+lobbyScene.o: lobbyScene.cpp lobbyScene.h sceneManager.h pugixml.o
+	g++ $(FLAGS) -c $<
+
 monster.o: monster.cpp monster.h pugixml.o
 	g++ $(FLAGS) -c $<
 

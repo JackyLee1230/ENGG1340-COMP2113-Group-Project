@@ -11,6 +11,7 @@ class Player {
         int DEF;
         std::string NAME;
         int DODGE;
+        int FLOOR;
 
 
   public:
@@ -31,6 +32,10 @@ class Player {
     int getDODGE();
 
     void setDODGE(int newDODGE);
+
+    int getFLOORE();
+
+    void setFLOOR(int newFLOOR);
 
     // int getDEF();
     //

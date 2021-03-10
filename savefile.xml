@@ -4,6 +4,7 @@
 	<HP>30</HP>
 	<DODGE>1</DODGE>
 	<name>test</name>
+	<floor>0</floor>
 	<items>
 		<weapon id="1" />
 	</items>

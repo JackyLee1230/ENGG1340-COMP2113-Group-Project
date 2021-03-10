@@ -8,6 +8,7 @@
 
 #include "titleScene.h"
 #include "sceneManager.h"
+#include "lobbyScene.h"
 #include "player.h"
 #include "monster.h"
 #include "settingScene.h"
@@ -28,5 +29,6 @@ int main(){
 
     // SceneManager::loadTitleScreen();
     TitleScene::playScene();
+    //LobbyScene::playScene();
 
 }

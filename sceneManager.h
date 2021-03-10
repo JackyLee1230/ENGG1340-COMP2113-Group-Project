@@ -13,6 +13,8 @@ public:
     static const std::string SCENES_FOLDER_PATH;
     // filenames for loading a specific scene
     static const std::string TITLE_SCENE;
+    static const std::string LOBBY_SCENE;
+    static const std::string INVENTORY_SCENE;
     static const std::string END_SCENE;
     static const std::string MAIN_SCENE;
     static const std::string COMBAT_SCENE;
@@ -26,7 +28,9 @@ public:
 
     static void loadSettingScreen();
 
-    // static void loadStory();
+    static void loadLobbyScreen();
+
+    static void loadInventoryScreen();
 
     static void loadEncouterMonster(int);
 

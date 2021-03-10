@@ -7,6 +7,7 @@
 
 #include "sceneManager.h"
 #include "titleScene.h"
+#include "lobbyScene.h"
 #include "settingScene.h"
 #include "monster.h"
 #include "player.h"
@@ -23,6 +24,9 @@ using namespace std;
 #define MAGENTA "\033[35m"      /* Magenta */
 #define CYAN    "\033[36m"      /* Cyan */
 #define WHITE   "\033[37m"      /* White */
+#define VICTORY "\xE2\x9C\x8C"
+#define WARNING "\xE2\x9A\xA0"
+#define BOSS "\xF0\x9F\x98\x88"
 
 // width:height = 16:9
 const int SceneManager::SCENE_WIDTH = 80;
@@ -32,6 +36,8 @@ const string SceneManager::SCENES_FOLDER_PATH = "scenes_art/";
 
 // filenames for defined scenes
 const string SceneManager::TITLE_SCENE = "title";
+const string SceneManager::INVENTORY_SCENE = "inventory";
+const string SceneManager::LOBBY_SCENE = "lobby";
 const string SceneManager::END_SCENE = "end";
 const string SceneManager::MAIN_SCENE = "mainmenu";
 const string SceneManager::COMBAT_SCENE = "combat";
@@ -42,6 +48,7 @@ const string SceneManager::CASTLE_SCENE = "castle";
 // int SceneManager::calculateLeftJustify(int string_width) {
 //     return (SceneManager::SCENE_WIDTH - string_width) / 2;
 // }
+
 // load the castle scene and background text
 void SceneManager::loadCastleScreen() {
     string file_name = CASTLE_SCENE + ".txt";
@@ -77,6 +84,27 @@ void SceneManager::loadTitleScreen() {
 
     myfile.close();
 }
+
+// load the Lobby screen
+void SceneManager::loadLobbyScreen() {
+    string file_name = LOBBY_SCENE + ".txt";
+    string line;
+
+    ifstream myfile (SCENES_FOLDER_PATH + file_name);
+
+    // load the specific scene only
+    int line=0;
+    if (myfile.is_open()) {
+        while (getline (myfile, line)) {
+            cout << line << '\n';
+            line++;
+        }
+        cout << endl;
+    }
+
+    myfile.close();
+}
+
 
 void SceneManager::loadEncouterMonster(int monster_ID){
     string file_name = "monster_" + to_string(monster_ID) + ".txt";
