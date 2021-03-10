@@ -6,11 +6,23 @@
 #include <string>
 
 #include "sceneManager.h"
-#include "monster.h"
 #include "titleScene.h"
 #include "settingScene.h"
+#include "monster.h"
+#include "player.h"
 
 using namespace std;
+
+// for printing coloured text (for HP and other stuff)
+#define RESET   "\033[0m"
+#define BLACK   "\033[30m"      /* Black */
+#define RED     "\033[31m"      /* Red */
+#define GREEN   "\033[32m"      /* Green */
+#define YELLOW  "\033[33m"      /* Yellow */
+#define BLUE    "\033[34m"      /* Blue */
+#define MAGENTA "\033[35m"      /* Magenta */
+#define CYAN    "\033[36m"      /* Cyan */
+#define WHITE   "\033[37m"      /* White */
 
 // width:height = 16:9
 const int SceneManager::SCENE_WIDTH = 80;
@@ -89,6 +101,24 @@ void SceneManager::loadEncouterMonster(int monster_ID){
     }
 
     myfile.close();
+}
+
+void SceneManager::loadCombatScreen() {
+    cout << "> " << "Description of player's action" << endl;
+    cout << "\n";
+    // print with the value of HP being green
+    printf("HP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\t" "ATK: %d - %d", 30, 30, 3, 5);
+    cout << "\n\n\n";
+    cout << "> " << "Description of monster's action" << endl;
+    printf("HP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\n", 30, 30);
+    cout << "\n";
+    // division line
+    for (int i = 0; i < SCENE_WIDTH / 2; i++)
+        cout << "x=";
+    cout << endl;
+
+    // get the items of the player
+    Player player = Player(false, "");
 }
 
 void SceneManager::loadSettingScreen(){
