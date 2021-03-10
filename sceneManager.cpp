@@ -118,7 +118,6 @@ void SceneManager::loadCombatScreen() {
     cout << endl;
 
     // get the items of the player
-    Player player = Player(false, "");
 }
 
 void SceneManager::loadSettingScreen(){

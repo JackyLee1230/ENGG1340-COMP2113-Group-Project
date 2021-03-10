@@ -17,7 +17,8 @@ class Player {
 
       static const char PLAYER_SAVEFILE[];
 
-    Player(bool, std::string);
+    // constructor with default value for starting a new game
+    Player(bool, int newHP = 30, int newDODGE = 1, std::string newNAME = "test");
 
     int getHP();
 
@@ -39,9 +40,15 @@ class Player {
 
     std::string setNAME(std::string newNAME);
 
+    static bool checkSaveFileExist(const char*);
+
     static void loadSaveFile(pugi::xml_document &);
 
     static void saveStats();
+
+private:
+    void createNewSaveFile(int, int, std::string);
+
 
 };
 

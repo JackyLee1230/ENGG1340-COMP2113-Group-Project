@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
-
 <Player>
-    <HP>30</HP>
-    <DODGE>1</DODGE>
-    <name>Hello World</name>
-    <items>
-        <weapon id="1"></weapon>
-        <weapon id="2"></weapon>
-    </items>
-</player>
+	<HP>30</HP>
+	<DODGE>1</DODGE>
+	<name>test</name>
+	<items>
+		<weapon id="1" />
+	</items>
+</Player>
