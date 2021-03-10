@@ -33,7 +33,7 @@ class Player {
 
     void setDODGE(int newDODGE);
 
-    int getFLOORE();
+    int getFLOOR();
 
     void setFLOOR(int newFLOOR);
 

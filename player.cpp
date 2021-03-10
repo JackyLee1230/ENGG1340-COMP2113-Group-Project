@@ -55,7 +55,7 @@ void Player::setHP(int newHP){
     Player::HP = newHP;
 }
 
-int Player::getFLOOR(){ return Player::FLOOR }
+int Player::getFLOOR(){ return Player::FLOOR; }
 
 void Player::setFLOOR(int newFLOOR){
     Player::FLOOR = newFLOOR;

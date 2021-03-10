@@ -93,11 +93,11 @@ void SceneManager::loadLobbyScreen() {
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
 
     // load the specific scene only
-    int line=0;
+    int n=0;
     if (myfile.is_open()) {
         while (getline (myfile, line)) {
             cout << line << '\n';
-            line++;
+            n++;
         }
         cout << endl;
     }
