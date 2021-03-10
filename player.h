@@ -40,14 +40,14 @@ class Player {
 
     std::string setNAME(std::string newNAME);
 
-    static bool checkSaveFileExist(const char*);
-
-    static void loadSaveFile(pugi::xml_document &);
-
-    static void saveStats();
-
-private:
-    void createNewSaveFile(int, int, std::string);
+//     static bool checkSaveFileExist(const char*);
+//
+//     static void loadSaveFile(pugi::xml_document &);
+//
+//     static void saveStats();
+//
+// private:
+//     void createNewSaveFile(int, int, std::string);
 
 
 };
