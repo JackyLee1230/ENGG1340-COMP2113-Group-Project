@@ -13,7 +13,7 @@
 #include "monster.h"
 
 // for reading xml
-#include "pugixml/pugixml.cpp"
+#include "pugixml/pugixml.hpp"
 
 using namespace std;
 using namespace pugi;
@@ -29,7 +29,7 @@ Monster::Monster(int monster_ID) {
 
     // get the loaded xml document
     xml_document doc;
-    Monster::loadMonsterStats(doc);
+    Monster::loadMonsterXML(doc);
 
     // find the specific monster with the id given
     xml_node monster = doc.find_child_by_attribute("monster", "id", monster_ID_str.c_str());
@@ -110,9 +110,8 @@ void Monster::loadAsciiArt(string fileName) {
     myfile.close();
 }
 
-// load the stats of the monster from a xml file
-// provided the name of the monster
-void Monster::loadMonsterStats(xml_document& doc) {
+// load the xml file storing the stats of every monster
+void Monster::loadMonsterXML(xml_document& doc) {
     // xml_document doc;
 
     // load the xml first

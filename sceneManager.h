@@ -30,6 +30,8 @@ public:
 
     static void loadEncouterMonster(int);
 
+    static void loadCombatScreen();
+
     // int calculateLeftJustify(int);
 };
 

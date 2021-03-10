@@ -39,7 +39,8 @@ void TitleScene::playScene() {
             cout << "You inputted: " << user_input << "\n";
 
             system("clear");
-            SceneManager::loadEncouterMonster(2);
+            SceneManager::loadCombatScreen();
+            // SceneManager::loadEncouterMonster(2);
             //test.loadAsciiArt("monster_2");
 
 
