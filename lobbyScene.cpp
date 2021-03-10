@@ -5,6 +5,9 @@
 // exit
 #include <stdlib.h>
 
+// file.open() .close()
+#include <fstream>
+
 // system
 #include <cstdlib>
 
@@ -16,12 +19,15 @@
 #include "saveLoad.h"
 #include "lobbyScene.h"
 
+#include "pugixml/pugixml.hpp"
+
 using namespace std;
+using namespace pugi;
 
 void LobbyScene::playScene() {
     // load the graphics
     //SceneManager::loadLobbyScreen();
-
+    int floor_no = Player::getFLOOR();
     string input = "";
     cin >> input;
 
@@ -33,11 +39,10 @@ void LobbyScene::playScene() {
         // cout << user_input << "\n";
      }
 
-
     int user_input = std::stoi(input);
     switch (user_input) {
         case 1: {
-            cout << "You have chosen to enter the next room " << user_input << "\n";
+            cout << "You have chosen to enter the next room!" << user_input << "\n";
             system("clear");
         }
         break;

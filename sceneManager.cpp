@@ -27,6 +27,7 @@ using namespace std;
 #define VICTORY "\xE2\x9C\x8C"
 #define WARNING "\xE2\x9A\xA0"
 #define BOSS "\xF0\x9F\x98\x88"
+#define SPARKLE "\xE2\x9D\x87"
 
 // width:height = 16:9
 const int SceneManager::SCENE_WIDTH = 80;
