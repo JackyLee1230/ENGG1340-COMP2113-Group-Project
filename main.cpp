@@ -8,7 +8,7 @@
 
 #include "titleScene.h"
 #include "sceneManager.h"
-#include "lobbyScene.h"
+#include "LobbyScene.h"
 #include "player.h"
 #include "monster.h"
 #include "settingScene.h"

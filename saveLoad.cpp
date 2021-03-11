@@ -25,7 +25,6 @@ bool SaveLoad::checkSaveFileExist(const char* fileName) {
 // create new save file
 // taking default hp, dodge and user inputted name as input
 void SaveLoad::createNewSaveFile(int newHP, int newDODGE, string newNAME) {
-
     // remove past save file
     if (checkSaveFileExist(PLAYER_SAVEFILE)) {
         if (remove(PLAYER_SAVEFILE) == 0) {
@@ -58,6 +57,8 @@ void SaveLoad::createNewSaveFile(int newHP, int newDODGE, string newNAME) {
 
     xml_node name_node = player.append_child("name");
     name_node.append_child(node_pcdata).set_value(newNAME.c_str());
+
+    xml_node floor_node = player.append_child("FLOOR");
 
     // create our default wooden sword
     xml_node items_node = player.append_child("items");

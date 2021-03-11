@@ -39,13 +39,14 @@ Player::Player(bool is_continue, int newHP, int newDODGE, string newNAME) {
     NAME = player.child("name").child_value();
     HP = atoi(player.child("HP").child_value());
     DODGE = atoi(player.child("DODGE").child_value());
+    FLOOR = atoi(player.child("FLOOR").child_value());
 
     // get items and set a dynamic size array to store that items
     int n = 0; // number of weapons owned by the player
     for (xml_node weapon = player.child("items").child("weapon"); weapon; weapon = weapon.next_sibling("weapon"))
         n++;
 
-    cout << "Player's HP = " <<  HP << "; DODGE = " << DODGE << "; NAME = " << NAME << endl;
+    cout << "Player's HP = " <<  HP << "; DODGE = " << DODGE << "; NAME = " << NAME << "; FLOOR = " << FLOOR <<endl;
     cout << "There are " << n << " weapons in the player's inventory" << endl;
 }
 
@@ -55,7 +56,7 @@ void Player::setHP(int newHP){
     Player::HP = newHP;
 }
 
-int Player::getFLOOR(){ return Player::FLOOR; }
+int Player::getFLOOR() { return Player::FLOOR; }
 
 void Player::setFLOOR(int newFLOOR){
     Player::FLOOR = newFLOOR;

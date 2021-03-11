@@ -25,16 +25,37 @@ using namespace std;
 using namespace pugi;
 
 void LobbyScene::playScene() {
+    //int current_floor = atoi(player.child("FLOOR").child_value());
+    //int current_floor = Player::getFLOOR();
+    //
+    // switch(current_floor){
+    //     case 0: {
+    //         cout << "GROUND FLOOR" << "\n";
+    //         }
+    //         break;
+    //     case 1: {
+    //         cout << "FIRST FLOOR" << "\n";
+    //         }
+    //         break;
+    //     case 2: {
+    //         cout << "SECOND FLOOR" << "\n";
+    //         }
+    //         break;
+    //     case 3:{
+    //         cout << "FINAL FLOOR" << "\n";
+    //         }
+    //         break;
+    // }
+
     // load the graphics
-    //SceneManager::loadLobbyScreen();
-    int floor_no = Player::getFLOOR();
+    SceneManager::loadLobbyScreen();
+
     string input = "";
     cin >> input;
 
-    // TODO
     // input check
     while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 5){
-        cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
+        cout << "PLEASE ENTER CHOICE BETWEEN 1 - 6" << endl;
         cin >> input;
         // cout << user_input << "\n";
      }
@@ -42,23 +63,36 @@ void LobbyScene::playScene() {
     int user_input = std::stoi(input);
     switch (user_input) {
         case 1: {
-            cout << "You have chosen to enter the next room!" << user_input << "\n";
             system("clear");
-        }
-        break;
-
+            cout << "Accessing Armory!" << "\n";
+            cout << "Gear up for your next battle!";
+            }
+            break;
         case 2: {
-            // save game
             system("clear");
-            cout << "You inputted: " << user_input << "\n";
+            cout << "Accessing Food Storage Room";
             }
             break;
         case 3:
             system("clear");
-            cout << "Now Accessing Inventory";
-            //SettingScene::playScene();
+            cout << "Now Accessing Rest Room";
             break;
         case 4:
+            system("clear");
+            cout << "Now Accessing the LEVEL BOSS!!!" << "\n";
+            cout << "Prepare for CHAOS!";
+            // Load Combat Scene
+            break;
+        case 5:
+        // SAVE GAME
+            system("clear");
+            cout << "SAVING GAME";
+            if(!SaveLoad::checkSaveFileExist("savefile.xml")){
+                SaveLoad::createNewSaveFile(30, 1, "test");
+            }
+            //SettingScene::playScene();
+            break;
+        case 6:
             system("clear");
             cout<< "See you next time! We hope you enjoyed your stay!"<<endl;
             exit(0);
