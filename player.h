@@ -16,7 +16,7 @@ class Player {
 
       static const char PLAYER_SAVEFILE[];
 
-    Player();
+    Player(int, int, int);
 
     int getHP();
 
@@ -41,16 +41,6 @@ class Player {
     std::string getNAME();
 
     std::string setNAME(std::string newNAME);
-
-//     static bool checkSaveFileExist(const char*);
-//
-//     static void loadSaveFile(pugi::xml_document &);
-//
-//     static void saveStats();
-//
-// private:
-//     void createNewSaveFile(int, int, std::string);
-
 
 };
 

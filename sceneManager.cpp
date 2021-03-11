@@ -50,9 +50,10 @@ const string SceneManager::CASTLE_SCENE = "castle";
 //     return (SceneManager::SCENE_WIDTH - string_width) / 2;
 // }
 
-// load the castle scene and background text
-void SceneManager::loadCastleScreen() {
-    string file_name = CASTLE_SCENE + ".txt";
+
+// load the title screen
+void SceneManager::loadTitleScreen() {
+    string file_name = TITLE_SCENE + ".txt";
     string line;
 
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
@@ -68,9 +69,9 @@ void SceneManager::loadCastleScreen() {
     myfile.close();
 }
 
-// load the title screen
-void SceneManager::loadTitleScreen() {
-    string file_name = TITLE_SCENE + ".txt";
+// load the castle scene and background text
+void SceneManager::loadCastleScreen() {
+    string file_name = CASTLE_SCENE + ".txt";
     string line;
 
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
@@ -105,7 +106,6 @@ void SceneManager::loadLobbyScreen() {
 
     myfile.close();
 }
-
 
 void SceneManager::loadEncouterMonster(int monster_ID){
     string file_name = "monster_" + to_string(monster_ID) + ".txt";

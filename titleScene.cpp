@@ -8,6 +8,10 @@
 // system
 #include <cstdlib>
 
+#include "player.h"
+
+#include "saveLoad.h"
+
 #include "sceneManager.h"
 #include "titleScene.h"
 #include "castleScene.h"
@@ -40,7 +44,12 @@ void TitleScene::playScene() {
             // implement savefile check by using the
             // static bool checkSaveFileExist(filename) in Player class
 
+            Player *player = SaveLoad::loadSaveFile();
+
             system("clear");
+
+            // ultimately: load the lobby scene
+
             SceneManager::loadCombatScreen();
             // SceneManager::loadEncouterMonster(2);
             //test.loadAsciiArt("monster_2");

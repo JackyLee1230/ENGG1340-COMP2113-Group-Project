@@ -72,7 +72,10 @@ void SaveLoad::createNewSaveFile(Player *player) {
 }
 
 // read the savefile
-void SaveLoad::loadSaveFile(xml_document &doc) {
+Player* SaveLoad::loadSaveFile() {
+
+    xml_document doc;
+
     // load the xml first
     xml_parse_result result = doc.load_file(PLAYER_SAVEFILE);
 
@@ -86,4 +89,14 @@ void SaveLoad::loadSaveFile(xml_document &doc) {
         cout << "Error offset: " << result.offset << " (error at [..." << (PLAYER_SAVEFILE + result.offset) << "]\n\n";
     }
 
+    xml_node player_node = doc.child("Player");
+
+    // create new Player object
+    Player *player = new Player(
+        atoi(player_node.child("HP").child_value()),
+        atoi(player_node.child("DODGE").child_value()),
+        atoi(player_node.child("FLOOR").child_value())
+    );
+
+    return player;
 }

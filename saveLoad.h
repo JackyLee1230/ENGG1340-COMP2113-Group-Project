@@ -13,9 +13,9 @@ class SaveLoad {
 
     static bool checkSaveFileExist(const char*);
 
-    static void loadSaveFile(pugi::xml_document &);
+    static Player* loadSaveFile();
 
-    static void saveStats();
+    static void saveStats(Player *);
 
     static void createNewSaveFile(Player*);
 
