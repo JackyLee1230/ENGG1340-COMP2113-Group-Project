@@ -39,6 +39,7 @@ const string SceneManager::SCENES_FOLDER_PATH = "scenes_art/";
 const string SceneManager::TITLE_SCENE = "title";
 const string SceneManager::INVENTORY_SCENE = "inventory";
 const string SceneManager::LOBBY_SCENE = "lobby";
+const string SceneManager::FLOOR_SCENE = "floor";
 const string SceneManager::END_SCENE = "end";
 const string SceneManager::MAIN_SCENE = "mainmenu";
 const string SceneManager::COMBAT_SCENE = "combat";
@@ -100,6 +101,23 @@ void SceneManager::loadLobbyScreen() {
         while (getline (myfile, line)) {
             cout << line << '\n';
             n++;
+        }
+        cout << endl;
+    }
+
+    myfile.close();
+}
+
+void SceneManager::loadLobbyFloor(int floor_no) {
+    string file_name = "floor_" + to_string(floor_no) + ".txt";
+    string line;
+
+    ifstream myfile (SCENES_FOLDER_PATH + file_name);
+
+    // load the specific scene only
+    if (myfile.is_open()) {
+        while (getline (myfile, line)) {
+            cout << line << '\n';
         }
         cout << endl;
     }

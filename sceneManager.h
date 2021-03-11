@@ -14,6 +14,7 @@ public:
     // filenames for loading a specific scene
     static const std::string TITLE_SCENE;
     static const std::string LOBBY_SCENE;
+    static const std::string FLOOR_SCENE;
     static const std::string INVENTORY_SCENE;
     static const std::string END_SCENE;
     static const std::string MAIN_SCENE;
@@ -29,6 +30,8 @@ public:
     static void loadSettingScreen();
 
     static void loadLobbyScreen();
+
+    static void loadLobbyFloor(int);
 
     static void loadInventoryScreen();
 

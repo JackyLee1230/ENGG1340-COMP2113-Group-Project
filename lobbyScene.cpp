@@ -26,26 +26,11 @@ using namespace pugi;
 
 void LobbyScene::playScene(Player *player) {
     //int current_floor = atoi(player.child("FLOOR").child_value());
-    //int current_floor = Player::getFLOOR();
-    //
-    // switch(current_floor){
-    //     case 0: {
-    //         cout << "GROUND FLOOR" << "\n";
-    //         }
-    //         break;
-    //     case 1: {
-    //         cout << "FIRST FLOOR" << "\n";
-    //         }
-    //         break;
-    //     case 2: {
-    //         cout << "SECOND FLOOR" << "\n";
-    //         }
-    //         break;
-    //     case 3:{
-    //         cout << "FINAL FLOOR" << "\n";
-    //         }
-    //         break;
-    // }
+    system("clear");
+    int current_floor = player->getFLOOR();
+
+    SceneManager::loadLobbyFloor(current_floor);
+
 
     // load the graphics
     SceneManager::loadLobbyScreen();
@@ -57,7 +42,7 @@ void LobbyScene::playScene(Player *player) {
     cin >> input;
 
     // input check
-    while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 5){
+    while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 7){
         cout << "PLEASE ENTER CHOICE BETWEEN 1 - 6" << endl;
         cin >> input;
         // cout << user_input << "\n";
