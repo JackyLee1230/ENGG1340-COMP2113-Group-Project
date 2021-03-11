@@ -1,6 +1,6 @@
                 ______   ______ _______ _______ ______   _____   _____  _____ __   _ _______
-                |     \ |_____/ |______ |_____| |     \ |_____] |     |   |   | \  |    |   
-                |_____/ |    \_ |______ |     | |_____/ |       |_____| __|__ |  \_|    |   
-				
-              Thank you for playing DreadPoint, a Group Project designed for ENGG1340/COMP2113
+                |     \ |_____/ |______ |_____| |     \ |_____] |     |   |   | \  |    |
+                |_____/ |    \_ |______ |     | |_____/ |       |_____| __|__ |  \_|    |
+
+        Thank you for playing DreadPoint, a Group Project designed for ENGG1340/COMP2113
 			              We hoped you enjoy the game!
