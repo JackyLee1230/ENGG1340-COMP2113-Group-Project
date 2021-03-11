@@ -24,7 +24,7 @@ bool SaveLoad::checkSaveFileExist(const char* fileName) {
 
 // create new save file
 // taking default hp, dodge and user inputted name as input
-void SaveLoad::createNewSaveFile(int newHP, int newDODGE, string newNAME) {
+void SaveLoad::createNewSaveFile(Player *player) {
     // remove past save file
     if (checkSaveFileExist(PLAYER_SAVEFILE)) {
         if (remove(PLAYER_SAVEFILE) == 0) {
@@ -36,7 +36,6 @@ void SaveLoad::createNewSaveFile(int newHP, int newDODGE, string newNAME) {
     }
 
     // create new save file
-
     xml_document doc;
 
     // cannot using std::string, have to use char[]
@@ -45,23 +44,25 @@ void SaveLoad::createNewSaveFile(int newHP, int newDODGE, string newNAME) {
     doc.load_string(xml_header);
 
     // set default stats (HP, dodge, name)
-    xml_node player = doc.append_child("Player");
+    xml_node player_node = doc.append_child("Player");
 
-    xml_node hp_node = player.append_child("HP");
+    xml_node hp_node = player_node.append_child("HP");
     // set_value() takes c-string as input
     // need casting
-    hp_node.append_child(node_pcdata).set_value(to_string(newHP).c_str());
+    hp_node.append_child(node_pcdata).set_value(to_string(player->getHP()).c_str());
 
-    xml_node dodge_node = player.append_child("DODGE");
-    dodge_node.append_child(node_pcdata).set_value(to_string(newDODGE).c_str());
+    xml_node dodge_node = player_node.append_child("DODGE");
+    dodge_node.append_child(node_pcdata).set_value(to_string(player->getDODGE()).c_str());
 
-    xml_node name_node = player.append_child("name");
-    name_node.append_child(node_pcdata).set_value(newNAME.c_str());
+    // remove it
+    // xml_node name_node = player.append_child("name");
+    // name_node.append_child(node_pcdata).set_value(newNAME.c_str());
 
-    xml_node floor_node = player.append_child("FLOOR");
+    xml_node floor_node = player_node.append_child("FLOOR");
+    floor_node.append_child(node_pcdata).set_value(to_string(player->getFLOOR()).c_str());
 
     // create our default wooden sword
-    xml_node items_node = player.append_child("items");
+    xml_node items_node = player_node.append_child("items");
     xml_node weapon_node = items_node.append_child("weapon");
     // default weapon initialized to be of id 1
     weapon_node.append_attribute("id") = 1;

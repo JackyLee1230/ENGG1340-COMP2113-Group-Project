@@ -9,18 +9,14 @@ class Player {
         int HP;
         int ATK;
         int DEF;
-        std::string NAME;
         int DODGE;
         int FLOOR;
-
-
 
   public:
 
       static const char PLAYER_SAVEFILE[];
 
-    // constructor with default value for starting a new game
-    Player(bool, int newHP = 30, int newDODGE = 1, std::string newNAME = "test");
+    Player();
 
     int getHP();
 

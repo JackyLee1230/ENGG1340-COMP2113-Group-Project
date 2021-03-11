@@ -20,34 +20,31 @@ using namespace pugi;
 
 //const char Player::PLAYER_SAVEFILE[] = "savefile.xml";
 
-Player::Player(bool is_continue, int newHP, int newDODGE, string newNAME) {
+Player::Player(int newHP, int newDODGE, int newFLOOR) {
 
-    // new game -> create initial stats and overwrite save file
-    if(!is_continue) {
-        // create new savefile and set default stats
-        SaveLoad::createNewSaveFile(newHP, newDODGE, newNAME);
-    }
+    // // get the loaded xml document
+    // xml_document doc;
+    // SaveLoad::loadSaveFile(doc);
+    //
+    // // get the part which stores the stats of player
+    // xml_node player = doc.child("Player");
+    //
+    // // set stats
+    // HP = atoi(player.child("HP").child_value());
+    // DODGE = atoi(player.child("DODGE").child_value());
+    // FLOOR = atoi(player.child("FLOOR").child_value());
 
-    // get the loaded xml document
-    xml_document doc;
-    SaveLoad::loadSaveFile(doc);
+    // // get items and set a dynamic size array to store that items
+    // int n = 0; // number of weapons owned by the player
+    // for (xml_node weapon = player.child("items").child("weapon"); weapon; weapon = weapon.next_sibling("weapon"))
+    //     n++;
 
-    // get the part which stores the stats of player
-    xml_node player = doc.child("Player");
+    this -> HP = newHP;
+    this -> DODGE = newDODGE;
+    this -> FLOOR = newFLOOR;
 
-    // set stats
-    NAME = player.child("name").child_value();
-    HP = atoi(player.child("HP").child_value());
-    DODGE = atoi(player.child("DODGE").child_value());
-    FLOOR = atoi(player.child("FLOOR").child_value());
-
-    // get items and set a dynamic size array to store that items
-    int n = 0; // number of weapons owned by the player
-    for (xml_node weapon = player.child("items").child("weapon"); weapon; weapon = weapon.next_sibling("weapon"))
-        n++;
-
-    cout << "Player's HP = " <<  HP << "; DODGE = " << DODGE << "; NAME = " << NAME << "; FLOOR = " << FLOOR <<endl;
-    cout << "There are " << n << " weapons in the player's inventory" << endl;
+    // cout << "Call from player's constructor" << endl;
+    // cout << "Player's HP = " <<  HP << "; DODGE = " << DODGE << "; FLOOR = " << FLOOR << endl;
 }
 
 int Player::getHP() { return Player::HP; }
@@ -81,11 +78,11 @@ void Player::setDODGE(int newDODGE) {
 //     Player::DEF = newDEF;
 // }
 
-string Player::getNAME() { return Player::NAME; }
-
-string Player::setNAME(string newNAME) {
-    Player::NAME = newNAME;
-}
+// string Player::getNAME() { return Player::NAME; }
+//
+// string Player::setNAME(string newNAME) {
+//     Player::NAME = newNAME;
+// }
 
 // // can be used in checking whether the continue button can be pressed
 // bool Player::checkSaveFileExist(const char* fileName) {

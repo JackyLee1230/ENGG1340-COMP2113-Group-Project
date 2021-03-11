@@ -1,8 +1,10 @@
-// player.h
+// saveLoad.h
 #ifndef SAVELOAD_H
 #define SAVELOAD_H
 
 #include "pugixml/pugixml.hpp"
+
+#include "player.h"
 
 class SaveLoad {
   public:
@@ -15,7 +17,7 @@ class SaveLoad {
 
     static void saveStats();
 
-    static void createNewSaveFile(int, int, std::string);
+    static void createNewSaveFile(Player*);
 
 };
 

@@ -24,7 +24,7 @@
 using namespace std;
 using namespace pugi;
 
-void LobbyScene::playScene() {
+void LobbyScene::playScene(Player *player) {
     //int current_floor = atoi(player.child("FLOOR").child_value());
     //int current_floor = Player::getFLOOR();
     //
@@ -49,6 +49,9 @@ void LobbyScene::playScene() {
 
     // load the graphics
     SceneManager::loadLobbyScreen();
+
+    // test player object
+    cout << "Player's HP = " <<  player->getHP() << "; DODGE = " << player->getDODGE() << "; FLOOR = " << player->getFLOOR() << endl;
 
     string input = "";
     cin >> input;
@@ -88,7 +91,7 @@ void LobbyScene::playScene() {
             system("clear");
             cout << "SAVING GAME";
             if(!SaveLoad::checkSaveFileExist("savefile.xml")){
-                SaveLoad::createNewSaveFile(30, 1, "test");
+                // SaveLoad::createNewSaveFile(30, 1, "test");
             }
             //SettingScene::playScene();
             break;
