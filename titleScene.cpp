@@ -10,8 +10,7 @@
 
 #include "sceneManager.h"
 #include "titleScene.h"
-#include "monster.h"
-#include "player.h"
+#include "castleScene.h"
 #include "settingScene.h"
 
 using namespace std;
@@ -23,7 +22,6 @@ void TitleScene::playScene() {
     string input = "";
     cin >> input;
 
-    // TODO
     // input check
     while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 5){
         cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
@@ -52,23 +50,8 @@ void TitleScene::playScene() {
             cout << "You inputted: " << user_input << "\n";
             user_input = 0;
             cout << "New Game Started!!!!" << endl;
-            SceneManager::loadCastleScreen();
-            cout << "\n";
-            cout << "Enter 1 if you have read through the background story"<< endl;
-            cout << "and want to start the game!" << endl;
 
-            // TODO
-            // need fix
-            // not get stuck in while loop after inputting a non-digit char
-            while(true){
-                cin >> user_input;
-                if(user_input == 1){
-                    break;
-                }
-            }
-
-            // create a new player
-            Player player = Player(false);
+            CastleScene::playScene();
         }
             break;
         case 3:
