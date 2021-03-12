@@ -33,7 +33,8 @@
  -so++oooyyssssyyyyssssssoooooosyyhmmmmmmmmmmdssoo+++osyyysssyyyyssssssoo+++os-
  .++++++:::::::::::::::::/ooooo+//++++++++++++::/+oooo+:::::::::::::::::+ooo++.
 
-                    Welcome to the castle of DreadPoint!
+Welcome to the castle of DreadPoint!
+You are Arthur, a renowned Monster Slayer.
 Here lies a haunted castle which was well-known for its monsters living inside.
 You, as an explorer, was willing to discover the secrets and mysteries within.
 Equipped with a wooden sword, you are going to embark on an amazing adventure,
