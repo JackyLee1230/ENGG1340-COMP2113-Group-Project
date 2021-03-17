@@ -15,6 +15,9 @@ player.o: player.cpp player.h SaveLoad.h pugixml.o
 monster.o: monster.cpp monster.h pugixml.o
 	g++ $(FLAGS) -c $<
 
+skills.o: skills.cpp skills.h monster.o pugixml.o
+	g++ $(FLAGS) -c $<
+
 # scenes
 sceneManager.o: sceneManager.cpp sceneManager.h
 	g++ $(FLAGS) -c $<
@@ -34,3 +37,8 @@ main.o: main.cpp titleScene.h player.h sceneManager.h saveLoad.h lobbyScene.h
 
 main: main.o sceneManager.o titleScene.o castleScene.o monster.o player.o SaveLoad.o lobbyScene.o
 	g++ $(FLAGS) $^ -o main
+
+clean:
+	rm -f main *.o
+
+.PHONY: main clean
