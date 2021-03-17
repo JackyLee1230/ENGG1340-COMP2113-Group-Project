@@ -41,6 +41,8 @@ Monster::Monster(int monster_ID) {
     DEF = atoi(monster.child("DEF").child_value());
     DODGE = atoi(monster.child("DODGE").child_value());
     FLIGHT = atoi(monster.child("FLIGHT").child_value());
+    SKILL_LOW = atoi(monster.child("SKILL_LOW").child_value());
+    SKILL_HIGH = atoi(monster.child("SKILL_HIGH").child_value());
 }
 
 int Monster::getHP() { return HP; }
@@ -66,6 +68,10 @@ int Monster::getFLIGHT() { return FLIGHT; }
 void Monster::setFLIGHT(int newFLIGHT){
     FLIGHT = newFLIGHT;
 }
+
+int Monster::getSKILLLOW() { return SKILL_LOW; }
+
+int Monster::getSKILLHIGH() { return SKILL_HIGH; }
 
 int Monster::getDEF() { return DEF; }
 

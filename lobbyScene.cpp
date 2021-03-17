@@ -45,7 +45,6 @@ void LobbyScene::playScene(Player *player) {
     while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 7){
         cout << "PLEASE ENTER CHOICE BETWEEN 1 - 6" << endl;
         cin >> input;
-        // cout << user_input << "\n";
      }
 
     int user_input = std::stoi(input);

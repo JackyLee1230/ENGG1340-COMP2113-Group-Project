@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<skill id="1">
+    <name>Punch</name>
+    <ATK>4</ATK>
+</skill>
+
+<skill id="2">
+    <name>Heavy Punch</name>
+    <ATK>5</ATK>
+</skill>
+
+<skill id="3">
+    <name>Air Gate</name>
+    <ATK>5</ATK>
+</skill>
+
+<skill id="4">
+    <name>Air Gate</name>
+    <ATK>5</ATK>
+</skill>
+
+<skill id="5">
+    <name>Fire Breath</name>
+    <ATK>15</ATK>
+</skill>
+
+<skill id="6">
+    <name>Cast of Inferno</name>
+    <ATK>20</ATK>
+</skill>
+
+<skill id="7">
+    <name>Cast of Inferno</name>
+    <ATK>20</ATK>
+</skill>
+
+<skill id="8">
+    <name>Cast of Inferno</name>
+    <ATK>20</ATK>
+</skill>
+
+<skill id="9">
+    <name>Cast of Inferno</name>
+    <ATK>20</ATK>
+</skill>
+
+<skill id="10">
+    <name>Cast of Inferno</name>
+    <ATK>20</ATK>
+</skill>
+
+<skill id="11">
+    <name>Cast of Inferno</name>
+    <ATK>20</ATK>
+</skill>
+
+<skill id="12">
+    <name>Cast of Inferno</name>
+    <ATK>20</ATK>
+</skill>

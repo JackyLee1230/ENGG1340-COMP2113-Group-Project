@@ -6,6 +6,10 @@ class CombatScene
 {
 public:
     static void playScene();
+
+    static void PlayerMove();
+
+    static void MonsterMove();
 };
 
 #endif

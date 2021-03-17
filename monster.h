@@ -13,6 +13,8 @@ private:
     std::string NAME;
     int DODGE;
     int FLIGHT;
+    int SKILL_LOW;
+    int SKILL_HIGH;
 
 public:
     static const std::string MONSTER_ART_FOLDER_PATH;
@@ -46,6 +48,9 @@ public:
     void setDODGE(int newDODGE);
 
     int getFLIGHT();
+
+    int getSKILLLOW();
+    int getSKILLHIGH();
 
     void setFLIGHT(int newFLIGHT);
 
