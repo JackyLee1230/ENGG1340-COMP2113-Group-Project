@@ -8,6 +8,7 @@ class Monster
 {
 private:
     int HP;
+    int HP_MAX;
     int ATK;
     int DEF;
     std::string NAME;
@@ -26,6 +27,8 @@ public:
     int getHP();
 
     void setHP(int newHP);
+
+    int getHP_MAX();
 
     int getATK();
 

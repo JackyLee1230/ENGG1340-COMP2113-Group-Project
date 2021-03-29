@@ -16,6 +16,8 @@ class Player {
 
       static const char PLAYER_SAVEFILE[];
 
+      static const int HP_MAX;
+
     Player(int, int, int);
 
     int getHP();

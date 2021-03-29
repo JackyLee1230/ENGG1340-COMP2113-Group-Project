@@ -19,6 +19,7 @@ using namespace std;
 using namespace pugi;
 
 //const char Player::PLAYER_SAVEFILE[] = "savefile.xml";
+const int Player::HP_MAX = 30;
 
 Player::Player(int newHP, int newDODGE, int newFLOOR) {
     // // get items and set a dynamic size array to store that items
@@ -26,9 +27,9 @@ Player::Player(int newHP, int newDODGE, int newFLOOR) {
     // for (xml_node weapon = player.child("items").child("weapon"); weapon; weapon = weapon.next_sibling("weapon"))
     //     n++;
 
-    this -> HP = newHP;
-    this -> DODGE = newDODGE;
-    this -> FLOOR = newFLOOR;
+    this-> HP = newHP;
+    this-> DODGE = newDODGE;
+    this-> FLOOR = newFLOOR;
 
     // cout << "Call from player's constructor" << endl;
     // cout << "Player's HP = " <<  HP << "; DODGE = " << DODGE << "; FLOOR = " << FLOOR << endl;

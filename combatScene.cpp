@@ -18,9 +18,11 @@
 using namespace std;
 using namespace pugi;
 
-void CombatScene::playScene() {
+// should pass the player's and monster's detail
+void CombatScene::playScene(Player *player, Monster *monster) {
+
     // load the graphics
-    SceneManager::loadCombatScreen();
+    SceneManager::loadCombatScreen(player, monster);
 
 }
 

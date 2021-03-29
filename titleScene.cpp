@@ -45,12 +45,13 @@ void TitleScene::playScene() {
             // static bool checkSaveFileExist(filename) in Player class
 
             Player *player = SaveLoad::loadSaveFile();
+            Monster *monster = new Monster(1);
 
             system("clear");
 
             // ultimately: load the lobby scene
 
-            SceneManager::loadCombatScreen();
+            SceneManager::loadCombatScreen(player, monster);
             // SceneManager::loadEncouterMonster(2);
             //test.loadAsciiArt("monster_2");
 

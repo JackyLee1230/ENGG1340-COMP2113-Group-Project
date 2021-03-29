@@ -2,6 +2,9 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 
+#include "player.h"
+#include "monster.h"
+
 // Manage all scene loading stuff
 // an interface for the class SceneManager
 class SceneManager
@@ -37,7 +40,7 @@ public:
 
     static void loadEncouterMonster(int);
 
-    static void loadCombatScreen();
+    static void loadCombatScreen(Player *, Monster *);
 
     // int calculateLeftJustify(int);
 };
