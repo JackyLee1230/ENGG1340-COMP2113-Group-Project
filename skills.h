@@ -1,4 +1,4 @@
-// monster.h
+// skills.h
 #ifndef SKILLS_H
 #define SKILLS_H
 

@@ -6,8 +6,12 @@
 // remove()
 #include <cstdio>
 
+// dynamic array for inventory
+#include <vector>
+
 #include "player.h"
 #include "SaveLoad.h"
+#include "weapon.h"
 
 // for atoi() itoa()
 #include <stdlib.h>
@@ -33,6 +37,8 @@ Player::Player(int newHP, int newDODGE, int newFLOOR) {
 
     // cout << "Call from player's constructor" << endl;
     // cout << "Player's HP = " <<  HP << "; DODGE = " << DODGE << "; FLOOR = " << FLOOR << endl;
+
+    // building the weapon inventory for combat scene
 }
 
 int Player::getHP() { return Player::HP; }
@@ -71,3 +77,9 @@ void Player::setDODGE(int newDODGE) {
 // string Player::setNAME(string newNAME) {
 //     Player::NAME = newNAME;
 // }
+
+void Player::setWeapons(std::vector<Weapon> weapons) {
+    this->weapons = weapons;
+}
+
+std::vector<Weapon> Player::getWeapons() { return this->weapons; }

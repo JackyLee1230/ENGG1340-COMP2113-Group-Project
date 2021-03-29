@@ -2,7 +2,10 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <vector>
+
 #include "pugixml/pugixml.hpp"
+#include "weapon.h"
 
 class Player {
     private:
@@ -11,6 +14,10 @@ class Player {
         int DEF;
         int DODGE;
         int FLOOR;
+
+        // weapons for combat
+        std::vector<Weapon> weapons;
+
 
   public:
 
@@ -36,6 +43,11 @@ class Player {
 
     void setFLOOR(int newFLOOR);
 
+    void setWeapons(std::vector<Weapon>);
+
+    std::vector<Weapon> getWeapons();
+
+
     // int getDEF();
     //
     // void setDEF(int newDEF);
@@ -43,7 +55,7 @@ class Player {
     std::string getNAME();
 
     std::string setNAME(std::string newNAME);
-
+    
 };
 
 #endif

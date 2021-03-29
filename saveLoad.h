@@ -5,9 +5,10 @@
 #include "pugixml/pugixml.hpp"
 
 #include "player.h"
+#include "weapon.h"
 
 class SaveLoad {
-  public:
+public:
 
     static const char PLAYER_SAVEFILE[];
 
@@ -19,6 +20,7 @@ class SaveLoad {
 
     static void createNewSaveFile(Player*);
 
+    static std::vector<Weapon> loadPlayerWeapons(pugi::xml_node);
 };
 
 #endif

@@ -11,6 +11,7 @@
 #include "settingScene.h"
 #include "monster.h"
 #include "player.h"
+#include "weapon.h"
 
 using namespace std;
 
@@ -166,7 +167,17 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster) {
         cout << "x=";
     cout << endl;
 
-    // get the items of the player
+    // get the weapons of the player
+    std::vector<Weapon> weapons = player->getWeapons();
+
+    for (int i = 0; i < weapons.size(); i++) {
+        cout << "[" << (i+1) << "] ";
+        weapons[i].showWeapon();
+        cout << endl;
+    }
+
+    cout << endl;
+
 }
 
 void SceneManager::loadSettingScreen(){

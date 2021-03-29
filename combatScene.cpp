@@ -66,6 +66,4 @@ void CombatScene::PlayerMove(Player *player) {
             break;
     }
 
-
-
 }

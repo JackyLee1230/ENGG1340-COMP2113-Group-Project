@@ -1,11 +1,15 @@
 #include <iostream>
 #include <fstream>
 
-#include "player.h"
+#include <vector>
+
 #include "saveLoad.h"
 #include <stdlib.h>
 
 #include "pugixml/pugixml.hpp"
+
+#include "player.h"
+#include "weapon.h"
 
 using namespace std;
 using namespace pugi;
@@ -62,8 +66,8 @@ void SaveLoad::createNewSaveFile(Player *player) {
     floor_node.append_child(node_pcdata).set_value(to_string(player->getFLOOR()).c_str());
 
     // create our default wooden sword
-    xml_node items_node = player_node.append_child("items");
-    xml_node weapon_node = items_node.append_child("weapon");
+    xml_node weapons_node = player_node.append_child("weapons");
+    xml_node weapon_node = weapons_node.append_child("weapon");
     // default weapon initialized to be of id 1
     weapon_node.append_attribute("id") = 1;
 
@@ -98,5 +102,26 @@ Player* SaveLoad::loadSaveFile() {
         atoi(player_node.child("FLOOR").child_value())
     );
 
+    // load weapons from xml doc
+    xml_node weapons = player_node.child("weapons");
+
+    player->setWeapons(
+        SaveLoad::loadPlayerWeapons(weapons)
+    );
+
     return player;
+}
+
+std::vector<Weapon> SaveLoad::loadPlayerWeapons(xml_node items) {
+    std::vector<Weapon> weapons;
+    weapons.reserve(1);
+
+    for (xml_node item = items.child("weapon"); item; item = item.next_sibling()) {
+        cout << "weapon id: " << item.attribute("id").as_int() << endl;
+
+        Weapon *weapon = new Weapon(item.attribute("id").as_int());
+        weapons.push_back(*weapon);
+    }
+
+    return weapons;
 }
