@@ -22,13 +22,13 @@ void CastleScene::playScene() {
     cout << "and want to start the game!" << endl;
 
     string input = "";
-    cin >> input;
+    getline(cin, input);
 
     // input check
     while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) != 1){
         cout << "Enter 1 if you have read through the background story"<< endl;
         cout << "and want to start the game!" << endl;
-        cin >> input;
+        getline(cin, input);
      }
 
      // create a new player object with default value

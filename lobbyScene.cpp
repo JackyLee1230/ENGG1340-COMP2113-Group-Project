@@ -29,22 +29,20 @@ void LobbyScene::playScene(Player *player) {
     system("clear");
     int current_floor = player->getFLOOR();
 
-    SceneManager::loadLobbyFloor(current_floor);
-
-
     // load the graphics
+    SceneManager::loadLobbyFloor(current_floor);
     SceneManager::loadLobbyScreen();
 
     // test player object
     cout << "Player's HP = " <<  player->getHP() << "; DODGE = " << player->getDODGE() << "; FLOOR = " << player->getFLOOR() << endl;
 
     string input = "";
-    cin >> input;
+    getline(cin, input);
 
     // input check
     while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 7){
         cout << "PLEASE ENTER CHOICE BETWEEN 1 - 6" << endl;
-        cin >> input;
+        getline(cin, input);
      }
 
     int user_input = std::stoi(input);

@@ -24,12 +24,12 @@ void TitleScene::playScene() {
     SceneManager::loadTitleScreen();
 
     string input = "";
-    cin >> input;
+    getline(cin, input);
 
     // input check
     while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 5){
         cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
-        cin >> input;
+        getline(cin, input);
         // cout << user_input << "\n";
      }
 

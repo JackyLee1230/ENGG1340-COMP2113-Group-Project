@@ -39,11 +39,11 @@ void CombatScene::MonsterMove(Monster *monster, monster_ID) {
 void CombatScene::PlayerMove(Player *player) {
     //ask for player input for action
     string input = "";
-    cin >> input;
+    getline(cin, input);
 
     while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 7){
         cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
-        cin >> input;
+        getline(cin, input);
      }
 
     int user_input = std::stoi(input);
