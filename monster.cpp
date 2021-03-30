@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 // for ifstream
 #include <fstream>
@@ -11,6 +12,7 @@
 #include <stdlib.h>
 
 #include "monster.h"
+#include "skill.h"
 
 // for reading xml
 #include "pugixml/pugixml.hpp"
@@ -36,6 +38,7 @@ Monster::Monster(int monster_ID) {
 
     // get stats and its name
     NAME = monster.child("name").child_value();
+    SHIELDHP = atoi(monster.child("SHIELDHP").child_value());
     HP = atoi(monster.child("HP").child_value());
     HP_MAX = HP;
     ATK = atoi(monster.child("ATK").child_value());
@@ -45,6 +48,16 @@ Monster::Monster(int monster_ID) {
     SKILL_LOW = atoi(monster.child("SKILL_LOW").child_value());
     SKILL_HIGH = atoi(monster.child("SKILL_HIGH").child_value());
 }
+
+
+//enum for monster shield
+enum ShieldType{
+    shieldless;
+    phy_shield;
+    magic_shield;
+}
+
+int Monster::getSHIELDHP() { return SHIELDHP; }
 
 int Monster::getHP() { return HP; }
 

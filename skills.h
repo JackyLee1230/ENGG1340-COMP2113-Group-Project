@@ -1,14 +1,18 @@
 // skills.h
-#ifndef SKILLS_H
-#define SKILLS_H
+#ifndef SKILL_H
+#define SKILL_H
 
 #include "pugixml/pugixml.hpp"
 
-class SKILLS
+class SKILL
 {
 private:
     int ATK;
+    int dmg;
+    bool isMagic;
     std::string NAME;
+    enum Type;
+
 
 public:
 

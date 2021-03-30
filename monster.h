@@ -3,6 +3,8 @@
 #define MONSTER_H
 
 #include "pugixml/pugixml.hpp"
+#include <vector>
+#include <string>
 
 class Monster
 {
@@ -16,6 +18,10 @@ private:
     int FLIGHT;
     int SKILL_LOW;
     int SKILL_HIGH;
+    int SHIELDHP;
+
+    enum ShieldType;
+
 
 public:
     static const std::string MONSTER_ART_FOLDER_PATH;
@@ -23,6 +29,8 @@ public:
     static const char MONSTER_STATS_FILE[];
 
     Monster(int);
+
+    int getSHIELDHP();
 
     int getHP();
 

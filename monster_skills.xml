@@ -3,59 +3,83 @@
 <skill id="1">
     <name>Punch</name>
     <ATK>4</ATK>
+    <isMagic>false</isMagic>
 </skill>
 
 <skill id="2">
     <name>Heavy Punch</name>
     <ATK>5</ATK>
+    <isMagic>false</isMagic>
 </skill>
 
 <skill id="3">
-    <name>Air Gate</name>
+    <name>Power Slash</name>
     <ATK>5</ATK>
+    <isMagic>false</isMagic>
 </skill>
 
 <skill id="4">
     <name>Air Gate</name>
     <ATK>5</ATK>
+    <isMagic>true</isMagic>
 </skill>
 
 <skill id="5">
     <name>Fire Breath</name>
     <ATK>15</ATK>
+    <isMagic>true</isMagic>
 </skill>
 
 <skill id="6">
     <name>Cast of Inferno</name>
     <ATK>20</ATK>
+    <isMagic>true</isMagic>
 </skill>
 
 <skill id="7">
-    <name>Cast of Inferno</name>
+    <name>Dagger Slash</name>
     <ATK>20</ATK>
+    <isMagic>false</isMagic>
 </skill>
 
 <skill id="8">
-    <name>Cast of Inferno</name>
+    <name>Typhoon Edge</name>
     <ATK>20</ATK>
+    <isMagic>true</isMagic>
 </skill>
 
 <skill id="9">
-    <name>Cast of Inferno</name>
+    <name>Endless Cut</name>
     <ATK>20</ATK>
+    <isMagic>false</isMagic>
 </skill>
 
 <skill id="10">
-    <name>Cast of Inferno</name>
+    <name>Sword Wave</name>
     <ATK>20</ATK>
+    <isMagic>false</isMagic>
 </skill>
 
 <skill id="11">
-    <name>Cast of Inferno</name>
+    <name>Deadly Shot</name>
     <ATK>20</ATK>
+    <isMagic>false</isMagic>
 </skill>
 
 <skill id="12">
-    <name>Cast of Inferno</name>
+    <name>Final Fang</name>
     <ATK>20</ATK>
+    <isMagic>false</isMagic>
+</skill>
+
+<skill id="13">
+    <name>Storm Impact</name>
+    <ATK>20</ATK>
+    <isMagic>true</isMagic>
+</skill>
+
+<skill id="14">
+    <name>Dawn of the Gods</name>
+    <ATK>20</ATK>
+    <isMagic>true</isMagic>
 </skill>
