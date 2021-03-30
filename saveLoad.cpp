@@ -58,10 +58,6 @@ void SaveLoad::createNewSaveFile(Player *player) {
     xml_node dodge_node = player_node.append_child("DODGE");
     dodge_node.append_child(node_pcdata).set_value(to_string(player->getDODGE()).c_str());
 
-    // remove it
-    // xml_node name_node = player.append_child("name");
-    // name_node.append_child(node_pcdata).set_value(newNAME.c_str());
-
     xml_node floor_node = player_node.append_child("FLOOR");
     floor_node.append_child(node_pcdata).set_value(to_string(player->getFLOOR()).c_str());
 

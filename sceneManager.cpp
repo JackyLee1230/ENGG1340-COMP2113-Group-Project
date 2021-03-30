@@ -169,15 +169,12 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster) {
 
     // get the weapons of the player
     std::vector<Weapon> weapons = player->getWeapons();
-
     for (int i = 0; i < weapons.size(); i++) {
-        cout << "[" << (i+1) << "] ";
+        cout << "[" << (i+1) << "] "; // show the weapon id before stats for debugging
         weapons[i].showWeapon();
         cout << endl;
     }
-
     cout << endl;
-
 }
 
 void SceneManager::loadSettingScreen(){

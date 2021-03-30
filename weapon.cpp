@@ -66,11 +66,29 @@ void Weapon::loadWeaponXML(xml_document& doc) {
 }
 
 void Weapon::showWeapon() {
+    if(this->RANGE == 1){
+        if(this->MAGIC == 1){
+            fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE, MAGIC: TRUE >",
+                this->NAME.c_str(),
+                "",
+                this->ATK,
+                this->CRT
+            );
+        }else{
+        fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE >",
+            this->NAME.c_str(),
+            "",
+            this->ATK,
+            this->CRT
+            );
+        }
+    }else{
     fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d% >",
         this->NAME.c_str(),
         "",
         this->ATK,
         this->CRT
     );
+}
 
 }
