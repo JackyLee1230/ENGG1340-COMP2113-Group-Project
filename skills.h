@@ -11,7 +11,6 @@ private:
     int dmg;
     bool isMagic;
     std::string NAME;
-    enum Type;
 
 
 public:

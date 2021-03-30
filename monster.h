@@ -20,7 +20,7 @@ private:
     int SKILL_HIGH;
     int SHIELDHP;
 
-    enum ShieldType;
+
 
 
 public:

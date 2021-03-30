@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 #include "monster.h"
-#include "skill.h"
+#include "skills.h"
 
 // for reading xml
 #include "pugixml/pugixml.hpp"
@@ -51,11 +51,11 @@ Monster::Monster(int monster_ID) {
 
 
 //enum for monster shield
-enum ShieldType{
-    shieldless;
-    phy_shield;
-    magic_shield;
-}
+enum ShieldType {
+     shieldless,
+     phy_shield,
+     magic_shield
+};
 
 int Monster::getSHIELDHP() { return SHIELDHP; }
 
