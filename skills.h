@@ -3,6 +3,13 @@
 #define SKILL_H
 
 #include "pugixml/pugixml.hpp"
+#include "monster.h"
+#include "player.h"
+
+enum Type {
+	damage,
+	shield
+};
 
 class SKILL
 {
@@ -11,6 +18,8 @@ private:
     int dmg;
     bool isMagic;
     std::string NAME;
+    int dmg_type;
+    Type type;
 
 
 public:
@@ -27,6 +36,10 @@ public:
     std::string getNAME();
 
     void loadMonsterXML(pugi::xml_document&);
+
+    void act(Player player, Monster monster);
+
+    void attack(Player player, Monster monster, int damage);
 };
 
 #endif

@@ -47,6 +47,8 @@ int Weapon::getRANGE() { return this->RANGE; }
 int Weapon::getMAGIC() { return this->MAGIC; }
 
 void Weapon::attack(Monster *monster) {
+    int dmg;
+    int dodge;
 
 }
 
@@ -66,6 +68,8 @@ void Weapon::loadWeaponXML(xml_document& doc) {
 }
 
 void Weapon::showWeapon() {
+    // output weapon stats depened on whether it is a
+    // magic / range / normal type weapon
     if(this->RANGE == 1){
         if(this->MAGIC == 1){
             fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE, MAGIC: TRUE >",
@@ -74,7 +78,7 @@ void Weapon::showWeapon() {
                 this->ATK,
                 this->CRT
             );
-        }else{
+        }else {
         fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE >",
             this->NAME.c_str(),
             "",

@@ -7,11 +7,17 @@
 // for c_str() to convert string to const char[]
 #include <cstring>
 
+//for time for random probability
+#include <time.h>
+
 // for atoi()
 #include <stdlib.h>
 
 #include "monster.h"
 #include "skills.h"
+#include "player.h"
+#include "combatScene.h"
+#include "SceneManager.h"
 
 // for reading xml
 #include "pugixml/pugixml.hpp"
@@ -46,6 +52,47 @@ void Skills::setATK(int newATK) {
 }
 
 std::string Skills::getNAME() { return NAME; }
+
+// monster damaging the player
+void act(Player *player, Monster *monster){
+    int dmg_type;
+    switch(dmg_type){
+        case 1: // pure physical damage
+        int player_hp = player->getHP();
+        int monster_attack = monster.getATK();
+        player->setHP(player_hp- monster_attack);
+            break;
+        case 2: // damage to shield
+            // Type type;
+            // int player = monster.getATK();
+            // if(monster_attack > ShieldHP){
+            // }
+            break;
+    }
+}
+
+// player attacking the monster
+void attack(Player player*, Monster *monster, int damage){
+    srand(unsigned(time(NULL)));
+    double dodge_prob = monster.getDODGE() / 60;// probability of dodge depend on the monster
+    double roll = (double) rand() / (RAND_MAX +1.0); //generate rand prob with time
+    if(roll > dodge_prob){
+        if(monster.getHP() > damage){
+            // reduce HP by dmg value
+            monster.setHP(monster.getHP() - damage);
+        }else if(monster.getHP() == damage){
+            monster.setHP(0);
+            cout << "You barely defeated the Monster and it fainted."
+        }else if(damage > monster.getHP()){
+            // set HP to 0 since player damage is higher than monster health
+            monster.setHP(0);
+        }
+    }else{
+        cout << "The Monster were quick enough to realised and evaded your attack!!!!"
+        monster.setHP(monster.getHP());
+    }
+}
+
 
 
 // load the xml file storing the stats of every monster

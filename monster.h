@@ -6,6 +6,14 @@
 #include <vector>
 #include <string>
 
+//enum for monster shield
+enum ShieldType {
+     shieldless,
+     phy_shield,
+     magic_shield
+};
+
+
 class Monster
 {
 private:
@@ -19,9 +27,7 @@ private:
     int SKILL_LOW;
     int SKILL_HIGH;
     int SHIELDHP;
-
-
-
+    ShieldType shield_type;
 
 public:
     static const std::string MONSTER_ART_FOLDER_PATH;
