@@ -72,7 +72,7 @@ void LobbyScene::playScene(Player *player) {
         // SAVE GAME
             system("clear");
             cout << "SAVING GAME";
-            if(!SaveLoad::checkSaveFileExist("savefile.xml")){
+            if(!SaveLoad::checkSaveFileExist()){
                 // SaveLoad::createNewSaveFile(30, 1, "test");
             }
             //SettingScene::playScene();

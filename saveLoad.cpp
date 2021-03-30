@@ -17,8 +17,8 @@ using namespace pugi;
 const char SaveLoad::PLAYER_SAVEFILE[] = "savefile.xml";
 
 // can be used in checking whether the continue button can be pressed
-bool SaveLoad::checkSaveFileExist(const char* fileName) {
-    if (FILE *file = fopen(fileName, "r")) {
+bool SaveLoad::checkSaveFileExist() {
+    if (FILE *file = fopen(PLAYER_SAVEFILE, "r")) {
         fclose(file);
         return true;
     } else {
@@ -30,7 +30,7 @@ bool SaveLoad::checkSaveFileExist(const char* fileName) {
 // taking default hp, dodge and user inputted name as input
 void SaveLoad::createNewSaveFile(Player *player) {
     // remove past save file
-    if (checkSaveFileExist(PLAYER_SAVEFILE)) {
+    if (checkSaveFileExist()) {
         if (remove(PLAYER_SAVEFILE) == 0) {
             cout << "Removed existing Save File successfully." << endl;
         }

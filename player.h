@@ -19,43 +19,43 @@ class Player {
         std::vector<Weapon> weapons;
 
 
-  public:
+    public:
 
-      static const char PLAYER_SAVEFILE[];
+        static const char PLAYER_SAVEFILE[];
 
-      static const int HP_MAX;
+        static const int HP_MAX;
 
-    Player(int, int, int);
+        Player(int, int, int);
 
-    int getHP();
+        int getHP();
 
-    void setHP(int newHP);
+        void setHP(int newHP);
 
-    int getATK();
+        int getATK();
 
-    void setATK(int newATK);
+        void setATK(int newATK);
 
-    int getDODGE();
+        int getDODGE();
 
-    void setDODGE(int newDODGE);
+        void setDODGE(int newDODGE);
 
-    int getFLOOR();
+        int getFLOOR();
 
-    void setFLOOR(int newFLOOR);
+        void setFLOOR(int newFLOOR);
 
-    void setWeapons(std::vector<Weapon>);
+        void setWeapons(std::vector<Weapon>);
 
-    std::vector<Weapon> getWeapons();
+        std::vector<Weapon> getWeapons();
 
 
-    // int getDEF();
-    //
-    // void setDEF(int newDEF);
+        // int getDEF();
+        //
+        // void setDEF(int newDEF);
 
-    std::string getNAME();
+        std::string getNAME();
 
-    std::string setNAME(std::string newNAME);
-    
+        std::string setNAME(std::string newNAME);
+
 };
 
 #endif

@@ -12,7 +12,7 @@ public:
 
     static const char PLAYER_SAVEFILE[];
 
-    static bool checkSaveFileExist(const char*);
+    static bool checkSaveFileExist();
 
     static Player* loadSaveFile();
 
