@@ -1,17 +1,6 @@
 <?xml version="1.0"?>
 
 <monster id="1">
-    <name>Hello</name>
-    <HP>25</HP>
-    <ATK>4</ATK>
-    <DEF>1</DEF>
-    <DODGE>0</DODGE>
-    <FLIGHT>0</FLIGHT>
-    <SKILL_LOW>1</SKILL_LOW>
-    <SKILL_HIGH>2</SKILL_HIGH>
-</monster>
-
-<monster id="2">
     <name>gatekeeper</name>
     <HP>35</HP>
     <ATK>5</ATK>
@@ -22,7 +11,7 @@
     <SKILL_HIGH>4</SKILL_HIGH>
 </monster>
 
-<monster id="3">
+<monster id="2">
     <name>Predator</name>
     <HP>45</HP>
     <ATK>5</ATK>
@@ -33,7 +22,7 @@
     <SKILL_HIGH>6</SKILL_HIGH>
 </monster>
 
-<monster id="4">
+<monster id="3">
     <name>Griffin</name>
     <HP>55</HP>
     <ATK>5</ATK>
@@ -44,7 +33,7 @@
     <SKILL_HIGH>8</SKILL_HIGH>
 </monster>
 
-<monster id="5">
+<monster id="4">
     <name>Wraith</name>
     <HP>55</HP>
     <ATK>5</ATK>
@@ -55,7 +44,7 @@
     <SKILL_HIGH>10</SKILL_HIGH>
 </monster>
 
-<monster id="6">
+<monster id="5">
     <name>Boss: Inferno</name>
     <HP>200</HP>
     <ATK>20</ATK>

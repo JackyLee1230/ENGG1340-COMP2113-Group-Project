@@ -31,10 +31,11 @@ Player::Player(int hp, int dodge, int floor, int level) {
     this-> HP = hp;
     this-> DODGE = dodge;
 
-    // game progress purpose
+    // game progress purpose, current floor and current level
     this-> FLOOR = floor;
     this-> LEVEL = level;
 
+    // remove all existing weapons from player
     // write a new default weapon (the one with id = 1)
     this-> weapons.clear();
     this-> weapons.push_back(Weapon(1));

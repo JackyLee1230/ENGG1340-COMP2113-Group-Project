@@ -13,7 +13,7 @@ class Player {
         // int ATK;
         int DODGE;
 
-        // game progress purpose
+        // game progress purpose, current floor and current level
         int FLOOR;
         int LEVEL;
 

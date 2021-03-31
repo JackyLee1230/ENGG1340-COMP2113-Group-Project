@@ -49,7 +49,7 @@ void CombatScene::playScene(Player *player, int monster_ID) {
 
     // our game !!
     while (true) {
-
+        // turn based, first- player go first
         playerMove(player);
 
         if (monster->getHP() <= 0) {
@@ -57,7 +57,7 @@ void CombatScene::playScene(Player *player, int monster_ID) {
             // load the corresponding scene
             break;
         }
-
+        // turn based, next- monster go next
         monsterMove(monster);
 
         if (player->getHP() <= 0) {

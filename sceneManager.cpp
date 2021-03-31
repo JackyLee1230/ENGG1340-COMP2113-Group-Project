@@ -100,8 +100,6 @@ void SceneManager::loadLobbyScreen() {
 
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
 
-    system("clear");
-
     // load the specific scene only
     int n=0;
     if (myfile.is_open()) {
