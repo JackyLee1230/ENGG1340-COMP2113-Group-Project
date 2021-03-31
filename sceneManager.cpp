@@ -162,18 +162,18 @@ void SceneManager::loadEncouterMonster(int monster_ID){
     myfile.close();
 }
 
-void SceneManager::loadCombatScreen(Player *player, Monster *monster) {
+void SceneManager::loadCombatScreen(Player *player, Monster *monster, string player_action_des, string monster_action_des) {
 
     // screen cleaning
     system("clear");
 
-    cout << "> " << "Description of player's action" << endl;
+    cout << "> " << player_action_des << endl;
 
     // print with the value of HP being green
     printf("HP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\t", player->getHP(), player->HP_MAX);
     cout << "\n\n\n";
 
-    cout << "> " << "Description of monster's action" << endl;
+    cout << "> " << monster_action_des << endl;
     printf("HP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\n", monster->getHP(), monster->getHP_MAX());
     cout << "\n";
 

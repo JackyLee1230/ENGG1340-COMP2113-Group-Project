@@ -40,7 +40,7 @@ public:
 
     static void loadEncouterMonster(int);
 
-    static void loadCombatScreen(Player *, Monster *);
+    static void loadCombatScreen(Player *, Monster *, std::string, std::string);
 
     // int calculateLeftJustify(int);
 };
