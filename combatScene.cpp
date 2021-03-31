@@ -120,26 +120,22 @@ void CombatScene::playerMove(Player *player, Monster *monster, Skill* skill) {
 
     switch (user_input) {
         case 1: {
-            oss << "Using Weapon 1 to attack!";
-            weapons[0].showWeapon();
+            oss << "Using " << weapons[0].getNAME() <<" to attack and dealt " << weapons[0].getATK() << " damage to " << monster->getNAME() << "!" ;
             skill->attack(player, monster, weapons[0].getATK());
             }
             break;
         case 2: {
-            oss << "Using Weapon 2 to attack!";
-            weapons[1].showWeapon();
+            oss << "Using " << weapons[1].getNAME() <<" to attack and dealt " << weapons[1].getATK() << " damage to " << monster->getNAME() << "!" ;
             skill->attack(player, monster, weapons[1].getATK());
             }
             break;
         case 3:{
-            oss << "Using Weapon 3 to attack!";
-            weapons[2].showWeapon();
+            oss << "Using " << weapons[2].getNAME() <<" to attack and dealt " << weapons[2].getATK() << " damage to " << monster->getNAME() << "!" ;
             skill->attack(player, monster, weapons[2].getATK());
             }
             break;
         case 4:{
-            oss << "Using Weapon 4 to attack!";
-            weapons[3].showWeapon();
+            oss << "Using " << weapons[3].getNAME() <<" to attack and dealt " << weapons[3].getATK() << " damage to " << monster->getNAME() << "!" ;
             skill->attack(player, monster, weapons[3].getATK());
             }
             break;
