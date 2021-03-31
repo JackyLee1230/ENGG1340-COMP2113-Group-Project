@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <monster id="1">
-    <name>gatekeeper</name>
+    <name>Gate Keeper</name>
     <HP>35</HP>
     <ATK>5</ATK>
     <DEF>2</DEF>
