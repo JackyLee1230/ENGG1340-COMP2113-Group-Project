@@ -53,15 +53,14 @@ void Skill::setATK(int newATK) {
 std::string Skill::getNAME() { return NAME; }
 
 // monster damaging the player
-void act(Player *player, Monster *monster){
-    int dmg_type;
+void Skill::act(Player *player, Monster *monster, Skill *skill, int dmg_type){
 
     switch(dmg_type){
 
         // pure physical damage
         case 1: {
             int player_hp = player->getHP();
-            int monster_attack = monster->getATK();
+            int monster_attack = skill->getATK();
             player->setHP(player_hp - monster_attack);
 
         } break;
@@ -75,7 +74,7 @@ void act(Player *player, Monster *monster){
 }
 
 // player attacking the monster
-void attack(Player *player, Monster *monster, int damage){
+void Skill::attack(Player *player, Monster *monster, int damage){
     srand(unsigned(time(NULL)));
     double dodge_prob = monster->getDODGE() / 100;// probability of dodge depend on the monster
     double roll = (double) (rand() / (RAND_MAX + 1.0)); //generate rand prob with time

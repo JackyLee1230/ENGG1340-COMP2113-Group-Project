@@ -20,7 +20,7 @@
 
 <skill id="4">
     <name>Air Gate</name>
-    <ATK>5</ATK>
+    <ATK>6</ATK>
     <isMagic>1</isMagic>
 </skill>
 

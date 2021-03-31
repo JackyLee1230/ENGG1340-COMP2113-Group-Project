@@ -35,6 +35,7 @@ void CombatScene::playScene(Player *player, int monster_ID) {
 
     // Create the monster according the monster ID
     Monster * monster = new Monster(monster_ID);
+    Skill *skill = new Skill(1);
 
     // generate our first-encounter string here
     // player_action_des = ;
@@ -50,7 +51,7 @@ void CombatScene::playScene(Player *player, int monster_ID) {
     // our game !!
     while (true) {
         // turn based, first- player go first
-        playerMove(player);
+        playerMove(player,monster, skill);
 
         if (monster->getHP() <= 0) {
             // player wins
@@ -58,7 +59,8 @@ void CombatScene::playScene(Player *player, int monster_ID) {
             break;
         }
         // turn based, next- monster go next
-        monsterMove(monster);
+        monsterMove(player, monster);
+
 
         if (player->getHP() <= 0) {
             // monster wins, player loses
@@ -77,7 +79,7 @@ void CombatScene::playScene(Player *player, int monster_ID) {
 
 }
 
-void monsterMove(Monster *monster) {
+void CombatScene::monsterMove(Player *player, Monster *monster) {
     // Randomly choose monster's move
     int monster_move =  rand() % (monster->getSKILLHIGH() - monster->getSKILLLOW() + 1) + monster->getSKILLLOW();
     Skill *skill = new Skill(monster_move);
@@ -85,6 +87,8 @@ void monsterMove(Monster *monster) {
     // clear existing stuff in the ostringstream
     oss.str("");
     oss.clear();
+
+    skill->act(player, monster, skill , 1);
 
     oss << "Monster " << monster->getNAME() <<  " casted: " << skill->getNAME() << " and dealt " << skill->getATK() << " damage";
     // cout << "End of Monster's Turn!" << endl;
@@ -94,7 +98,7 @@ void monsterMove(Monster *monster) {
     monster_action_des = oss.str();
 }
 
-void playerMove(Player *player) {
+void CombatScene::playerMove(Player *player, Monster *monster, Skill* skill) {
     //ask for player input for action
     string input = "";
     getline(cin, input);
@@ -110,21 +114,33 @@ void playerMove(Player *player) {
     oss.str("");
     oss.clear();
 
+    std::vector<Weapon> weapons = player->getWeapons();
+
+    cout << endl;
+
     switch (user_input) {
         case 1: {
             oss << "Using Weapon 1 to attack!";
+            weapons[0].showWeapon();
+            skill->attack(player, monster, weapons[0].getATK());
             }
             break;
         case 2: {
             oss << "Using Weapon 2 to attack!";
+            weapons[1].showWeapon();
+            skill->attack(player, monster, weapons[1].getATK());
             }
             break;
         case 3:{
             oss << "Using Weapon 3 to attack!";
+            weapons[2].showWeapon();
+            skill->attack(player, monster, weapons[2].getATK());
             }
             break;
         case 4:{
             oss << "Using Weapon 4 to attack!";
+            weapons[3].showWeapon();
+            skill->attack(player, monster, weapons[3].getATK());
             }
             break;
     }
