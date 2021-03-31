@@ -15,33 +15,33 @@ player.o: player.cpp player.h SaveLoad.h weapon.h pugixml.o
 monster.o: monster.cpp monster.h pugixml.o
 	g++ $(FLAGS) -c $<
 
-skills.o: skills.cpp skills.h monster.o pugixml.o
+skill.o: skill.cpp skill.h monster.o pugixml.o
 	g++ $(FLAGS) -c $<
 
-weapon.o: weapon.cpp weapon.h
+weapon.o: weapon.cpp weapon.h pugixml.o
 	g++ $(FLAGS) -c $<
 
 # scenes
 sceneManager.o: sceneManager.cpp sceneManager.h player.h monster.h weapon.h
 	g++ $(FLAGS) -c $<
 
-titleScene.o: titleScene.cpp titleScene.h castleScene.h sceneManager.h
+titleScene.o: titleScene.cpp titleScene.h castleScene.h sceneManager.h combatScene.h
 	g++ $(FLAGS) -c $<
 
-castleScene.o: castleScene.cpp castleScene.h sceneManager.h player.h
+castleScene.o: castleScene.cpp castleScene.h sceneManager.h player.h combatScene.h
 	g++ $(FLAGS) -c $<
 
 lobbyScene.o: lobbyScene.cpp lobbyScene.h sceneManager.h player.h pugixml.o
 	g++ $(FLAGS) -c $<
 
-# combatScene.o: combatScene.cpp combatScene.h skills.h
-# 	g++ $(FLAGS) -c $<
+combatScene.o: combatScene.cpp combatScene.h skill.h player.h monster.h
+	g++ $(FLAGS) -c $<
 
 # main program to run the game
 main.o: main.cpp
 	g++ $(FLAGS) -c $<
 
-main: main.o sceneManager.o titleScene.o castleScene.o lobbyScene.o monster.o player.o weapon.o SaveLoad.o
+main: main.o sceneManager.o titleScene.o castleScene.o lobbyScene.o combatScene.o monster.o player.o weapon.o skill.o SaveLoad.o
 	g++ $(FLAGS) $^ -o main
 
 clean:

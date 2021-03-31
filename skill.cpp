@@ -14,8 +14,9 @@
 #include <stdlib.h>
 
 #include "monster.h"
-#include "skills.h"
+#include "skill.h"
 #include "player.h"
+#include "monster.h"
 #include "combatScene.h"
 #include "SceneManager.h"
 
@@ -25,78 +26,80 @@
 using namespace std;
 using namespace pugi;
 
-const string Monster::MONSTER_ART_FOLDER_PATH = "monsters_art/";
-const char Monster::MONSTER_STATS_FILE[] = "monster_stats.xml";
-const char Monster::MONSTER_SKILLS_FILE[] = "monster_skills.xml";
+const char Skill::MONSTER_SKILLS_FILE[] = "monster_skills.xml";
 
 // constructor
-Skills::Skills(int skill_ID) {
+Skill::Skill(int skill_ID) {
     string monster_skill_str = to_string(skill_ID);
 
     // get the loaded xml document
     xml_document doc;
-    Skills::loadMonsterSkillsXML(doc);
+    Skill::loadMonsterSkillXML(doc);
 
     // find the specific monster with the id given
-    xml_node Skills = doc.find_child_by_attribute("Skills", "id", monster_skill_str.c_str());
+    xml_node skill_node = doc.find_child_by_attribute("skill", "id", monster_skill_str.c_str());
 
     // get stats and its name
-    NAME = Skills.child("name").child_value();
-    ATK = atoi(Skills.child("ATK").child_value());
+    NAME = skill_node.child("name").child_value();
+    ATK = atoi(skill_node.child("ATK").child_value());
 }
 
-int Skills::getATK() { return ATK; }
+int Skill::getATK() { return ATK; }
 
-void Skills::setATK(int newATK) {
+void Skill::setATK(int newATK) {
     ATK = newATK;
 }
 
-std::string Skills::getNAME() { return NAME; }
+std::string Skill::getNAME() { return NAME; }
 
 // monster damaging the player
 void act(Player *player, Monster *monster){
     int dmg_type;
+
     switch(dmg_type){
-        case 1: // pure physical damage
-        int player_hp = player->getHP();
-        int monster_attack = monster.getATK();
-        player->setHP(player_hp- monster_attack);
-            break;
-        case 2: // damage to shield
+
+        // pure physical damage
+        case 1: {
+            int player_hp = player->getHP();
+            int monster_attack = monster->getATK();
+            player->setHP(player_hp - monster_attack);
+
+        } break;
+        // case 2: // damage to shield
             // Type type;
             // int player = monster.getATK();
             // if(monster_attack > ShieldHP){
             // }
-            break;
+            // break;
     }
 }
 
 // player attacking the monster
-void attack(Player player*, Monster *monster, int damage){
+void attack(Player *player, Monster *monster, int damage){
     srand(unsigned(time(NULL)));
-    double dodge_prob = monster.getDODGE() / 60;// probability of dodge depend on the monster
-    double roll = (double) rand() / (RAND_MAX +1.0); //generate rand prob with time
+    double dodge_prob = monster->getDODGE() / 100;// probability of dodge depend on the monster
+    double roll = (double) (rand() / (RAND_MAX + 1.0)); //generate rand prob with time
     if(roll > dodge_prob){
-        if(monster.getHP() > damage){
+        if(monster->getHP() > damage){
             // reduce HP by dmg value
-            monster.setHP(monster.getHP() - damage);
-        }else if(monster.getHP() == damage){
-            monster.setHP(0);
-            cout << "You barely defeated the Monster and it fainted."
-        }else if(damage > monster.getHP()){
+            monster->setHP(monster->getHP() - damage);
+        }else if(monster->getHP() == damage){
+            monster->setHP(0);
+            cout << "You barely defeated the Monster and it fainted." << endl;
+        }else if(damage > monster->getHP()){
             // set HP to 0 since player damage is higher than monster health
-            monster.setHP(0);
+            monster->setHP(0);
         }
     }else{
-        cout << "The Monster were quick enough to realised and evaded your attack!!!!"
-        monster.setHP(monster.getHP());
+        cout << "The Monster were quick enough to realised and evaded your attack!!!!" << endl;
+        monster->setHP(monster->getHP());
     }
 }
 
 
 
 // load the xml file storing the stats of every monster
-void Skills::loadMonsterSkillsXML(xml_document& doc) {
+void Skill::loadMonsterSkillXML(xml_document& doc) {
     // xml_document doc;
 
     // load the xml first

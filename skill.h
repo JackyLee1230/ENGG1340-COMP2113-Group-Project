@@ -11,7 +11,7 @@ enum Type {
 	shield
 };
 
-class SKILL
+class Skill
 {
 private:
     int ATK;
@@ -23,11 +23,9 @@ private:
 
 
 public:
-
-    static const std::string MONSTER_ART_FOLDER_PATH;
-    // have to be char [] as the load_file() does not support string
-    static const char MONSTER_STATS_FILE[];
     static const char MONSTER_SKILLS_FILE[];
+
+	Skill(int);
 
     int getATK();
 
@@ -35,11 +33,11 @@ public:
 
     std::string getNAME();
 
-    void loadMonsterXML(pugi::xml_document&);
+    void loadMonsterSkillXML(pugi::xml_document&);
 
-    void act(Player player, Monster monster);
+    void act(Player *player, Monster *monster);
 
-    void attack(Player player, Monster monster, int damage);
+    void attack(Player *player, Monster *monster, int damage);
 };
 
 #endif
