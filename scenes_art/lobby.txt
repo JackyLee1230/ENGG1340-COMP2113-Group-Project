@@ -9,7 +9,7 @@ x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=
                                        ^
                                        |
                                        |
-		     [Food Storage] <--- [YOU ARE HERE] ---> [LEVEL BOSS]
+             [Food Storage] <--- [YOU ARE HERE] ---> [LEVEL BOSS]
                                        |
                                        |
                                        v
