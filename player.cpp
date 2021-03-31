@@ -25,46 +25,49 @@ using namespace pugi;
 //const char Player::PLAYER_SAVEFILE[] = "savefile.xml";
 const int Player::HP_MAX = 30;
 
-Player::Player(int newHP, int newDODGE, int newFLOOR) {
-    // // get items and set a dynamic size array to store that items
-    // int n = 0; // number of weapons owned by the player
-    // for (xml_node weapon = player.child("items").child("weapon"); weapon; weapon = weapon.next_sibling("weapon"))
-    //     n++;
+// constructor called when creating a new game
+Player::Player(int hp, int dodge, int floor, int level) {
 
-    this-> HP = newHP;
-    this-> DODGE = newDODGE;
-    this-> FLOOR = newFLOOR;
+    this-> HP = hp;
+    this-> DODGE = dodge;
 
-    // cout << "Call from player's constructor" << endl;
-    // cout << "Player's HP = " <<  HP << "; DODGE = " << DODGE << "; FLOOR = " << FLOOR << endl;
+    // game progress purpose
+    this-> FLOOR = floor;
+    this-> LEVEL = level;
 
-    // building the weapon inventory for combat scene
+    // write a new default weapon (the one with id = 1)
+    this-> weapons.clear();
+    this-> weapons.push_back(Weapon(1));
 }
 
-int Player::getHP() { return Player::HP; }
+int Player::getHP() { return this->HP; }
 
 void Player::setHP(int newHP){
     Player::HP = newHP;
 }
 
-int Player::getFLOOR() { return Player::FLOOR; }
-
-void Player::setFLOOR(int newFLOOR){
-    Player::FLOOR = newFLOOR;
-}
-
-
-int Player::getATK(){ return Player::ATK; }
-
-void Player::setATK(int newATK) {
-    Player::ATK = newATK;
-}
-
-int Player::getDODGE(){ return Player::DODGE; }
+int Player::getDODGE(){ return this->DODGE; }
 
 void Player::setDODGE(int newDODGE) {
     Player::DODGE = newDODGE;
 }
+
+int Player::getFLOOR() { return this->FLOOR; }
+
+
+void Player::setFLOOR(int newFLOOR){
+    this->FLOOR = newFLOOR;
+}
+
+int Player::getLEVEL() { return this->LEVEL; }
+
+
+// int Player::getATK(){ return Player::ATK; }
+//
+// void Player::setATK(int newATK) {
+//     Player::ATK = newATK;
+// }
+
 
 // int Player::getDEF() { return Player::DEF; }
 //

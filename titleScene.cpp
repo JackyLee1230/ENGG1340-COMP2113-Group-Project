@@ -17,6 +17,7 @@
 #include "castleScene.h"
 #include "lobbyScene.h"
 #include "settingScene.h"
+#include "combatScene.h"
 
 using namespace std;
 
@@ -35,6 +36,7 @@ void TitleScene::playScene() {
         else {
             int user_input = std::stoi(input);
 
+            // check whether a savefile exists before allowing the player to continue their game
             if (user_input == 1) {
                 if (!SaveLoad::checkSaveFileExist())
                     cout << "Savefile does not exist. Please enter 2 to start a new game instead." << endl;
@@ -55,8 +57,6 @@ void TitleScene::playScene() {
         case 1: {
             cout << "You inputted: " << user_input << "\n";
 
-            system("clear");
-
             Player *player = SaveLoad::loadSaveFile();
 
             // load the lobby scene
@@ -67,8 +67,7 @@ void TitleScene::playScene() {
             cout << "You inputted: " << user_input << "\n";
             cout << "New Game Started!!!!" << endl;
 
-            system("clear");
-
+            // a new player object/ pointer will be created in the castle scene
             CastleScene::playScene();
         } break;
         case 3: {
@@ -77,16 +76,13 @@ void TitleScene::playScene() {
             cout << "You inputted: " << user_input << "\n";
 
             Player *player = SaveLoad::loadSaveFile();
-            Monster *monster = new Monster(1);
 
-            system("clear");
             // cout << "Now Accessing SETTINGS";
             //SettingScene::playScene();
 
-            SceneManager::loadCombatScreen(player, monster);
+            CombatScene::playScene(player, 1);
         } break;
         case 4:
-            system("clear");
             cout<< "See you next time! We hope you enjoyed your stay!"<<endl;
             exit(0);
             break;

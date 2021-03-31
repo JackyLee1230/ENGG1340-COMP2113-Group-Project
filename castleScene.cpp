@@ -7,7 +7,8 @@
 #include "castleScene.h"
 
 #include "sceneManager.h"
-#include "lobbyScene.h"
+#include "combatScene.h"
+// #include "lobbyScene.h"
 #include "saveLoad.h"
 #include "player.h"
 
@@ -31,17 +32,14 @@ void CastleScene::playScene() {
         getline(cin, input);
      }
 
-     // create a new player object with default value
-     // and allocate it to the heap memory
-     Player *player = new Player(30, 1, 0);
+     // create a new player object with default value and weapons
+     // written in the constructor
+     Player *player = new Player(30, 1, 0, 0);
 
      // create a new save file with default player value
      SaveLoad::createNewSaveFile(player);
 
      // final goal: load the combat scene to first for the first monster
-
-     // right now load the lobby scene to test for their functionability
-     // pass our player object in heap
-     LobbyScene::playScene(player);
+     CombatScene::playScene(player, 1);
 
 }

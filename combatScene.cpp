@@ -1,6 +1,6 @@
 #include "combatScene.h"
 #include "monster.h"
-#include "skills.h"
+#include "skill.h"
 #include "lobbyScene.h"
 #include "SceneManager.h"
 #include "player.h"
@@ -8,6 +8,7 @@
 #include "settingScene.h"
 #include "saveLoad.h"
 
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -18,25 +19,44 @@
 using namespace std;
 using namespace pugi;
 
+// place the declaration here as it should not be called from other classes
+void playerMove(Player *);
+void monsterMove(Monster *);
+
 // should pass the player's and monster's detail
-void CombatScene::playScene(Player *player, Monster *monster) {
+void CombatScene::playScene(Player *player, int monster_ID) {
+
+    // Create the monster according the monster ID
+    Monster * monster = new Monster(monster_ID);
 
     // load the graphics
     SceneManager::loadCombatScreen(player, monster);
 
+    // our game !!
+    while (monster->getHP() > 0) {
+
+        playerMove(player);
+
+        monsterMove(monster);
+
+        // update the graphics (some HP and wordings displayed)
+        SceneManager::loadCombatScreen(player, monster);
+
+    }
+
 }
 
-void CombatScene::MonsterMove(Monster *monster, monster_ID) {
+void monsterMove(Monster *monster) {
     // Randomly choose monster's move
-    int monster_move =  rand()%(monster.getSKILLHIGH() - monster.getSKILLLOW() + 1) + monster.getSKILLLOW();
-    Skill skill = new Skill(monster_move);
-    cout << "Monster " << monster.getNAME() <<  " casted: " << skill.getNAME() << " and dealt " << skill.getATK() << " damage";
+    int monster_move =  rand() % (monster->getSKILLHIGH() - monster->getSKILLLOW() + 1) + monster->getSKILLLOW();
+    Skill *skill = new Skill(monster_move);
+    cout << "Monster " << monster->getNAME() <<  " casted: " << skill->getNAME() << " and dealt " << skill->getATK() << " damage";
     cout << "End of Monster's Turn!" << endl;
     cout << "Time for you to fight back! Warrior!" << endl;
 
 }
 
-void CombatScene::PlayerMove(Player *player) {
+void playerMove(Player *player) {
     //ask for player input for action
     string input = "";
     getline(cin, input);

@@ -47,7 +47,7 @@ void SaveLoad::createNewSaveFile(Player *player) {
 
     doc.load_string(xml_header);
 
-    // set default stats (HP, dodge, name)
+    // set default stats (HP, dodge)
     xml_node player_node = doc.append_child("Player");
 
     xml_node hp_node = player_node.append_child("HP");
@@ -58,14 +58,21 @@ void SaveLoad::createNewSaveFile(Player *player) {
     xml_node dodge_node = player_node.append_child("DODGE");
     dodge_node.append_child(node_pcdata).set_value(to_string(player->getDODGE()).c_str());
 
+    // game progress recording
     xml_node floor_node = player_node.append_child("FLOOR");
     floor_node.append_child(node_pcdata).set_value(to_string(player->getFLOOR()).c_str());
 
-    // create our default wooden sword
+    xml_node level_node = player_node.append_child("LEVEL");
+    level_node.append_child(node_pcdata).set_value(to_string(player->getLEVEL()).c_str());
+    // get the weapons that the player have
+    // and write them to the save file
+    std::vector<Weapon> weapons = player->getWeapons();
+
     xml_node weapons_node = player_node.append_child("weapons");
-    xml_node weapon_node = weapons_node.append_child("weapon");
-    // default weapon initialized to be of id 1
-    weapon_node.append_attribute("id") = 1;
+    for (int i = 0; i < weapons.size(); i++) {
+        xml_node weapon_node = weapons_node.append_child("weapon");
+        weapon_node.append_attribute("id") = weapons[i].getID();
+    }
 
     // write the xml file
     doc.save_file(PLAYER_SAVEFILE);
@@ -95,7 +102,8 @@ Player* SaveLoad::loadSaveFile() {
     Player *player = new Player(
         atoi(player_node.child("HP").child_value()),
         atoi(player_node.child("DODGE").child_value()),
-        atoi(player_node.child("FLOOR").child_value())
+        atoi(player_node.child("FLOOR").child_value()),
+        atoi(player_node.child("LEVEL").child_value())
     );
 
     // load weapons from xml doc
@@ -110,7 +118,7 @@ Player* SaveLoad::loadSaveFile() {
 
 std::vector<Weapon> SaveLoad::loadPlayerWeapons(xml_node items) {
     std::vector<Weapon> weapons;
-    weapons.reserve(1);
+    // weapons.reserve(1);
 
     for (xml_node item = items.child("weapon"); item; item = item.next_sibling()) {
         cout << "weapon id: " << item.attribute("id").as_int() << endl;

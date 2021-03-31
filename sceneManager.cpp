@@ -60,6 +60,8 @@ void SceneManager::loadTitleScreen() {
 
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
 
+    system("clear");
+
     // load the specific scene only
     if (myfile.is_open()) {
         while (getline (myfile, line)) {
@@ -78,6 +80,8 @@ void SceneManager::loadCastleScreen() {
 
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
 
+    system("clear");
+
     // load the specific scene only
     if (myfile.is_open()) {
         while (getline (myfile, line)) {
@@ -95,6 +99,8 @@ void SceneManager::loadLobbyScreen() {
     string line;
 
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
+
+    system("clear");
 
     // load the specific scene only
     int n=0;
@@ -115,6 +121,8 @@ void SceneManager::loadLobbyFloor(int floor_no) {
 
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
 
+    system("clear");
+
     // load the specific scene only
     if (myfile.is_open()) {
         while (getline (myfile, line)) {
@@ -129,9 +137,12 @@ void SceneManager::loadLobbyFloor(int floor_no) {
 void SceneManager::loadEncouterMonster(int monster_ID){
     string file_name = "monster_" + to_string(monster_ID) + ".txt";
     string line;
-    Monster test = Monster(monster_ID);
+    Monster monster = Monster(monster_ID);
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
-    test.loadAsciiArt("monster_" + to_string(monster_ID));
+
+    system("clear");
+
+    monster.loadAsciiArt("monster_" + to_string(monster_ID));
     // load the specific scene only
     if (myfile.is_open()) {
         while (getline (myfile, line)) {
@@ -140,18 +151,22 @@ void SceneManager::loadEncouterMonster(int monster_ID){
         cout << endl;
     }
 
-    cout << "Monster: "<< test.getNAME() << " " <<test.getHP() << " " << test.getATK() << " " << test.getDEF() << endl;
-    cout << "Enter 'n' to continue and fight " + test.getNAME();
+    cout << "Monster: "<< monster.getNAME() << " " << monster.getHP() << " " << monster.getATK() << " " << monster.getDEF() << endl;
+    cout << "Enter 'n' to continue and fight " + monster.getNAME();
     string cont_input;
     cin >> cont_input;
     if (cont_input == "n"){
-      cout<<"You have chosen to fight " + test.getNAME() + "! Prepare yourself!";
+      cout<<"You have chosen to fight " + monster.getNAME() + "! Prepare yourself!";
     }
 
     myfile.close();
 }
 
 void SceneManager::loadCombatScreen(Player *player, Monster *monster) {
+
+    // screen cleaning
+    system("clear");
+
     cout << "> " << "Description of player's action" << endl;
 
     // print with the value of HP being green
@@ -182,6 +197,8 @@ void SceneManager::loadSettingScreen(){
   string line;
 
   ifstream myfile (SCENES_FOLDER_PATH + file_name);
+
+  system("clear");
 
   // load the specific scene only
   if (myfile.is_open()) {

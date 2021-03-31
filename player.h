@@ -10,10 +10,12 @@
 class Player {
     private:
         int HP;
-        int ATK;
-        int DEF;
+        // int ATK;
         int DODGE;
+
+        // game progress purpose
         int FLOOR;
+        int LEVEL;
 
         // weapons for combat
         std::vector<Weapon> weapons;
@@ -25,15 +27,15 @@ class Player {
 
         static const int HP_MAX;
 
-        Player(int, int, int);
+        Player(int, int, int, int);
 
         int getHP();
 
         void setHP(int newHP);
 
-        int getATK();
-
-        void setATK(int newATK);
+        // int getATK();
+        //
+        // void setATK(int newATK);
 
         int getDODGE();
 
@@ -43,18 +45,17 @@ class Player {
 
         void setFLOOR(int newFLOOR);
 
+        int getLEVEL();
+
+        void setLEVEL(int newLEVEL);
+
         void setWeapons(std::vector<Weapon>);
 
         std::vector<Weapon> getWeapons();
 
-
-        // int getDEF();
+        // std::string getNAME();
         //
-        // void setDEF(int newDEF);
-
-        std::string getNAME();
-
-        std::string setNAME(std::string newNAME);
+        // std::string setNAME(std::string newNAME);
 
 };
 

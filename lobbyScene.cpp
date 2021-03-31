@@ -25,8 +25,7 @@ using namespace std;
 using namespace pugi;
 
 void LobbyScene::playScene(Player *player) {
-    //int current_floor = atoi(player.child("FLOOR").child_value());
-    system("clear");
+
     int current_floor = player->getFLOOR();
 
     // load the graphics

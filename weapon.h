@@ -30,6 +30,8 @@ public:
 
     Weapon(int);
 
+    int getID();
+
     std::string getNAME();
 
     void setName(std::string newName);

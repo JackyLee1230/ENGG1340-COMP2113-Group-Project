@@ -36,6 +36,10 @@ Weapon::Weapon(int weaponID) {
     MAGIC = atoi(weapon.child("MAGIC").child_value());
 }
 
+int Weapon::getID() {
+    return static_cast<int>(this->weapon_id);
+}
+
 string Weapon::getNAME() { return this->NAME; }
 
 int Weapon::getATK() { return this->ATK; }
@@ -78,21 +82,23 @@ void Weapon::showWeapon() {
                 this->ATK,
                 this->CRT
             );
-        }else {
-        fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE >",
+        }
+        else {
+            fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE >",
+                this->NAME.c_str(),
+                "",
+                this->ATK,
+                this->CRT
+            );
+        }
+    }
+    else{
+        fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d% >",
             this->NAME.c_str(),
             "",
             this->ATK,
             this->CRT
-            );
-        }
-    }else{
-    fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d% >",
-        this->NAME.c_str(),
-        "",
-        this->ATK,
-        this->CRT
-    );
-}
+        );
+    }
 
 }
