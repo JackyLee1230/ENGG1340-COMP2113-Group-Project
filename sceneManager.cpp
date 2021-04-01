@@ -149,14 +149,6 @@ void SceneManager::loadEncouterMonster(int monster_ID){
         cout << endl;
     }
 
-    cout << "Monster: "<< monster.getNAME() << " " << monster.getHP() << " " << monster.getATK() << " " << monster.getDEF() << endl;
-    cout << "Enter 'n' to continue and fight " + monster.getNAME();
-    string cont_input;
-    cin >> cont_input;
-    if (cont_input == "n"){
-      cout<<"You have chosen to fight " + monster.getNAME() + "! Prepare yourself!";
-    }
-
     myfile.close();
 }
 

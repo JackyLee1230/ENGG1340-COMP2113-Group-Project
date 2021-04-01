@@ -62,8 +62,14 @@ void TitleScene::playScene() {
 
             Player *player = SaveLoad::loadSaveFile();
 
-            // load the lobby scene
-            LobbyScene::playScene(player);
+            // check whether the player has passed the first monster
+            if (player->getLEVEL() == 0 && player->getFLOOR() == 0) {
+                CastleScene::playScene();
+            }
+            else {
+                // load the lobby scene
+                LobbyScene::playScene(player);
+            }
 
         } break;
         case 2: {
@@ -79,11 +85,12 @@ void TitleScene::playScene() {
             cout << "You inputted: " << user_input << "\n";
 
             Player *player = SaveLoad::loadSaveFile();
+            Monster *monster = new Monster(1);
 
             // cout << "Now Accessing SETTINGS";
             //SettingScene::playScene();
 
-            CombatScene::playScene(player, 1);
+            CombatScene::playScene(player, monster);
         } break;
         case 4:
             cout<< "See you next time! We hope you enjoyed your stay!"<<endl;

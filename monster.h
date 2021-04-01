@@ -17,6 +17,7 @@ enum ShieldType {
 class Monster
 {
 private:
+    int ID;
     int HP;
     int HP_MAX;
     int ATK;
@@ -35,6 +36,8 @@ public:
     static const char MONSTER_STATS_FILE[];
 
     Monster(int);
+
+    int getID();
 
     int getSHIELDHP();
 

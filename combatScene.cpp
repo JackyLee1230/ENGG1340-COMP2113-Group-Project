@@ -31,11 +31,7 @@ string player_action_des = "";
 string monster_action_des = "";
 
 // should pass the player's and monster's detail
-void CombatScene::playScene(Player *player, int monster_ID) {
-
-    // Create the monster according the monster ID
-    Monster * monster = new Monster(monster_ID);
-    Skill *skill = new Skill(1);
+void CombatScene::playScene(Player *player, Monster *monster) {
 
     // generate our first-encounter string here
     // player_action_des = ;
@@ -62,7 +58,7 @@ void CombatScene::playScene(Player *player, int monster_ID) {
     // our game !!
     while (true) {
         // turn based, first- player go first
-        playerMove(player,monster, skill);
+        playerMove(player, monster, skill);
 
         if (monster->getHP() <= 0) {
             // player wins

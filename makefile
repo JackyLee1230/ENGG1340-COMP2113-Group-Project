@@ -31,7 +31,10 @@ titleScene.o: titleScene.cpp titleScene.h castleScene.h sceneManager.h combatSce
 castleScene.o: castleScene.cpp castleScene.h sceneManager.h player.h combatScene.h
 	g++ $(FLAGS) -c $<
 
-lobbyScene.o: lobbyScene.cpp lobbyScene.h sceneManager.h player.h pugixml.o
+lobbyScene.o: lobbyScene.cpp lobbyScene.h sceneManager.h monsterEncounterScene.h player.h pugixml.o
+	g++ $(FLAGS) -c $<
+
+monsterEncounterScene.o: monsterEncounterScene.cpp monsterEncounterScene.h sceneManager.h player.h
 	g++ $(FLAGS) -c $<
 
 combatScene.o: combatScene.cpp combatScene.h skill.h player.h monster.h
@@ -41,7 +44,7 @@ combatScene.o: combatScene.cpp combatScene.h skill.h player.h monster.h
 main.o: main.cpp
 	g++ $(FLAGS) -c $<
 
-main: main.o sceneManager.o titleScene.o castleScene.o lobbyScene.o combatScene.o monster.o player.o weapon.o skill.o SaveLoad.o
+main: main.o sceneManager.o titleScene.o castleScene.o lobbyScene.o monsterEncounterScene.o combatScene.o monster.o player.o weapon.o skill.o SaveLoad.o
 	g++ $(FLAGS) $^ -o main
 
 clean:

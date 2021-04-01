@@ -28,6 +28,8 @@ const char Monster::MONSTER_STATS_FILE[] = "monster_stats.xml";
 // construct a monster given its ID in the xml file
 // have to use const char* to match with the child() function
 Monster::Monster(int monster_ID) {
+    this->ID = monster_ID;
+
     string monster_ID_str = to_string(monster_ID);
 
     // get the loaded xml document
@@ -57,6 +59,8 @@ Monster::Monster(int monster_ID) {
 //      phy_shield,
 //      magic_shield
 // };
+
+int Monster::getID() { return this->ID; }
 
 int Monster::getSHIELDHP() { return SHIELDHP; }
 

@@ -11,13 +11,15 @@
 // system
 #include <cstdlib>
 
+#include "saveLoad.h"
 #include "sceneManager.h"
 #include "titleScene.h"
-#include "monster.h"
-#include "player.h"
 #include "settingScene.h"
-#include "saveLoad.h"
 #include "lobbyScene.h"
+#include "monsterEncounterScene.h"
+
+#include "player.h"
+#include "monster.h"
 
 #include "pugixml/pugixml.hpp"
 
@@ -38,23 +40,37 @@ void LobbyScene::playScene(Player *player) {
     string input = "";
     getline(cin, input);
 
-    // input check
-    while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 7){
-        cout << "PLEASE ENTER CHOICE BETWEEN 1 - 6" << endl;
+    while(true){
+        if ((input.length() !=1) || (isdigit(input[0]) == 0) || (std::stoi(input) <= 0) || (std::stoi(input) >= 5)) {
+            cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
+        }
+        else {
+            int user_input = std::stoi(input);
+
+            // check whether the player beated the previous monster before
+            if (player->getLEVEL() < user_input) {
+                // not supposed to have access to that room
+                cout << "You are not supposed to enter this room." << endl
+                    << "Fight the previous monsters before entering !!" << endl;
+            }
+            else
+                break;
+        }
+
         getline(cin, input);
      }
 
     int user_input = std::stoi(input);
     switch (user_input) {
         case 1: {
-            system("clear");
-            cout << "Accessing Armory!" << "\n";
-            cout << "Gear up for your next battle!";
+            // load scene
+                Monster *monster = new Monster(user_input);
+                MonsterEncounterScene::playScene(player, monster);
             }
             break;
         case 2: {
             system("clear");
-            cout << "Accessing Food Storage Room";
+
             }
             break;
         case 3:

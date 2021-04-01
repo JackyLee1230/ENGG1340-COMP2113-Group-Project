@@ -36,10 +36,12 @@ void CastleScene::playScene() {
      // written in the constructor
      Player *player = new Player(30, 1, 0, 0);
 
+     // create our first monster
+     Monster *monster = new Monster(1);
      // create a new save file with default player value
      SaveLoad::createNewSaveFile(player);
 
      // final goal: load the combat scene to first for the first monster
-     CombatScene::playScene(player, 1);
+     CombatScene::playScene(player, monster);
 
 }

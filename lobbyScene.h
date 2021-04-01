@@ -1,4 +1,4 @@
-// titleScene.h
+// lobbyScene.h
 #ifndef LOBBYSCENE_H
 #define LOBBYSCENE_H
 
