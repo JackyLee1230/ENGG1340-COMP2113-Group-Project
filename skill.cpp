@@ -53,7 +53,7 @@ void Skill::setATK(int newATK) {
 std::string Skill::getNAME() { return NAME; }
 
 // monster damaging the player
-void Skill::act(Player *player, Monster *monster, Skill *skill, int dmg_type){
+void Skill::act(Player *player, Monster *monster, Skill *skill, int dmg_type, string& monster_action_des){
 
     switch(dmg_type){
 

@@ -9,6 +9,7 @@
 class CombatScene
 {
 public:
+
     static void playScene(Player *, int);
 
     static void monsterMove(Player *, Monster *);

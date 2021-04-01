@@ -35,7 +35,7 @@ public:
 
     void loadMonsterSkillXML(pugi::xml_document&);
 
-    void act(Player *player, Monster *monster, Skill *skill ,int dmg_type);
+    void act(Player *player, Monster *monster, Skill *skill ,int dmg_type, std::string &);
 
 //    void attack(Player *player, Monster *monster, int damage);
 };

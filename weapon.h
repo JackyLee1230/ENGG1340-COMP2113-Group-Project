@@ -55,7 +55,7 @@ public:
     // to be implemented
     // the attack function
     // passing the pointer of the monster u wanna attack
-    void attack(Monster *);
+    void attack(Monster *, std::string &);
 
     void loadWeaponXML(pugi::xml_document&);
 
