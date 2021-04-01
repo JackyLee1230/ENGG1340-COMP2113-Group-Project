@@ -73,7 +73,7 @@ void Weapon::attack(Monster *monster, string& player_action_des){
                 monster->setHP(monster->getHP() - damage*2);
             }else{
                 // reduce HP by dmg value
-                player_action_des = "You dealt a normal attack";
+                player_action_des = "You dealt a normal attack\n"; 
                 player_action_des += "Using " + string(this->NAME) +  " to attack and dealt " + to_string(this->ATK) + " damage to " + monster->getNAME() + "!";
                 monster->setHP(monster->getHP() - damage);
             }

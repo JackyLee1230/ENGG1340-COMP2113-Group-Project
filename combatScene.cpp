@@ -23,8 +23,8 @@ using namespace std;
 using namespace pugi;
 
 // place the declaration here as it should not be called from other classes
-void playerMove(Player *);
-void monsterMove(Monster *);
+void playerMove(Player *, Monster *);
+void monsterMove(Player *, Monster *);
 
 ostringstream oss;
 string player_action_des = "";
@@ -58,7 +58,7 @@ void CombatScene::playScene(Player *player, Monster *monster) {
     // our game !!
     while (true) {
         // turn based, first- player go first
-        playerMove(player, monster, skill);
+        playerMove(player, monster);
 
         if (monster->getHP() <= 0) {
             // player wins
@@ -84,7 +84,7 @@ void CombatScene::playScene(Player *player, Monster *monster) {
     }
 }
 
-void CombatScene::monsterMove(Player *player, Monster *monster) {
+void monsterMove(Player *player, Monster *monster) {
     // Randomly choose monster's move
     int monster_move =  rand() % (monster->getSKILLHIGH() - monster->getSKILLLOW() + 1) + monster->getSKILLLOW();
     Skill *skill = new Skill(monster_move);
@@ -103,7 +103,7 @@ void CombatScene::monsterMove(Player *player, Monster *monster) {
     monster_action_des = oss.str();
 }
 
-void CombatScene::playerMove(Player *player, Monster *monster, Skill* skill) {
+void playerMove(Player *player, Monster *monster) {
     player_action_des = "";
     //ask for player input for action
     string input = "";

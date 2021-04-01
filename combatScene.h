@@ -10,10 +10,6 @@ class CombatScene
 {
 public:
     static void playScene(Player *, Monster *);
-
-    static void monsterMove(Player *, Monster *);
-
-    static void playerMove(Player *, Monster *, Skill *);
 };
 
 #endif
