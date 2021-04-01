@@ -7,7 +7,7 @@
     <DEF>2</DEF>
     <DODGE>0</DODGE>
     <FLIGHT>0</FLIGHT>
-    <SKILL_LOW>3</SKILL_LOW>
+    <SKILL_LOW>1</SKILL_LOW>
     <SKILL_HIGH>4</SKILL_HIGH>
 </monster>
 
@@ -18,8 +18,8 @@
     <DEF>2</DEF>
     <DODGE>5</DODGE>
     <FLIGHT>0</FLIGHT>
-    <SKILL_LOW>5</SKILL_LOW>
-    <SKILL_HIGH>6</SKILL_HIGH>
+    <SKILL_LOW>4</SKILL_LOW>
+    <SKILL_HIGH>7</SKILL_HIGH>
 </monster>
 
 <monster id="3">
@@ -30,7 +30,7 @@
     <DODGE>15</DODGE>
     <FLIGHT>1</FLIGHT>
     <SKILL_LOW>7</SKILL_LOW>
-    <SKILL_HIGH>8</SKILL_HIGH>
+    <SKILL_HIGH>9</SKILL_HIGH>
 </monster>
 
 <monster id="4">
@@ -40,8 +40,8 @@
     <DEF>2</DEF>
     <DODGE>15</DODGE>
     <FLIGHT>0</FLIGHT>
-    <SKILL_LOW>9</SKILL_LOW>
-    <SKILL_HIGH>10</SKILL_HIGH>
+    <SKILL_LOW>10</SKILL_LOW>
+    <SKILL_HIGH>11</SKILL_HIGH>
 </monster>
 
 <monster id="5">
@@ -51,6 +51,6 @@
     <DEF>20</DEF>
     <DODGE>7</DODGE>
     <FLIGHT>1</FLIGHT>
-    <SKILL_LOW>11</SKILL_LOW>
-    <SKILL_HIGH>12</SKILL_HIGH>
+    <SKILL_LOW>10</SKILL_LOW>
+    <SKILL_HIGH>15</SKILL_HIGH>
 </monster>

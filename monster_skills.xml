@@ -80,6 +80,12 @@
 
 <skill id="14">
     <name>Dawn of the Gods</name>
-    <ATK>20</ATK>
+    <ATK>25</ATK>
+    <isMagic>1</isMagic>
+</skill>
+
+<skill id="15">
+    <name>Eternal Dread</name>
+    <ATK>30</ATK>
     <isMagic>1</isMagic>
 </skill>

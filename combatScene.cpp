@@ -135,17 +135,17 @@ void CombatScene::playerMove(Player *player, Monster *monster, Skill* skill) {
             }
             break;
         case 2: {
-            oss << "Using " << weapons[1].getNAME() <<" to attack and dealt " << weapons[1].getATK() << " damage to " << monster->getNAME() << "!" ;
+            //oss << "Using " << weapons[1].getNAME() <<" to attack and dealt " << weapons[1].getATK() << " damage to " << monster->getNAME() << "!" ;
             weapons[1].attack(monster, player_action_des);
             }
             break;
         case 3:{
-            oss << "Using " << weapons[2].getNAME() <<" to attack and dealt " << weapons[2].getATK() << " damage to " << monster->getNAME() << "!" ;
+            //oss << "Using " << weapons[2].getNAME() <<" to attack and dealt " << weapons[2].getATK() << " damage to " << monster->getNAME() << "!" ;
             weapons[2].attack(monster, player_action_des);
             }
             break;
         case 4:{
-            oss << "Using " << weapons[3].getNAME() <<" to attack and dealt " << weapons[3].getATK() << " damage to " << monster->getNAME() << "!" ;
+            //oss << "Using " << weapons[3].getNAME() <<" to attack and dealt " << weapons[3].getATK() << " damage to " << monster->getNAME() << "!" ;
             weapons[3].attack(monster, player_action_des);
             }
             break;

@@ -66,36 +66,12 @@ void Skill::act(Player *player, Monster *monster, Skill *skill, int dmg_type, st
         } break;
         // case 2: // damage to shield
             // Type type;
-            // int player = monster.getATK();
+            // int monster_attack = monster.getATK();
             // if(monster_attack > ShieldHP){
             // }
             // break;
     }
 }
-
-// player attacking the monster
-// void Skill::attack(Player *player, Monster *monster, int damage){
-//     srand(unsigned(time(NULL)));
-//     double dodge_prob = monster->getDODGE() / 100;// probability of dodge depend on the monster
-//     double roll = (double) (rand() / (RAND_MAX + 1.0)); //generate rand prob with time
-//     if(roll > dodge_prob){
-//         if(monster->getHP() > damage){
-//             // reduce HP by dmg value
-//             monster->setHP(monster->getHP() - damage);
-//         }else if(monster->getHP() == damage){
-//             monster->setHP(0);
-//             cout << "You barely defeated the Monster and it fainted." << endl;
-//         }else if(damage > monster->getHP()){
-//             // set HP to 0 since player damage is higher than monster health
-//             monster->setHP(0);
-//         }
-//     }else{
-//         cout << "The Monster were quick enough to realised and evaded your attack!!!!" << endl;
-//         monster->setHP(monster->getHP());
-//     }
-// }
-
-
 
 // load the xml file storing the stats of every monster
 void Skill::loadMonsterSkillXML(xml_document& doc) {

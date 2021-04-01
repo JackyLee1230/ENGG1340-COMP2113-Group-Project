@@ -18,7 +18,10 @@ Link: https://github.com/u3578552/ENGG1340-COMP2113-Group-Project
 
 >Please use makefile to ensure that the game is up to date ,type `make main`. <br/> To execute the game using X2Go/SSH, type `./main` .
 
-> ## Features of the Proposed Game (and the use of coding elements):**
+>Please note that we have made use of **[PugiXML](https://github.com/zeux/pugixml)**, which is around 14500 lines of code.
+> The contribution graph may be affected by the addition of **[PugiXML](https://github.com/zeux/pugixml)**.
+
+> ## Features of the Proposed Game (and the use of coding elements):
 >1. Turn-based combat RPG
 >  - Random Game Sets and Events
 >2. Graphics using ASCII characters
