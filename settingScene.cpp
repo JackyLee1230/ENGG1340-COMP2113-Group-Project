@@ -13,6 +13,7 @@
 #include "monster.h"
 #include "settingScene.h"
 #include "player.h"
+#include "weapon.h"
 
 using namespace std;
 

@@ -37,7 +37,7 @@ public:
 
     void act(Player *player, Monster *monster, Skill *skill ,int dmg_type);
 
-    void attack(Player *player, Monster *monster, int damage);
+//    void attack(Player *player, Monster *monster, int damage);
 };
 
 #endif

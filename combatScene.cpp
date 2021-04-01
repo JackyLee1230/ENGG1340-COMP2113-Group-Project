@@ -103,7 +103,9 @@ void CombatScene::playerMove(Player *player, Monster *monster, Skill* skill) {
     string input = "";
     getline(cin, input);
 
-    while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 7){
+    std::vector<Weapon> weapons = player->getWeapons();
+
+    while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 4 || std::stoi(input) <= weapons.size()){
         cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
         getline(cin, input);
      }
@@ -114,29 +116,29 @@ void CombatScene::playerMove(Player *player, Monster *monster, Skill* skill) {
     oss.str("");
     oss.clear();
 
-    std::vector<Weapon> weapons = player->getWeapons();
+
 
     cout << endl;
 
     switch (user_input) {
         case 1: {
             oss << "Using " << weapons[0].getNAME() <<" to attack and dealt " << weapons[0].getATK() << " damage to " << monster->getNAME() << "!" ;
-            skill->attack(player, monster, weapons[0].getATK());
+            weapons[0].attack(monster);
             }
             break;
         case 2: {
             oss << "Using " << weapons[1].getNAME() <<" to attack and dealt " << weapons[1].getATK() << " damage to " << monster->getNAME() << "!" ;
-            skill->attack(player, monster, weapons[1].getATK());
+            weapons[1].attack(monster);
             }
             break;
         case 3:{
             oss << "Using " << weapons[2].getNAME() <<" to attack and dealt " << weapons[2].getATK() << " damage to " << monster->getNAME() << "!" ;
-            skill->attack(player, monster, weapons[2].getATK());
+            weapons[2].attack(monster);
             }
             break;
         case 4:{
             oss << "Using " << weapons[3].getNAME() <<" to attack and dealt " << weapons[3].getATK() << " damage to " << monster->getNAME() << "!" ;
-            skill->attack(player, monster, weapons[3].getATK());
+            weapons[3].attack(monster);
             }
             break;
     }

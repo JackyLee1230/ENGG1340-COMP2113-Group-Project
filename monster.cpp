@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 #include "monster.h"
-#include "skills.h"
+#include "skill.h"
 #include "player.h"
 
 // for reading xml

@@ -12,6 +12,8 @@
 
 #include "pugixml/pugixml.hpp"
 #include "weapon.h"
+#include "player.h"
+#include "monster.h"
 
 using namespace std;
 using namespace pugi;
@@ -50,10 +52,26 @@ int Weapon::getRANGE() { return this->RANGE; }
 
 int Weapon::getMAGIC() { return this->MAGIC; }
 
-void Weapon::attack(Monster *monster) {
-    int dmg;
-    int dodge;
-
+void Weapon::attack(Monster *monster){
+    int damage = this->ATK;
+    srand(unsigned(time(NULL))); // random prob using time
+    double dodge_prob = monster->getDODGE() / 100;// probability of dodge depend on the monster
+    double roll = (double) (rand() / (RAND_MAX + 1.0)); //generate rand prob with time
+    if(roll > dodge_prob){
+        if(monster->getHP() > damage){
+            // reduce HP by dmg value
+            monster->setHP(monster->getHP() - damage);
+        }else if(monster->getHP() == damage){
+            monster->setHP(0);
+            cout << "You barely defeated the Monster and it fainted." << endl;
+        }else if(damage > monster->getHP()){
+            // set HP to 0 since player damage is higher than monster health
+            monster->setHP(0);
+        }
+    }else{
+        cout << "The Monster were quick enough to realised and evaded your attack!!!!" << endl;
+        monster->setHP(monster->getHP());
+    }
 }
 
 void Weapon::loadWeaponXML(xml_document& doc) {
@@ -82,8 +100,7 @@ void Weapon::showWeapon() {
                 this->ATK,
                 this->CRT
             );
-        }
-        else {
+        }else {
             fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE >",
                 this->NAME.c_str(),
                 "",
