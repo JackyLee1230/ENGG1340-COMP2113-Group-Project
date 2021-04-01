@@ -20,6 +20,7 @@ using namespace pugi;
 
 const char Weapon::WEAPON_STATS_FILE[] = "weapon_stats.xml";
 
+// constructor to initialize weapon using weapon ID
 Weapon::Weapon(int weaponID) {
 
     // load the weapon's stats from xml doc
@@ -37,7 +38,7 @@ Weapon::Weapon(int weaponID) {
     RANGE = atoi(weapon.child("RANGE").child_value());
     MAGIC = atoi(weapon.child("MAGIC").child_value());
 }
-
+// #functions that return the stats of the weapon
 int Weapon::getID() {
     return static_cast<int>(this->weapon_id);
 }
@@ -52,8 +53,10 @@ int Weapon::getRANGE() { return this->RANGE; }
 
 int Weapon::getMAGIC() { return this->MAGIC; }
 
+// function for Player to attack monster using the specificed weapon
+// and have a chacne of critical hit and a chance of the monster dodging the attack
 void Weapon::attack(Monster *monster, string& player_action_des){
-    int damage = this->ATK;
+    int damage = this->ATK; // damdage value of the weapon
     srand(unsigned(time(NULL))); // random prob using time
     double crt_chance = this->CRT / 100; // get crt chance from weapon stats
     double crt_roll = (double) (rand() / (RAND_MAX + 1.0)); // generate rand prob with time
@@ -101,6 +104,8 @@ void Weapon::attack(Monster *monster, string& player_action_des){
     }
 }
 
+// load the weapon stats from the weapon_stats XML file
+// output whether there is an error or not in reading the stats
 void Weapon::loadWeaponXML(xml_document& doc) {
     // load the xml first
     xml_parse_result result = doc.load_file(WEAPON_STATS_FILE);
@@ -116,6 +121,9 @@ void Weapon::loadWeaponXML(xml_document& doc) {
     }
 }
 
+//using a loop, and depending on the weapon Type
+//print out the weapon in different format
+// including NAME, ATK, CRT, RANGE, MAGIC
 void Weapon::showWeapon() {
     // output weapon stats depened on whether it is a
     // magic / range / normal type weapon

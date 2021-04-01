@@ -21,6 +21,9 @@
 
 using namespace std;
 
+// this function will load the starting scene of the game
+// and prompt for user input to determine whether player
+// want to start new game, continue, show credit/info or quit
 void TitleScene::playScene() {
     // load the graphics
     SceneManager::loadTitleScreen();
@@ -53,7 +56,7 @@ void TitleScene::playScene() {
 
     int user_input = std::stoi(input);
 
-    switch (user_input) {
+    switch (user_input) { // choose action depending on user input and call the respective functions 
         case 1: {
             cout << "You inputted: " << user_input << "\n";
 
