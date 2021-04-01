@@ -4,7 +4,6 @@
 
 #include "pugixml/pugixml.hpp"
 
-#include "player.h"
 #include "monster.h"
 
 enum WeaponID {

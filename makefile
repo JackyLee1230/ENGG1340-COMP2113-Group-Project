@@ -9,16 +9,16 @@ SaveLoad.o: saveLoad.cpp saveLoad.h player.h weapon.h pugixml.o
 	g++ $(FLAGS) -c $<
 
 # game objects
-player.o: player.cpp player.h SaveLoad.h weapon.h pugixml.o
-	g++ $(FLAGS) -c $<
-
-monster.o: monster.cpp monster.h player.h pugixml.o
+weapon.o: weapon.cpp weapon.h pugixml.o player.h monster.h
 	g++ $(FLAGS) -c $<
 
 skill.o: skill.cpp skill.h monster.o player.h pugixml.o
 	g++ $(FLAGS) -c $<
 
-weapon.o: weapon.cpp weapon.h pugixml.o player.h monster.h
+monster.o: monster.cpp monster.h player.h pugixml.o
+	g++ $(FLAGS) -c $<
+
+player.o: player.cpp player.h SaveLoad.h weapon.h pugixml.o
 	g++ $(FLAGS) -c $<
 
 # scenes
