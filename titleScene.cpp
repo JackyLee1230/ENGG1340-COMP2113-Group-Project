@@ -18,6 +18,7 @@
 #include "lobbyScene.h"
 #include "settingScene.h"
 #include "combatScene.h"
+#include "combatResultScene.h"
 
 using namespace std;
 
@@ -56,7 +57,7 @@ void TitleScene::playScene() {
 
     int user_input = std::stoi(input);
 
-    switch (user_input) { // choose action depending on user input and call the respective functions 
+    switch (user_input) { // choose action depending on user input and call the respective functions
         case 1: {
             cout << "You inputted: " << user_input << "\n";
 
@@ -64,6 +65,9 @@ void TitleScene::playScene() {
 
             // check whether the player has passed the first monster
             if (player->getLEVEL() == 0 && player->getFLOOR() == 0) {
+                // player has done its job
+                delete player;
+
                 CastleScene::playScene();
             }
             else {
@@ -85,7 +89,7 @@ void TitleScene::playScene() {
             cout << "You inputted: " << user_input << "\n";
 
             Player *player = SaveLoad::loadSaveFile();
-            Monster *monster = new Monster(1);
+            Monster *monster = new Monster(2);
 
             // cout << "Now Accessing SETTINGS";
             //SettingScene::playScene();

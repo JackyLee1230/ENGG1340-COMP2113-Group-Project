@@ -25,7 +25,8 @@ public:
     static const std::string COMBAT_SCENE;
     static const std::string SETTING_SCENE;
     static const std::string CASTLE_SCENE;
-    //static const std::string ENCOUNTER_SCENE;
+    static const std::string COMBAT_WIN_SCENE;
+    static const std::string COMBAT_LOSE_SCENE;
 
     static void loadCastleScreen();
 
@@ -42,6 +43,8 @@ public:
     static void loadEncouterMonster(int);
 
     static void loadCombatScreen(Player *, Monster *, std::string, std::string);
+
+    static void loadCombatResultScreen(bool);
 
     // int calculateLeftJustify(int);
 };

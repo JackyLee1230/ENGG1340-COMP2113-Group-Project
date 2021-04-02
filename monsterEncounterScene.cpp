@@ -18,7 +18,7 @@ void MonsterEncounterScene::playScene(Player *player, Monster *monster) {
     // load graphics
     SceneManager::loadEncouterMonster(monster->getID());
 
-    cout << "Enter 'n' to continue and fight " + monster->getNAME();
+    cout << "Enter 'n' to continue and fight " + monster->getNAME() << endl;
 
     // input handling
     string input = "";

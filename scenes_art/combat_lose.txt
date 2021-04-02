@@ -8,5 +8,5 @@
 (______/ (_______/|/       (_______/|/     \|   )_(
 
 
-				(Input "R" to Retry)
-				(Input "Q" to Quit )
+                (Input "R" to Retry)
+                (Input "Q" to Quit )

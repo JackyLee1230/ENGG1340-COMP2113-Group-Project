@@ -25,7 +25,7 @@ player.o: player.cpp player.h SaveLoad.h weapon.h pugixml.o
 sceneManager.o: sceneManager.cpp sceneManager.h player.h monster.h weapon.h
 	g++ $(FLAGS) -c $<
 
-titleScene.o: titleScene.cpp titleScene.h castleScene.h sceneManager.h combatScene.h
+titleScene.o: titleScene.cpp titleScene.h castleScene.h sceneManager.h combatScene.h combatResultScene.h
 	g++ $(FLAGS) -c $<
 
 castleScene.o: castleScene.cpp castleScene.h sceneManager.h player.h combatScene.h
@@ -40,11 +40,14 @@ monsterEncounterScene.o: monsterEncounterScene.cpp monsterEncounterScene.h scene
 combatScene.o: combatScene.cpp combatScene.h skill.h player.h monster.h
 	g++ $(FLAGS) -c $<
 
+combatResultScene.o: combatResultScene.cpp combatResultScene.h player.h monster.h
+	g++ $(FLAGS) -c $<
+
 # main program to run the game
 main.o: main.cpp
 	g++ $(FLAGS) -c $<
 
-main: main.o sceneManager.o titleScene.o castleScene.o lobbyScene.o monsterEncounterScene.o combatScene.o monster.o player.o weapon.o skill.o SaveLoad.o
+main: main.o sceneManager.o titleScene.o castleScene.o lobbyScene.o monsterEncounterScene.o combatScene.o combatResultScene.o monster.o player.o weapon.o skill.o SaveLoad.o
 	g++ $(FLAGS) $^ -o main
 
 clean:

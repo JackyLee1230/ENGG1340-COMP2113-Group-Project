@@ -1,18 +1,21 @@
-#include "combatScene.h"
-#include "monster.h"
-#include "skill.h"
-#include "lobbyScene.h"
-#include "SceneManager.h"
-#include "player.h"
-#include "titleScene.h"
-#include "settingScene.h"
-#include "saveLoad.h"
-
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string>
+
+#include "combatScene.h"
+
+#include "saveLoad.h"
+#include "player.h"
+#include "monster.h"
+#include "skill.h"
+
+#include "SceneManager.h"
+#include "titleScene.h"
+#include "settingScene.h"
+#include "lobbyScene.h"
+#include "combatResultScene.h"
 
 // for producing formatted string
 #include <sstream>      // std::ostringstream
@@ -33,10 +36,9 @@ string monster_action_des = "";
 // should pass the player's and monster's detail
 void CombatScene::playScene(Player *player, Monster *monster) {
 
-    // generate our first-encounter string here
-    // player_action_des = ;
-    // monster_action_des = ;
+    bool isPlayerWon = false;
 
+    // generate our first-encounter string here
     oss.str("");
     oss.clear();
     oss << "You have encountered " << monster->getNAME() << "\n" << "Fight for your survival!!!!" ;
@@ -62,7 +64,13 @@ void CombatScene::playScene(Player *player, Monster *monster) {
 
         if (monster->getHP() <= 0) {
             // player wins
+
+            // load the combat screen with the hp of the monster is set to 0
+            // wait for a few seconds
+
+
             // load the corresponding scene
+            CombatResultScene::playScene(player, monster, true);
             break;
         }
         // turn based, next- monster go next
@@ -71,7 +79,13 @@ void CombatScene::playScene(Player *player, Monster *monster) {
 
         if (player->getHP() <= 0) {
             // monster wins, player loses
+
+            // load the combat screen with the hp of the player is set to 0
+            // wait for a few seconds
+
+
             // load the corresponding scene
+            CombatResultScene::playScene(player, monster, false);
             break;
         }
 

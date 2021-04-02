@@ -46,6 +46,8 @@ const string SceneManager::MAIN_SCENE = "mainmenu";
 const string SceneManager::COMBAT_SCENE = "combat";
 const string SceneManager::SETTING_SCENE = "setting";
 const string SceneManager::CASTLE_SCENE = "castle";
+const string SceneManager::COMBAT_WIN_SCENE = "combat_win";
+const string SceneManager::COMBAT_LOSE_SCENE = "combat_lose";
 
 // return the number of leading space to center align the text
 // int SceneManager::calculateLeftJustify(int string_width) {
@@ -180,6 +182,33 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
         cout << endl;
     }
     cout << endl;
+}
+
+void SceneManager::loadCombatResultScreen(bool isPlayerWon) {
+    string file_name = "";
+    string line;
+
+    // showing different screen according to
+    // whether the player won or lose the battle
+    if (isPlayerWon) {
+        file_name = COMBAT_WIN_SCENE + ".txt";
+    }
+    else {
+        file_name = COMBAT_LOSE_SCENE + ".txt";
+    }
+
+    ifstream myfile (SCENES_FOLDER_PATH + file_name);
+
+    system("clear");
+
+    if(myfile.is_open()) {
+        while (getline(myfile, line)) {
+            cout << line << "\n";
+        }
+        cout << endl;
+    }
+
+    myfile.close();
 }
 
 void SceneManager::loadSettingScreen(){

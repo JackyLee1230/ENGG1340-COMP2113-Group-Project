@@ -62,6 +62,10 @@ void Player::setFLOOR(int newFLOOR){
 
 int Player::getLEVEL() { return this->LEVEL; }
 
+void Player::setLEVEL(int newLEVEL) {
+    this->LEVEL = newLEVEL;
+}
+
 
 // int Player::getATK(){ return Player::ATK; }
 //
