@@ -13,10 +13,10 @@ Topic: Turn-based Combat Text-based RPG
 Link: https://github.com/u3578552/ENGG1340-COMP2113-Group-Project
 </pre>
 
-> ### The game is best run on **_X2Go / SSH_** using command prompt on Windows <br> in **Full Screen Mode**
-> ### to showcase the arts and elements in the game
+> ### The game is best run on **_X2Go / SSH_** using command prompt / terminal <br> in **Full Screen Mode**
+> ### To showcase the arts and elements in the game
 
->Please use makefile to ensure that the game is up to date ,type `make main`. <br/> To execute the game using X2Go/SSH, type `./main` .
+>Please use makefile to ensure that the game is up to date ,type `make main`. <br/> To execute the game using X2Go/SSH, type `./main` in the game directory.
 
 >Please note that we have made use of **[PugiXML](https://github.com/zeux/pugixml)**, which is around 14500 lines of code.
 > The contribution graph may be affected by the addition of **[PugiXML](https://github.com/zeux/pugixml)**.

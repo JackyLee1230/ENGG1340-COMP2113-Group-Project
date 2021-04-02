@@ -13,6 +13,7 @@
 
 using namespace std;
 
+// load the Scene when the player first encounter this monster
 void MonsterEncounterScene::playScene(Player *player, Monster *monster) {
 
     // load graphics

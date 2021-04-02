@@ -41,6 +41,7 @@ void LobbyScene::playScene(Player *player) {
     getline(cin, input);
 
     while(true){
+        // prompt for player input until input is valid
         if ((input.length() !=1) || (isdigit(input[0]) == 0) || (std::stoi(input) <= 0) || (std::stoi(input) >= 7)) {
             cout << "PLEASE ENTER CHOICE BETWEEN 1 - 6" << endl;
         }
@@ -54,7 +55,8 @@ void LobbyScene::playScene(Player *player) {
             // check whether the player beated the previous monster before
             if (player->getLEVEL() < user_input) {
                 // not supposed to have access to that room
-                cout << "You are not supposed to enter this room." << endl
+                cout << "You cannot enter this room." << endl
+                    << "This Room is protected with a spell" << endl
                     << "Fight the previous monsters before entering !!" << endl;
             }
             else

@@ -60,6 +60,7 @@ Monster::Monster(int monster_ID) {
 //      magic_shield
 // };
 
+//member functions to set the stats of the monster and return the value when needed
 int Monster::getID() { return this->ID; }
 
 int Monster::getSHIELDHP() { return SHIELDHP; }
@@ -100,6 +101,12 @@ void Monster::setDEF(int newDEF){
     DEF = newDEF;
 }
 
+std::string Monster::getNAME() { return NAME; }
+
+std::string Monster::setNAME(std::string newNAME){
+    NAME = newNAME;
+}
+
 // int Monster::calculateHP(int HP){
 //     return float(HP) * level * 1.3;
 // }
@@ -112,13 +119,7 @@ void Monster::setDEF(int newDEF){
 //     return float(DEF) * level * 1.3;
 // }
 
-std::string Monster::getNAME() { return NAME; }
-
-std::string Monster::setNAME(std::string newNAME){
-    NAME = newNAME;
-}
-
-// load the monster art
+// print the monster art
 // similar to loadTitleScreen
 void Monster::loadAsciiArt(string fileName) {
     string file_name = fileName + ".txt";

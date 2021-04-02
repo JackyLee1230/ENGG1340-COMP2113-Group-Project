@@ -14,6 +14,7 @@
 
 using namespace std;
 
+// play the castle scene at the start of a new game
 void CastleScene::playScene() {
 
     // load scene

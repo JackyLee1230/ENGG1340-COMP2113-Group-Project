@@ -15,6 +15,7 @@
 
 using namespace std;
 
+//main function of the game, call other functions to start the game
 int main(){
     // loadScene("start");
     //

@@ -43,6 +43,7 @@ void TitleScene::playScene() {
             // check whether a savefile exists before allowing the player to continue their game
             if (user_input == 1) {
                 if (!SaveLoad::checkSaveFileExist())
+                    // ask the player to create a new game save 
                     cout << "Savefile does not exist. Please enter 2 to start a new game instead." << endl;
                 else
                     break;
@@ -61,9 +62,11 @@ void TitleScene::playScene() {
         case 1: {
             cout << "You inputted: " << user_input << "\n";
 
+            //load the player stats from the Save File
             Player *player = SaveLoad::loadSaveFile();
 
             // check whether the player has passed the first monster
+            //if no, simply restart the game and load Intro/ Castle Scene
             if (player->getLEVEL() == 0 && player->getFLOOR() == 0) {
                 // player has done its job
                 delete player;
@@ -97,6 +100,7 @@ void TitleScene::playScene() {
             CombatScene::playScene(player, monster);
         } break;
         case 4:
+        //exit the game
             cout<< "See you next time! We hope you enjoyed your stay!"<<endl;
             exit(0);
             break;

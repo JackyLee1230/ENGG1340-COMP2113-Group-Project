@@ -10,7 +10,7 @@
 class Player {
     private:
         int HP;
-        // int ATK;
+
         int DODGE;
 
         // game progress purpose, current floor and current level
@@ -33,10 +33,6 @@ class Player {
 
         void setHP(int newHP);
 
-        // int getATK();
-        //
-        // void setATK(int newATK);
-
         int getDODGE();
 
         void setDODGE(int newDODGE);
@@ -52,10 +48,6 @@ class Player {
         void setWeapons(std::vector<Weapon>);
 
         std::vector<Weapon> getWeapons();
-
-        // std::string getNAME();
-        //
-        // std::string setNAME(std::string newNAME);
 
 };
 

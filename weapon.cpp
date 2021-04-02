@@ -38,7 +38,7 @@ Weapon::Weapon(int weaponID) {
     RANGE = atoi(weapon.child("RANGE").child_value());
     MAGIC = atoi(weapon.child("MAGIC").child_value());
 }
-// #functions that return the stats of the weapon
+// member functions that return the stats of the weapon
 int Weapon::getID() {
     return static_cast<int>(this->weapon_id);
 }
@@ -60,11 +60,12 @@ void Weapon::attack(Monster *monster, string& player_action_des){
     srand(unsigned(time(NULL))); // random prob using time
     double crt_chance = this->CRT / 100; // get crt chance from weapon stats
     double crt_roll = (double) (rand() / (RAND_MAX + 1.0)); // generate rand prob with time
+
+    //seed the random again, so that the roll of crit and dodge will not be the same
     srand(unsigned(time(NULL)));
     double dodge_prob = monster->getDODGE() / 100;// probability of dodge depend on the monster
     double dodge_roll = (double) (rand() / (RAND_MAX + 1.0)); //generate rand prob with time
-    // if the attack is not dodged
-    if(dodge_roll > dodge_prob){
+    if(dodge_roll > dodge_prob){// if the attack is not dodged
         if(monster->getHP() > damage){
             // if crt chance > crt roll, player's damage is doubled
             if(crt_chance > crt_roll){
@@ -73,7 +74,7 @@ void Weapon::attack(Monster *monster, string& player_action_des){
                 monster->setHP(monster->getHP() - damage*2);
             }else{
                 // reduce HP by dmg value
-                player_action_des = "You dealt a normal attack\n"; 
+                player_action_des = "You dealt a normal attack\n";
                 player_action_des += "Using " + string(this->NAME) +  " to attack and dealt " + to_string(this->ATK) + " damage to " + monster->getNAME() + "!";
                 monster->setHP(monster->getHP() - damage);
             }
@@ -97,7 +98,7 @@ void Weapon::attack(Monster *monster, string& player_action_des){
             // set HP to 0 since player damage is higher than monster health
             monster->setHP(0);
         }
-    // when the attack is dodged
+    // when the attack is dodged, no damage will be dealt to the monster
     }else{
         player_action_des = "The Monster were quick enough to realised and evaded your attack!!!!";
         monster->setHP(monster->getHP());
@@ -128,14 +129,14 @@ void Weapon::showWeapon() {
     // output weapon stats depened on whether it is a
     // magic / range / normal type weapon
     if(this->RANGE == 1){
-        if(this->MAGIC == 1){
+        if(this->MAGIC == 1){ // weapon is ranged and does magic damage
             fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE, MAGIC: TRUE >",
                 this->NAME.c_str(),
                 "",
                 this->ATK,
                 this->CRT
             );
-        }else {
+        }else { // weapon is ranged
             fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE >",
                 this->NAME.c_str(),
                 "",
@@ -144,7 +145,7 @@ void Weapon::showWeapon() {
             );
         }
     }
-    else{
+    else{ // weapon only deals physical damage
         fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d% >",
             this->NAME.c_str(),
             "",

@@ -3,7 +3,7 @@
 	<HP>30</HP>
 	<DODGE>1</DODGE>
 	<FLOOR>0</FLOOR>
-	<LEVEL>2</LEVEL>
+	<LEVEL>0</LEVEL>
 	<weapons>
 		<weapon id="1" />
 	</weapons>

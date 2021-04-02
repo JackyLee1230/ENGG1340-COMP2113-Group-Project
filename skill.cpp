@@ -44,6 +44,7 @@ Skill::Skill(int skill_ID) {
     ATK = atoi(skill_node.child("ATK").child_value());
 }
 
+// member functions to get the stats of the skill that the monster casetd
 int Skill::getATK() { return ATK; }
 
 void Skill::setATK(int newATK) {
@@ -52,7 +53,8 @@ void Skill::setATK(int newATK) {
 
 std::string Skill::getNAME() { return NAME; }
 
-// monster damaging the player
+
+// monster damaging the player and print out the action
 void Skill::act(Player *player, Monster *monster, Skill *skill, int dmg_type, string& monster_action_des){
 
     switch(dmg_type){

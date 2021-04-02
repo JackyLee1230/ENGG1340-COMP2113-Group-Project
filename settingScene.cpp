@@ -17,6 +17,7 @@
 
 using namespace std;
 
+//load the setting scene 
 void SettingScene::playScene() {
     SceneManager::loadSettingScreen();
 

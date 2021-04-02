@@ -23,7 +23,7 @@ using namespace std;
 using namespace pugi;
 
 //const char Player::PLAYER_SAVEFILE[] = "savefile.xml";
-const int Player::HP_MAX = 30;
+const int Player::HP_MAX = 30; //defauly HP_MAX value
 
 // constructor called when creating a new game
 Player::Player(int hp, int dodge, int floor, int level) {
@@ -41,6 +41,7 @@ Player::Player(int hp, int dodge, int floor, int level) {
     this-> weapons.push_back(Weapon(1));
 }
 
+//member functions to set the stats of the player and return the value when needed
 int Player::getHP() { return this->HP; }
 
 void Player::setHP(int newHP){
@@ -66,28 +67,16 @@ void Player::setLEVEL(int newLEVEL) {
     this->LEVEL = newLEVEL;
 }
 
-
-// int Player::getATK(){ return Player::ATK; }
-//
-// void Player::setATK(int newATK) {
-//     Player::ATK = newATK;
-// }
-
-
 // int Player::getDEF() { return Player::DEF; }
 //
 // void Player::setDEF(int newDEF) {
 //     Player::DEF = newDEF;
 // }
 
-// string Player::getNAME() { return Player::NAME; }
-//
-// string Player::setNAME(string newNAME) {
-//     Player::NAME = newNAME;
-// }
-
+// set the weapon of the player using a vector
 void Player::setWeapons(std::vector<Weapon> weapons) {
     this->weapons = weapons;
 }
 
+// get the player weapon from the vector member
 std::vector<Weapon> Player::getWeapons() { return this->weapons; }

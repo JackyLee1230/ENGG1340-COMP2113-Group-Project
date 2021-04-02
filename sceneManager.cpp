@@ -115,6 +115,7 @@ void SceneManager::loadLobbyScreen() {
     myfile.close();
 }
 
+//load the lobby floor scene of the player level/floor
 void SceneManager::loadLobbyFloor(int floor_no) {
     string file_name = "floor_" + to_string(floor_no) + ".txt";
     string line;
@@ -134,6 +135,7 @@ void SceneManager::loadLobbyFloor(int floor_no) {
     myfile.close();
 }
 
+//load the ASCII Art of the Monster player is fighting
 void SceneManager::loadEncouterMonster(int monster_ID){
     string file_name = "monster_" + to_string(monster_ID) + ".txt";
     string line;
@@ -154,6 +156,7 @@ void SceneManager::loadEncouterMonster(int monster_ID){
     myfile.close();
 }
 
+//load the combat screen with the player and monster pointer, together with description of the player and monster actions
 void SceneManager::loadCombatScreen(Player *player, Monster *monster, string player_action_des, string monster_action_des) {
 
     // screen cleaning
@@ -184,6 +187,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
     cout << endl;
 }
 
+//load the scene if either the player died or killed the monster
 void SceneManager::loadCombatResultScreen(bool isPlayerWon) {
     string file_name = "";
     string line;
@@ -193,7 +197,7 @@ void SceneManager::loadCombatResultScreen(bool isPlayerWon) {
     if (isPlayerWon) {
         file_name = COMBAT_WIN_SCENE + ".txt";
     }
-    else {
+    else if (!isPlayerWon){
         file_name = COMBAT_LOSE_SCENE + ".txt";
     }
 
@@ -211,6 +215,7 @@ void SceneManager::loadCombatResultScreen(bool isPlayerWon) {
     myfile.close();
 }
 
+//load the setting screen
 void SceneManager::loadSettingScreen(){
   string file_name = SETTING_SCENE + ".txt";
   string line;

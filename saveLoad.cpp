@@ -17,6 +17,7 @@ using namespace pugi;
 const char SaveLoad::PLAYER_SAVEFILE[] = "savefile.xml";
 
 // can be used in checking whether the continue button can be pressed
+// by checking whether the save file exist in the directory
 bool SaveLoad::checkSaveFileExist() {
     if (FILE *file = fopen(PLAYER_SAVEFILE, "r")) {
         fclose(file);
@@ -26,7 +27,7 @@ bool SaveLoad::checkSaveFileExist() {
     }
 }
 
-// create new save file
+// create new save file (overwriting original file/ new file)
 // taking default hp, dodge and user inputted name as input
 void SaveLoad::createNewSaveFile(Player *player) {
     // remove past save file
@@ -78,7 +79,7 @@ void SaveLoad::createNewSaveFile(Player *player) {
     doc.save_file(PLAYER_SAVEFILE);
 }
 
-// read the savefile
+// read the savefile to get the stats of the player
 Player* SaveLoad::loadSaveFile() {
 
     xml_document doc;
@@ -98,7 +99,7 @@ Player* SaveLoad::loadSaveFile() {
 
     xml_node player_node = doc.child("Player");
 
-    // create new Player object
+    // create new Player object with the needed values
     Player *player = new Player(
         atoi(player_node.child("HP").child_value()),
         atoi(player_node.child("DODGE").child_value()),
@@ -116,6 +117,7 @@ Player* SaveLoad::loadSaveFile() {
     return player;
 }
 
+// load the weapons of the player using the weapons vector
 std::vector<Weapon> SaveLoad::loadPlayerWeapons(xml_node items) {
     std::vector<Weapon> weapons;
     // weapons.reserve(1);

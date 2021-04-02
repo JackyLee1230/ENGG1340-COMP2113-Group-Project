@@ -98,6 +98,8 @@ void CombatScene::playScene(Player *player, Monster *monster) {
     }
 }
 
+// randomly generate a monster move
+// and output the monster's move and deal the corresponding damage to the player
 void monsterMove(Player *player, Monster *monster) {
     // Randomly choose monster's move
     int monster_move =  rand() % (monster->getSKILLHIGH() - monster->getSKILLLOW() + 1) + monster->getSKILLLOW();
@@ -110,21 +112,24 @@ void monsterMove(Player *player, Monster *monster) {
     skill->act(player, monster, skill , 1, monster_action_des);
 
     oss << "Monster " << monster->getNAME() <<  " casted: " << skill->getNAME() << " and dealt " << skill->getATK() << " damage";
-    // cout << "End of Monster's Turn!" << endl;
-    // cout << "Time for you to fight back! Warrior!" << endl;
 
     // store the action description for displaying
     monster_action_des = oss.str();
 }
 
+
+// ask for player weapon use
+// and output the plater's weapon choice and deal the corresponding damage to the monster
 void playerMove(Player *player, Monster *monster) {
     player_action_des = "";
     //ask for player input for action
     string input = "";
     getline(cin, input);
 
+    // save all of the player weapons into a vector
     std::vector<Weapon> weapons = player->getWeapons();
 
+    // prompt for player input until input is valid
     while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 4 || std::stoi(input) > weapons.size()){
         cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
         getline(cin, input);
@@ -138,6 +143,7 @@ void playerMove(Player *player, Monster *monster) {
 
     cout << endl;
 
+    // user_input determine which weapon player uses to attack the monster
     switch (user_input) {
         case 1: {
             //oss << "Using " << weapons[0].getNAME() <<" to attack and dealt " << weapons[0].getATK() << " damage to " << monster->getNAME() << "!" ;
