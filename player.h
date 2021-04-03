@@ -6,6 +6,7 @@
 
 #include "pugixml/pugixml.hpp"
 #include "weapon.h"
+#include "fruit.h"
 
 class Player {
     private:
@@ -19,6 +20,8 @@ class Player {
 
         // weapons for combat
         std::vector<Weapon> weapons;
+        //Fruits in comsumables
+        std::vector<Fruit> fruits;
 
 
     public:
@@ -48,6 +51,11 @@ class Player {
         void setWeapons(std::vector<Weapon>);
 
         std::vector<Weapon> getWeapons();
+
+        std::vector<Fruit> getFRUITS();
+
+        void setFRUITS(std::vector<Fruit>);
+
 
 };
 

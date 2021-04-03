@@ -7,4 +7,14 @@
 	<weapons>
 		<weapon id="1" />
 	</weapons>
+	<fruits>
+		<fruit>
+			<id>1</id>
+			<quantity>20</quantity>
+		</fruit>
+		<fruit>
+			<id>2</id>
+			<quantity>20</quantity>
+		</fruit>
+	</fruits>
 </Player>
