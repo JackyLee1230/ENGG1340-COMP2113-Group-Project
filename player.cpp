@@ -39,6 +39,8 @@ Player::Player(int hp, int dodge, int floor, int level) {
     // write a new default weapon (the one with id = 1)
     this-> weapons.clear();
     this-> weapons.push_back(Weapon(1));
+
+    this-> fruits.clear();
 }
 
 //member functions to set the stats of the player and return the value when needed
@@ -66,6 +68,13 @@ int Player::getLEVEL() { return this->LEVEL; }
 void Player::setLEVEL(int newLEVEL) {
     this->LEVEL = newLEVEL;
 }
+
+vector<Fruit> Player::getFRUITS() { return this->fruits; }
+
+void Player::setFRUITS(vector<Fruit> newFRUITS) {
+    this->fruits = newFRUITS;
+}
+
 
 // int Player::getDEF() { return Player::DEF; }
 //

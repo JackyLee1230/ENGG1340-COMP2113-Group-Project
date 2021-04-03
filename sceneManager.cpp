@@ -12,6 +12,7 @@
 #include "monster.h"
 #include "player.h"
 #include "weapon.h"
+#include "fruit.h"
 
 using namespace std;
 
@@ -198,7 +199,15 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
         weapons[i].showWeapon();
         cout << endl;
     }
+
+    std::vector<Fruit> fruits = player->getFRUITS();
+    for (int i = 0; i < fruits.size(); i++) {
+        cout << "[" << (i+5) << "] ";
+        fruits[i].showFRUITS();
+        cout << endl;
+    }
     cout << endl;
+
 }
 
 //load the scene if either the player died or killed the monster

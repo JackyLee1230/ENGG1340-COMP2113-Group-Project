@@ -21,6 +21,7 @@ public:
     static void createNewSaveFile(Player*);
 
     static std::vector<Weapon> loadPlayerWeapons(pugi::xml_node);
+    static std::vector<Fruit> loadPlayerFruits(pugi::xml_node);
 };
 
 #endif

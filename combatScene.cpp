@@ -16,6 +16,7 @@
 #include "settingScene.h"
 #include "lobbyScene.h"
 #include "combatResultScene.h"
+#include "fruit.h"
 
 // for producing formatted string
 #include <sstream>      // std::ostringstream
@@ -134,47 +135,107 @@ void playerMove(Player *player, Monster *monster) {
     player_action_des = "";
     //ask for player input for action
     string input = "";
-    getline(cin, input);
 
     // save all of the player weapons into a vector
     std::vector<Weapon> weapons = player->getWeapons();
+    SaveLoad::loadSaveFile();
+    std::vector<Fruit> fruits = player->getFRUITS();
 
-    // prompt for player input until input is valid
-    while(input.length() !=1 || isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 4 || std::stoi(input) > weapons.size()){
-        cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
+
+    bool continue_game = false;
+
+    while(continue_game == false){
+
         getline(cin, input);
-     }
+        // prompt for player input until input is valid
+        while(isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 10){
+            cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4 For Attack, 5-10 For Healing" << endl;
+            getline(cin, input);
+         }
 
-    int user_input = std::stoi(input);
+        int user_input = std::stoi(input);
 
-    // clear existing stuff in the ostringstream
-    oss.str("");
-    oss.clear();
+        // clear existing stuff in the ostringstream
+        oss.str("");
+        oss.clear();
 
-    cout << endl;
+        cout << endl;
 
-    // user_input determine which weapon player uses to attack the monster
-    switch (user_input) {
-        case 1: {
-            //oss << "Using " << weapons[0].getNAME() <<" to attack and dealt " << weapons[0].getATK() << " damage to " << monster->getNAME() << "!" ;
-            weapons[0].attack(monster, player_action_des);
+        // user_input determine which weapon player uses to attack the monster
+        switch (user_input) {
+            case 1: {
+                //oss << "Using " << weapons[0].getNAME() <<" to attack and dealt " << weapons[0].getATK() << " damage to " << monster->getNAME() << "!" ;
+                weapons[0].attack(monster, player_action_des);
+                continue_game = true;
+                }
+                break;
+            case 2: {
+                //oss << "Using " << weapons[1].getNAME() <<" to attack and dealt " << weapons[1].getATK() << " damage to " << monster->getNAME() << "!" ;
+                weapons[1].attack(monster, player_action_des);
+                continue_game = true;
+                }
+                break;
+            case 3:{
+                //oss << "Using " << weapons[2].getNAME() <<" to attack and dealt " << weapons[2].getATK() << " damage to " << monster->getNAME() << "!" ;
+                weapons[2].attack(monster, player_action_des);
+                continue_game = true;
+                }
+                break;
+            case 4:{
+                //oss << "Using " << weapons[3].getNAME() <<" to attack and dealt " << weapons[3].getATK() << " damage to " << monster->getNAME() << "!" ;
+                weapons[3].attack(monster, player_action_des);
+                continue_game = true;
+                }
+            // --------------- consumables --------------
+            case 5:{
+                fruits[0].act(player);
+                continue_game = false;
+                player_action_des = "You consumed " + fruits[0].getNAME() + " and healed " + to_string(fruits[0].getHP()) + " HP!";
+                monster_action_des ="";
+                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
             }
             break;
-        case 2: {
-            //oss << "Using " << weapons[1].getNAME() <<" to attack and dealt " << weapons[1].getATK() << " damage to " << monster->getNAME() << "!" ;
-            weapons[1].attack(monster, player_action_des);
+            case 6:{
+                fruits[1].act(player);
+                continue_game = false;
+                player_action_des = "You consumed " + fruits[1].getNAME() + " and healed " + to_string(fruits[1].getHP()) + " HP!";
+                monster_action_des ="";
+                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
             }
             break;
-        case 3:{
-            //oss << "Using " << weapons[2].getNAME() <<" to attack and dealt " << weapons[2].getATK() << " damage to " << monster->getNAME() << "!" ;
-            weapons[2].attack(monster, player_action_des);
+            case 7:{
+                fruits[2].act(player);
+                continue_game = false;
+                player_action_des = "You consumed " + fruits[2].getNAME() + " and healed " + to_string(fruits[2].getHP()) + " HP!";
+                monster_action_des ="";
+                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
             }
             break;
-        case 4:{
-            //oss << "Using " << weapons[3].getNAME() <<" to attack and dealt " << weapons[3].getATK() << " damage to " << monster->getNAME() << "!" ;
-            weapons[3].attack(monster, player_action_des);
+            case 8:{
+                fruits[3].act(player);
+                continue_game = false;
+                player_action_des = "You consumed " + fruits[3].getNAME() + " and healed " + to_string(fruits[3].getHP()) + " HP!";
+                monster_action_des ="";
+                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
             }
             break;
+            case 9:{
+                fruits[4].act(player);
+                continue_game = false;
+                player_action_des = "You consumed " + fruits[4].getNAME() + " and healed " + to_string(fruits[4].getHP()) + " HP!";
+                monster_action_des ="";
+                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+            }
+            break;
+            case 10:{
+                fruits[5].act(player);
+                continue_game = false;
+                player_action_des = "You consumed " + fruits[5].getNAME() + " and healed " + to_string(fruits[5].getHP()) + " HP!";
+                monster_action_des ="";
+                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+            }
+            break;
+        }
     }
 
     // store the action description for displaying
