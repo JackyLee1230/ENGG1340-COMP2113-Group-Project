@@ -3,22 +3,25 @@
 #define SKILL_H
 
 #include "pugixml/pugixml.hpp"
-#include "monster.h"
 #include "player.h"
+#include "monster.h"
 
 enum Type {
-	damage,
-	shield
+	DAMAGE = 0,
+	SHIELD
 };
+
+// forward declaration to prevent circular depandency
+class Player;
+class Monster;
+// forward declaration ends
 
 class Skill
 {
 private:
+	std::string NAME;
     int ATK;
-    int dmg;
     bool isMagic;
-    std::string NAME;
-    int dmg_type;
     Type type;
 
 
@@ -33,9 +36,11 @@ public:
 
     std::string getNAME();
 
+	Type getType();
+
     void loadMonsterSkillXML(pugi::xml_document&);
 
-    void act(Player *player, Monster *monster, Skill *skill ,int dmg_type, std::string &);
+    void act(Player *player, Monster *monster, int dmg_type, std::string &);
 
 //    void attack(Player *player, Monster *monster, int damage);
 };

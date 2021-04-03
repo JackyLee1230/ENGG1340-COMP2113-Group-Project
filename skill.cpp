@@ -55,14 +55,14 @@ std::string Skill::getNAME() { return NAME; }
 
 
 // monster damaging the player and print out the action
-void Skill::act(Player *player, Monster *monster, Skill *skill, int dmg_type, string& monster_action_des){
+void Skill::act(Player *player, Monster *monster, int dmg_type, string& monster_action_des){
 
     switch(dmg_type){
 
         // pure physical damage
         case 1: {
             int player_hp = player->getHP();
-            int monster_attack = skill->getATK();
+            int monster_attack = this->getATK();
             player->setHP(player_hp - monster_attack);
 
         } break;

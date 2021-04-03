@@ -14,6 +14,10 @@ enum WeaponID {
     DRAGON_HUNTER
 };
 
+// forward declaration to prevent circular depandency
+class Monster;
+// forward declaration ends
+
 class Weapon {
 private:
 

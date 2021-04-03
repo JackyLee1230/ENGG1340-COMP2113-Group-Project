@@ -7,6 +7,10 @@
 #include "pugixml/pugixml.hpp"
 #include "weapon.h"
 
+// forward declaration to prevent circular depandency
+class Weapon;
+// forward declaration ends
+
 class Player {
     private:
         int HP;

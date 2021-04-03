@@ -102,16 +102,16 @@ void CombatScene::playScene(Player *player, Monster *monster) {
 // and output the monster's move and deal the corresponding damage to the player
 void monsterMove(Player *player, Monster *monster) {
     // Randomly choose monster's move
-    int monster_move =  rand() % (monster->getSKILLHIGH() - monster->getSKILLLOW() + 1) + monster->getSKILLLOW();
-    Skill *skill = new Skill(monster_move);
+    int monster_move =  rand() % (monster->getSkills().size());
+    Skill skill = monster->getSkills()[monster_move];
 
     // clear existing stuff in the ostringstream
     oss.str("");
     oss.clear();
 
-    skill->act(player, monster, skill , 1, monster_action_des);
+    skill.act(player, monster, 1, monster_action_des);
 
-    oss << "Monster " << monster->getNAME() <<  " casted: " << skill->getNAME() << " and dealt " << skill->getATK() << " damage";
+    oss << "Monster " << monster->getNAME() <<  " casted: " << skill.getNAME() << " and dealt " << skill.getATK() << " damage";
 
     // store the action description for displaying
     monster_action_des = oss.str();

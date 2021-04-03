@@ -50,15 +50,17 @@ Monster::Monster(int monster_ID) {
     FLIGHT = atoi(monster.child("FLIGHT").child_value());
     SKILL_LOW = atoi(monster.child("SKILL_LOW").child_value());
     SKILL_HIGH = atoi(monster.child("SKILL_HIGH").child_value());
+
+    // initialize the skill set of the monster
+    // Improve performance in combat scene (w/out the need to read xml repeatly)
+    this->skills.clear();
+
+    for (int i = SKILL_LOW; i <= SKILL_HIGH; i++) {
+        Skill skill = Skill(i);
+        this->skills.push_back(skill);
+    }
 }
 
-
-// //enum for monster shield
-// enum ShieldType {
-//      shieldless,
-//      phy_shield,
-//      magic_shield
-// };
 
 //member functions to set the stats of the monster and return the value when needed
 int Monster::getID() { return this->ID; }
@@ -105,6 +107,12 @@ std::string Monster::getNAME() { return NAME; }
 
 std::string Monster::setNAME(std::string newNAME){
     NAME = newNAME;
+}
+
+std::vector<Skill> Monster::getSkills() { return this->skills; }
+
+void Monster::setSkills(std::vector<Skill> newSkills) {
+    this->skills = newSkills;
 }
 
 // int Monster::calculateHP(int HP){

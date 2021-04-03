@@ -2,16 +2,19 @@
 #ifndef MONSTER_H
 #define MONSTER_H
 
-#include "pugixml/pugixml.hpp"
 #include <vector>
 #include <string>
 
-//enum for monster shield
-enum ShieldType {
-     shieldless,
-     phy_shield,
-     magic_shield
-};
+#include "pugixml/pugixml.hpp"
+#include "skill.h"
+
+
+// //enum for monster shield
+// enum ShieldType {
+//      shieldless,
+//      phy_shield,
+//      magic_shield
+// };
 
 
 class Monster
@@ -25,10 +28,11 @@ private:
     std::string NAME;
     int DODGE;
     int FLIGHT;
+    std::vector<Skill> skills;
     int SKILL_LOW;
     int SKILL_HIGH;
     int SHIELDHP;
-    ShieldType shield_type;
+    // ShieldType shield_type;
 
 public:
     static const std::string MONSTER_ART_FOLDER_PATH;
@@ -68,6 +72,10 @@ public:
     void setDODGE(int newDODGE);
 
     int getFLIGHT();
+
+    std::vector<Skill> getSkills();
+
+    void setSkills(std::vector<Skill> skills);
 
     int getSKILLLOW();
     int getSKILLHIGH();

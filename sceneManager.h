@@ -3,7 +3,6 @@
 #define SCENEMANAGER_H
 
 #include "player.h"
-#include "weapon.h"
 #include "monster.h"
 
 // Manage all scene loading stuff

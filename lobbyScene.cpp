@@ -21,8 +21,6 @@
 #include "player.h"
 #include "monster.h"
 
-#include "pugixml/pugixml.hpp"
-
 using namespace std;
 using namespace pugi;
 
