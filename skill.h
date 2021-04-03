@@ -36,6 +36,8 @@ public:
 
     std::string getNAME();
 
+	bool getISMAGIC();
+
 	Type getType();
 
     void loadMonsterSkillXML(pugi::xml_document&);

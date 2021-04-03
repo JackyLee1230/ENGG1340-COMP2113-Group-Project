@@ -90,19 +90,32 @@ void Weapon::attack(Monster *monster, string& player_action_des){
             player_action_des = "You dealt a critical hit and dealt 2 times damage \n";
         }
 
-        // hit on the shield
+        // check whether there is a shield and the attack is same type of the shield
+        // not the same type --> break the shield directly
+        if (monster->getSHIELDHP() > 0
+            && this->getMAGIC() != monster->getSHIELD_ISMAGIC()) {
+                player_action_des += "You break the shield!!!\n";
+                monster->setSHIELDHP(0);
+        }
+
+        // check again, whether the shield is broken
+        // run if the shield is not broken
         if (monster->getSHIELDHP() > 0) {
+
             monster->setSHIELDHP(monster->getSHIELDHP() - damage_fin);
 
             // extra damage has been dealt to the monster's shield
             // remaining damage will be dealt to the HP itself
             if (monster->getSHIELDHP() < 0) {
+
+                player_action_des += "You break the shield!!!\n";
+
                 monster->setHP(monster->getHP() + monster->getSHIELDHP());
                 monster->setSHIELDHP(0);
             }
         }
+        // not hitting on shield
         else {
-            // normal attack
             monster->setHP(monster->getHP() - damage_fin);
         }
 
@@ -116,7 +129,6 @@ void Weapon::attack(Monster *monster, string& player_action_des){
         else if (monster->getHP() < 0) {
             player_action_des += "\nYou destroyed the Monster!!";
         }
-
     }
 }
 

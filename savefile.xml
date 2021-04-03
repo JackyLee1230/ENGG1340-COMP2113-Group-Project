@@ -6,5 +6,6 @@
 	<LEVEL>1</LEVEL>
 	<weapons>
 		<weapon id="1" />
+		<weapon id="4" />
 	</weapons>
 </Player>

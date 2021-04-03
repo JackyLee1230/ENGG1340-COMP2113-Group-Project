@@ -43,13 +43,16 @@ Monster::Monster(int monster_ID) {
     NAME = monster.child("name").child_value();
     HP = atoi(monster.child("HP").child_value());
     HP_MAX = HP;
-    SHIELDHP = 0;
     ATK = atoi(monster.child("ATK").child_value());
     DEF = atoi(monster.child("DEF").child_value());
     DODGE = atoi(monster.child("DODGE").child_value());
     FLIGHT = atoi(monster.child("FLIGHT").child_value());
     SKILL_LOW = atoi(monster.child("SKILL_LOW").child_value());
     SKILL_HIGH = atoi(monster.child("SKILL_HIGH").child_value());
+
+    // shield stuff
+    SHIELDHP = 0;
+    SHIELD_ISMAGIC = false;
 
     // initialize the skill set of the monster
     // Improve performance in combat scene (w/out the need to read xml repeatly)
@@ -73,12 +76,6 @@ void Monster::setHP(int newHP) {
 
 int Monster::getHP_MAX() { return HP_MAX; }
 
-int Monster::getSHIELDHP() { return this->SHIELDHP; }
-
-void Monster::setSHIELDHP(int newSHIELDHP) {
-    this->SHIELDHP = newSHIELDHP;
-}
-
 int Monster::getATK() { return ATK; }
 
 void Monster::setATK(int newATK) {
@@ -100,6 +97,19 @@ void Monster::setFLIGHT(int newFLIGHT){
 int Monster::getSKILLLOW() { return SKILL_LOW; }
 
 int Monster::getSKILLHIGH() { return SKILL_HIGH; }
+
+// shield part
+int Monster::getSHIELDHP() { return this->SHIELDHP; }
+
+void Monster::setSHIELDHP(int newSHIELDHP) {
+    this->SHIELDHP = newSHIELDHP;
+}
+
+bool Monster::getSHIELD_ISMAGIC() { return this->SHIELD_ISMAGIC; }
+
+void Monster::setSHIELD_ISMAGIC(bool isMagic) {
+    this->SHIELD_ISMAGIC = isMagic;
+}
 
 int Monster::getDEF() { return DEF; }
 

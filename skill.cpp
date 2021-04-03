@@ -47,16 +47,17 @@ Skill::Skill(int skill_ID) {
 }
 
 // member functions to get the stats of the skill that the monster casetd
-int Skill::getATK() { return ATK; }
+int Skill::getATK() { return this->ATK; }
 
 void Skill::setATK(int newATK) {
-    ATK = newATK;
+    this->ATK = newATK;
 }
 
-std::string Skill::getNAME() { return NAME; }
+std::string Skill::getNAME() { return this->NAME; }
 
 Type Skill::getType() { return this->type; }
 
+bool Skill::getISMAGIC() { return this->isMagic; }
 
 // monster damaging the player and print out the action
 void Skill::act(Player *player, Monster *monster, string& monster_action_des) {
@@ -79,6 +80,7 @@ void Skill::act(Player *player, Monster *monster, string& monster_action_des) {
             break;
         case Type::SHIELD: {
             monster->setSHIELDHP(monster->getSHIELDHP() + this->getATK());
+            monster->setSHIELD_ISMAGIC(this->getISMAGIC());
         }
             break;
     }

@@ -25,7 +25,7 @@
     <name>Air Gate</name>
     <type>1</type>
     <ATK>6</ATK>
-    <isMagic>1</isMagic>
+    <isMagic>0</isMagic>
 
 </skill>
 

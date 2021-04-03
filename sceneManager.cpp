@@ -172,17 +172,15 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
 
     cout << "> " << monster_action_des << endl;
 
+    printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET,
+        monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX()
+    );
+
     // load shieldHP if shieldHP not equal to 0
-    if (monster->getSHIELDHP() == 0) {
-        printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\n",
-            monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX()
-        );
-    }
-    else {
-        printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\tShieldHP: " BLUE "%d" RESET "\n",
-            monster->getNAME().c_str(),
-            monster->getHP(), monster->getHP_MAX(),
-            monster->getSHIELDHP()
+    if (monster->getSHIELDHP() > 0) {
+        printf("\tShield: < HP: " BLUE "%d" RESET ", Type: " BLUE "%s" RESET " >",
+            monster->getSHIELDHP(),
+            monster->getSHIELD_ISMAGIC() ? "MAGIC" : "PHYSICAL"
         );
     }
 

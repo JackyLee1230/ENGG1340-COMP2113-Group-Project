@@ -23,7 +23,6 @@ private:
     int ID;
     int HP;
     int HP_MAX;
-    int SHIELDHP;
     int ATK;
     int DEF;
     std::string NAME;
@@ -32,7 +31,9 @@ private:
     std::vector<Skill> skills;
     int SKILL_LOW;
     int SKILL_HIGH;
-    // ShieldType shield_type;
+
+    int SHIELDHP;
+    bool SHIELD_ISMAGIC;
 
 public:
     static const std::string MONSTER_ART_FOLDER_PATH;
@@ -49,10 +50,6 @@ public:
 
     int getHP_MAX();
 
-    int getSHIELDHP();
-
-    void setSHIELDHP(int newSHIELDHP);
-
     int getATK();
 
     void setATK(int newATK);
@@ -60,6 +57,15 @@ public:
     int getDEF();
 
     void setDEF(int newDEF);
+
+    // shield part
+    int getSHIELDHP();
+
+    void setSHIELDHP(int newSHIELDHP);
+
+    bool getSHIELD_ISMAGIC();
+
+    void setSHIELD_ISMAGIC(bool);
 
     int calculateHP(int HP);
 
