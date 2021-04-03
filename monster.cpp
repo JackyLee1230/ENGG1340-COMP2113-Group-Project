@@ -41,9 +41,9 @@ Monster::Monster(int monster_ID) {
 
     // get stats and its name
     NAME = monster.child("name").child_value();
-    SHIELDHP = atoi(monster.child("SHIELDHP").child_value());
     HP = atoi(monster.child("HP").child_value());
     HP_MAX = HP;
+    SHIELDHP = 0;
     ATK = atoi(monster.child("ATK").child_value());
     DEF = atoi(monster.child("DEF").child_value());
     DODGE = atoi(monster.child("DODGE").child_value());
@@ -65,8 +65,6 @@ Monster::Monster(int monster_ID) {
 //member functions to set the stats of the monster and return the value when needed
 int Monster::getID() { return this->ID; }
 
-int Monster::getSHIELDHP() { return SHIELDHP; }
-
 int Monster::getHP() { return HP; }
 
 void Monster::setHP(int newHP) {
@@ -74,6 +72,12 @@ void Monster::setHP(int newHP) {
 }
 
 int Monster::getHP_MAX() { return HP_MAX; }
+
+int Monster::getSHIELDHP() { return this->SHIELDHP; }
+
+void Monster::setSHIELDHP(int newSHIELDHP) {
+    this->SHIELDHP = newSHIELDHP;
+}
 
 int Monster::getATK() { return ATK; }
 

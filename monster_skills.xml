@@ -2,28 +2,28 @@
 
 <skill id="1">
     <name>Punch</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>4</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="2">
     <name>Heavy Punch</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>5</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="3">
     <name>Power Slash</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>5</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="4">
     <name>Air Gate</name>
-    <Type>1</Type>
+    <type>1</type>
     <ATK>6</ATK>
     <isMagic>1</isMagic>
 
@@ -31,77 +31,77 @@
 
 <skill id="5">
     <name>Fire Breath</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>15</ATK>
     <isMagic>1</isMagic>
 </skill>
 
 <skill id="6">
     <name>Cast of Inferno</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>20</ATK>
     <isMagic>1</isMagic>
 </skill>
 
 <skill id="7">
     <name>Dagger Slash</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>20</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="8">
     <name>Typhoon Edge</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>20</ATK>
     <isMagic>1</isMagic>
 </skill>
 
 <skill id="9">
     <name>Endless Cut</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>20</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="10">
     <name>Sword Wave</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>20</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="11">
     <name>Deadly Shot</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>20</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="12">
     <name>Final Fang</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>20</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="13">
     <name>Storm Impact</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>20</ATK>
     <isMagic>1</isMagic>
 </skill>
 
 <skill id="14">
     <name>Dawn of the Gods</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>25</ATK>
     <isMagic>1</isMagic>
 </skill>
 
 <skill id="15">
     <name>Eternal Dread</name>
-    <Type>0</Type>
+    <type>0</type>
     <ATK>30</ATK>
     <isMagic>1</isMagic>
 </skill>

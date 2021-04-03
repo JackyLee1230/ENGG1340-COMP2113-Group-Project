@@ -109,9 +109,19 @@ void monsterMove(Player *player, Monster *monster) {
     oss.str("");
     oss.clear();
 
-    skill.act(player, monster, 1, monster_action_des);
+    skill.act(player, monster, monster_action_des);
 
-    oss << "Monster " << monster->getNAME() <<  " casted: " << skill.getNAME() << " and dealt " << skill.getATK() << " damage";
+    if (skill.getType() == Type::DAMAGE) {
+        oss << monster->getNAME()
+            <<  " casted: " << skill.getNAME()
+            << " and dealt " << skill.getATK() << " damage";
+    }
+    else if (skill.getType() == Type::SHIELD) {
+        oss << monster->getNAME()
+            <<  " casted: " << skill.getNAME()
+            << " and built itself a shield!!" ;
+    }
+
 
     // store the action description for displaying
     monster_action_des = oss.str();

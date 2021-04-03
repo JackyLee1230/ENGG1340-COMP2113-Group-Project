@@ -23,6 +23,7 @@ private:
     int ID;
     int HP;
     int HP_MAX;
+    int SHIELDHP;
     int ATK;
     int DEF;
     std::string NAME;
@@ -31,7 +32,6 @@ private:
     std::vector<Skill> skills;
     int SKILL_LOW;
     int SKILL_HIGH;
-    int SHIELDHP;
     // ShieldType shield_type;
 
 public:
@@ -43,13 +43,15 @@ public:
 
     int getID();
 
-    int getSHIELDHP();
-
     int getHP();
 
     void setHP(int newHP);
 
     int getHP_MAX();
+
+    int getSHIELDHP();
+
+    void setSHIELDHP(int newSHIELDHP);
 
     int getATK();
 

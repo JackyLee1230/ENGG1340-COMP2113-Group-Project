@@ -43,7 +43,7 @@ void TitleScene::playScene() {
             // check whether a savefile exists before allowing the player to continue their game
             if (user_input == 1) {
                 if (!SaveLoad::checkSaveFileExist())
-                    // ask the player to create a new game save 
+                    // ask the player to create a new game save
                     cout << "Savefile does not exist. Please enter 2 to start a new game instead." << endl;
                 else
                     break;
@@ -92,7 +92,7 @@ void TitleScene::playScene() {
             cout << "You inputted: " << user_input << "\n";
 
             Player *player = SaveLoad::loadSaveFile();
-            Monster *monster = new Monster(2);
+            Monster *monster = new Monster(1);
 
             // cout << "Now Accessing SETTINGS";
             //SettingScene::playScene();

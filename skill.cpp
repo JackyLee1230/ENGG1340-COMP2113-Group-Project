@@ -40,8 +40,10 @@ Skill::Skill(int skill_ID) {
     xml_node skill_node = doc.find_child_by_attribute("skill", "id", monster_skill_str.c_str());
 
     // get stats and its name
-    NAME = skill_node.child("name").child_value();
-    ATK = atoi(skill_node.child("ATK").child_value());
+    this->NAME = skill_node.child("name").child_value();
+    this->type = static_cast<Type>(atoi(skill_node.child("type").child_value()));
+    this->ATK = atoi(skill_node.child("ATK").child_value());
+    this->isMagic = atoi(skill_node.child("isMagic").child_value());
 }
 
 // member functions to get the stats of the skill that the monster casetd
@@ -53,25 +55,32 @@ void Skill::setATK(int newATK) {
 
 std::string Skill::getNAME() { return NAME; }
 
+Type Skill::getType() { return this->type; }
+
 
 // monster damaging the player and print out the action
-void Skill::act(Player *player, Monster *monster, int dmg_type, string& monster_action_des){
+void Skill::act(Player *player, Monster *monster, string& monster_action_des) {
 
-    switch(dmg_type){
+    // // magical damage
+    // if (this->isMagic) {
+    //
+    // }
+    // // physical damage
+    // else {
+    //
+    // }
 
-        // pure physical damage
-        case 1: {
+    switch (this->getType()) {
+        case Type::DAMAGE: {
             int player_hp = player->getHP();
             int monster_attack = this->getATK();
             player->setHP(player_hp - monster_attack);
-
-        } break;
-        // case 2: // damage to shield
-            // Type type;
-            // int monster_attack = monster.getATK();
-            // if(monster_attack > ShieldHP){
-            // }
-            // break;
+        }
+            break;
+        case Type::SHIELD: {
+            monster->setSHIELDHP(monster->getSHIELDHP() + this->getATK());
+        }
+            break;
     }
 }
 

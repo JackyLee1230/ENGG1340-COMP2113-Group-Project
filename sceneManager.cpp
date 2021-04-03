@@ -165,11 +165,27 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
     cout << "> " << player_action_des << endl;
 
     // print with the value of HP being green
-    printf("HP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\t", player->getHP(), player->HP_MAX);
-    cout << "\n\n\n";
+    printf("Player\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\t\n",
+        player->getHP(), player->HP_MAX
+    );
+    cout << "\n\n";
 
     cout << "> " << monster_action_des << endl;
-    printf("HP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\n", monster->getHP(), monster->getHP_MAX());
+
+    // load shieldHP if shieldHP not equal to 0
+    if (monster->getSHIELDHP() == 0) {
+        printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\n",
+            monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX()
+        );
+    }
+    else {
+        printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\tShieldHP: " BLUE "%d" RESET "\n",
+            monster->getNAME().c_str(),
+            monster->getHP(), monster->getHP_MAX(),
+            monster->getSHIELDHP()
+        );
+    }
+
     cout << "\n";
 
     // division line
