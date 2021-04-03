@@ -12,13 +12,10 @@ SaveLoad.o: saveLoad.cpp saveLoad.h player.h weapon.h pugixml.o
 monster.o: monster.cpp monster.h player.h pugixml.o
 	g++ $(FLAGS) -c $<
 
-player.o: player.cpp player.h SaveLoad.h weapon.h pugixml.o
-	g++ $(FLAGS) -c $<
-
-weapon.o: weapon.cpp weapon.h pugixml.o player.h monster.h
-	g++ $(FLAGS) -c $<
-
 player.o: player.cpp player.h fruit.h SaveLoad.h weapon.h pugixml.o
+	g++ $(FLAGS) -c $<
+	
+weapon.o: weapon.cpp weapon.h pugixml.o player.h monster.h
 	g++ $(FLAGS) -c $<
 
 fruit.o: fruit.cpp fruit.h player.h pugixml.o

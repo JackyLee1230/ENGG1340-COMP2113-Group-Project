@@ -193,6 +193,9 @@ void playerMove(Player *player, Monster *monster) {
                 player_action_des = "You consumed " + fruits[0].getNAME() + " and healed " + to_string(fruits[0].getHP()) + " HP!";
                 monster_action_des ="";
                 SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+
+                // reset description
+                player_action_des = "";
             }
             break;
             case 6:{
@@ -201,6 +204,9 @@ void playerMove(Player *player, Monster *monster) {
                 player_action_des = "You consumed " + fruits[1].getNAME() + " and healed " + to_string(fruits[1].getHP()) + " HP!";
                 monster_action_des ="";
                 SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+
+                // reset description
+                player_action_des = "";
             }
             break;
             case 7:{
@@ -209,6 +215,9 @@ void playerMove(Player *player, Monster *monster) {
                 player_action_des = "You consumed " + fruits[2].getNAME() + " and healed " + to_string(fruits[2].getHP()) + " HP!";
                 monster_action_des ="";
                 SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+
+                // reset description
+                player_action_des = "";
             }
             break;
             case 8:{
@@ -217,6 +226,9 @@ void playerMove(Player *player, Monster *monster) {
                 player_action_des = "You consumed " + fruits[3].getNAME() + " and healed " + to_string(fruits[3].getHP()) + " HP!";
                 monster_action_des ="";
                 SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+
+                // reset description
+                player_action_des = "";
             }
             break;
             case 9:{
@@ -225,6 +237,9 @@ void playerMove(Player *player, Monster *monster) {
                 player_action_des = "You consumed " + fruits[4].getNAME() + " and healed " + to_string(fruits[4].getHP()) + " HP!";
                 monster_action_des ="";
                 SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+
+                // reset description
+                player_action_des = "";
             }
             break;
             case 10:{
@@ -233,6 +248,9 @@ void playerMove(Player *player, Monster *monster) {
                 player_action_des = "You consumed " + fruits[5].getNAME() + " and healed " + to_string(fruits[5].getHP()) + " HP!";
                 monster_action_des ="";
                 SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+
+                // reset description
+                player_action_des = "";
             }
             break;
         }
