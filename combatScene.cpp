@@ -140,7 +140,6 @@ void playerMove(Player *player, Monster *monster) {
     std::vector<Weapon> weapons = player->getWeapons();
     std::vector<Fruit> fruits = player->getFruits();
 
-
     bool continue_game = false;
 
     while(continue_game == false){
@@ -220,7 +219,18 @@ void playerMove(Player *player, Monster *monster) {
                     cout << "Input invalid. Please try again." << endl;
                 }
                 else {
-                    fruits[0].act(player);
+                    int fruit_status = fruits[0].act(player);
+
+                    // if consumed the last fruit
+                    // -> quantity of the fruit = 0
+                    if (fruit_status) {
+                        // remove that fruit from the player's fruits list
+                        fruits.erase(fruits.begin() + 0);
+                    }
+
+                    // update the fruit vectors in the player object
+                    player->setFruits(fruits);
+
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[0].getNAME() + " and healed " + to_string(fruits[0].getHP()) + " HP!";
                     monster_action_des ="";
@@ -236,7 +246,17 @@ void playerMove(Player *player, Monster *monster) {
                     cout << "Input invalid. Please try again." << endl;
                 }
                 else {
-                    fruits[1].act(player);
+                    int fruit_status = fruits[1].act(player);
+
+                    // if consumed the last fruit
+                    // -> quantity of the fruit = 0
+                    if (fruit_status) {
+                        fruits.erase(fruits.begin() + 1);
+                    }
+
+                    // update the fruit vectors in the player object
+                    player->setFruits(fruits);
+
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[1].getNAME() + " and healed " + to_string(fruits[1].getHP()) + " HP!";
                     monster_action_des ="";
@@ -253,7 +273,17 @@ void playerMove(Player *player, Monster *monster) {
                     cout << "Input invalid. Please try again." << endl;
                 }
                 else {
-                    fruits[2].act(player);
+                    int fruit_status = fruits[2].act(player);
+
+                    // if consumed the last fruit
+                    // -> quantity of the fruit = 0
+                    if (fruit_status) {
+                        fruits.erase(fruits.begin() + 2);
+                    }
+
+                    // update the fruit vectors in the player object
+                    player->setFruits(fruits);
+
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[2].getNAME() + " and healed " + to_string(fruits[2].getHP()) + " HP!";
                     monster_action_des ="";
@@ -270,7 +300,17 @@ void playerMove(Player *player, Monster *monster) {
                     cout << "Input invalid. Please try again." << endl;
                 }
                 else {
-                    fruits[3].act(player);
+                    int fruit_status = fruits[3].act(player);
+
+                    // if consumed the last fruit
+                    // -> quantity of the fruit = 0
+                    if (fruit_status) {
+                        fruits.erase(fruits.begin() + 3);
+                    }
+
+                    // update the fruit vectors in the player object
+                    player->setFruits(fruits);
+
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[3].getNAME() + " and healed " + to_string(fruits[3].getHP()) + " HP!";
                     monster_action_des ="";
@@ -287,7 +327,17 @@ void playerMove(Player *player, Monster *monster) {
                     cout << "Input invalid. Please try again." << endl;
                 }
                 else {
-                    fruits[4].act(player);
+                    int fruit_status = fruits[4].act(player);
+
+                    // if consumed the last fruit
+                    // -> quantity of the fruit = 0
+                    if (fruit_status) {
+                        fruits.erase(fruits.begin() + 4);
+                    }
+
+                    // update the fruit vectors in the player object
+                    player->setFruits(fruits);
+
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[4].getNAME() + " and healed " + to_string(fruits[4].getHP()) + " HP!";
                     monster_action_des ="";
@@ -304,7 +354,17 @@ void playerMove(Player *player, Monster *monster) {
                     cout << "Input invalid. Please try again." << endl;
                 }
                 else {
-                    fruits[5].act(player);
+                    int fruit_status = fruits[5].act(player);
+
+                    // if consumed the last fruit
+                    // -> quantity of the fruit = 0
+                    if (fruit_status) {
+                        fruits.erase(fruits.begin() + 5);
+                    }
+
+                    // update the fruit vectors in the player object
+                    player->setFruits(fruits);
+
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[5].getNAME() + " and healed " + to_string(fruits[5].getHP()) + " HP!";
                     monster_action_des ="";

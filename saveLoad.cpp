@@ -65,6 +65,7 @@ void SaveLoad::createNewSaveFile(Player *player) {
 
     xml_node level_node = player_node.append_child("LEVEL");
     level_node.append_child(node_pcdata).set_value(to_string(player->getLEVEL()).c_str());
+
     // get the weapons that the player have
     // and write them to the save file
     std::vector<Weapon> weapons = player->getWeapons();
@@ -73,6 +74,22 @@ void SaveLoad::createNewSaveFile(Player *player) {
     for (int i = 0; i < weapons.size(); i++) {
         xml_node weapon_node = weapons_node.append_child("weapon");
         weapon_node.append_attribute("id") = weapons[i].getID();
+    }
+
+    // get the fruits that the player have
+    // and write them to the save file as well
+
+    std::vector<Fruit> fruits = player->getFruits();
+
+    xml_node fruits_node = player_node.append_child("fruits");
+    for (int i = 0; i < fruits.size(); i++) {
+        xml_node fruit_node = fruits_node.append_child("fruit");
+
+        xml_node id_node = fruit_node.append_child("id");
+        id_node.append_child(node_pcdata).set_value(to_string(fruits[i].getID()).c_str());
+
+        xml_node quantity_node = fruit_node.append_child("quantity");
+        quantity_node.append_child(node_pcdata).set_value(to_string(fruits[i].getQUANTITY()).c_str());
     }
 
     // write the xml file
@@ -116,7 +133,7 @@ Player* SaveLoad::loadSaveFile() {
 
     xml_node fruits = player_node.child("fruits");
 
-    player->setFRUITS(
+    player->setFruits(
         SaveLoad::loadPlayerFruits(fruits)
     );
 
@@ -147,7 +164,10 @@ std::vector<Fruit> SaveLoad::loadPlayerFruits(xml_node items) {
         cout << "fruits id: " << atoi(item.child_value("id")) << endl;
         cout << "fruits quantity: " << atoi(item.child_value("quantity")) << endl;
 
-        Fruit *fruit = new Fruit(atoi(item.child_value("id")));
+        Fruit *fruit = new Fruit(
+            atoi(item.child_value("id")),
+            atoi(item.child_value("quantity"))
+        );
         fruits.push_back(*fruit);
     }
 

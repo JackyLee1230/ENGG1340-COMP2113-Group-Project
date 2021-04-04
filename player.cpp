@@ -69,10 +69,10 @@ void Player::setLEVEL(int newLEVEL) {
     this->LEVEL = newLEVEL;
 }
 
-vector<Fruit> Player::getFRUITS() { return this->fruits; }
+vector<Fruit> Player::getFruits() { return this->fruits; }
 
-void Player::setFRUITS(vector<Fruit> newFRUITS) {
-    this->fruits = newFRUITS;
+void Player::setFruits(vector<Fruit> newFruits) {
+    this->fruits = newFruits;
 }
 
 

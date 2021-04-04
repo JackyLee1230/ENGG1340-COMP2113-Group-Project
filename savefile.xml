@@ -3,7 +3,7 @@
 	<HP>30</HP>
 	<DODGE>1</DODGE>
 	<FLOOR>0</FLOOR>
-	<LEVEL>1</LEVEL>
+	<LEVEL>2</LEVEL>
 	<weapons>
 		<weapon id="1" />
 		<weapon id="4" />
@@ -11,11 +11,11 @@
 	<fruits>
 		<fruit>
 			<id>1</id>
-			<quantity>20</quantity>
+			<quantity>17</quantity>
 		</fruit>
 		<fruit>
 			<id>2</id>
-			<quantity>20</quantity>
+			<quantity>18</quantity>
 		</fruit>
 	</fruits>
 </Player>

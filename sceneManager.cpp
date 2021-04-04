@@ -195,15 +195,17 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
     // get the weapons of the player
     std::vector<Weapon> weapons = player->getWeapons();
     for (int i = 0; i < weapons.size(); i++) {
-        cout << "[" << (i+1) << "] "; // show the weapon id before stats for debugging
+        cout << "[" << (i+1) << "] "; // show hint for user input
         weapons[i].showWeapon();
         cout << endl;
     }
 
-    std::vector<Fruit> fruits = player->getFRUITS();
+    cout << endl;
+
+    std::vector<Fruit> fruits = player->getFruits();
     for (int i = 0; i < fruits.size(); i++) {
-        cout << "[" << (i+5) << "] ";
-        fruits[i].showFRUITS();
+        cout << "[" << (i+5) << "] "; // show hint for user input
+        fruits[i].showFruit();
         cout << endl;
     }
     cout << endl;

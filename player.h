@@ -56,9 +56,9 @@ class Player {
 
         std::vector<Weapon> getWeapons();
 
-        std::vector<Fruit> getFRUITS();
+        std::vector<Fruit> getFruits();
 
-        void setFRUITS(std::vector<Fruit>);
+        void setFruits(std::vector<Fruit>);
 
 
 };

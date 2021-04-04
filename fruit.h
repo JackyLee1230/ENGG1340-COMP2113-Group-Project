@@ -28,19 +28,21 @@ public:
 
     static const char FRUIT_STATS_FILE[];
 
-    Fruit(int);
-
-    std::string getNAME();
+    Fruit(int, int);
 
     int getID();
 
     int getHP();
 
-    void showFRUITS();
+    std::string getNAME();
 
     int getDODGE();
 
+    int getQUANTITY();
+
     int act(Player *);
+
+    void showFruit();
 
     void loadFruitXML(pugi::xml_document&);
 };

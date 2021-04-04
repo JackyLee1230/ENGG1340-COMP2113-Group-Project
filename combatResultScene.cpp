@@ -32,7 +32,12 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
 
     if (isPlayerWon) {
         // handle savefile stuff
-        player->setLEVEL(player->getLEVEL() + 1);
+
+        // we don't want the player's level reduces
+        if (player->getLEVEL() == monster->getID()) {
+            player->setLEVEL(monster->getID() + 1);
+        }
+
         SaveLoad::createNewSaveFile(player);
 
         // release memory of the monster

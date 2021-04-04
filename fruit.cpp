@@ -15,7 +15,7 @@ using namespace std;
 
 const char Fruit::FRUIT_STATS_FILE[] = "fruits_stats.xml";
 
-Fruit::Fruit(int fruitID) {
+Fruit::Fruit(int fruitID, int quantity) {
 
     // load the weapon's stats from xml doc
     xml_document doc;
@@ -29,6 +29,7 @@ Fruit::Fruit(int fruitID) {
     NAME = fruit.child("name").child_value();
     HP = atoi(fruit.child("HP").child_value());
     DODGE = atoi(fruit.child("DODGE").child_value());
+    this->QUANTITY = quantity;
 }
 
 int Fruit::getID() {
@@ -41,17 +42,20 @@ int Fruit::getHP() { return this->HP; }
 
 int Fruit::getDODGE() { return this->DODGE; }
 
+int Fruit::getQUANTITY() { return this->QUANTITY; }
 
 // monster damaging the player and print out the action
 int Fruit::act(Player *player){
-    std::vector<Fruit> fruits = player->getFRUITS();
+
     //heal the player by the the fixed amount from the consumable
     if(this->HP + player->getHP() > player->HP_MAX){
-        player->setHP( player->HP_MAX);
+        player->setHP(player->HP_MAX);
     }else{
         player->setHP( player->getHP() + int(this->HP) );
     }
-    QUANTITY--;
+
+    this->QUANTITY--;
+
     // no more item left, remove that item from the list of available items
     if(this->QUANTITY == 0){
         return 1;
@@ -78,10 +82,11 @@ void Fruit::loadFruitXML(xml_document& doc) {
     }
 }
 
-void Fruit::showFRUITS() {
-    fprintf(stdout, "%-16s%4s< HEALING: %2dHP >",
+void Fruit::showFruit() {
+    fprintf(stdout, "%-16s%4s< HEALING: %2dHP, QUANTITY: %2d >",
         this->NAME.c_str(),
         "",
-        this->HP
+        this->HP,
+        this->QUANTITY
     );
 }
