@@ -138,8 +138,7 @@ void playerMove(Player *player, Monster *monster) {
 
     // save all of the player weapons into a vector
     std::vector<Weapon> weapons = player->getWeapons();
-    SaveLoad::loadSaveFile();
-    std::vector<Fruit> fruits = player->getFRUITS();
+    std::vector<Fruit> fruits = player->getFruits();
 
 
     bool continue_game = false;
@@ -159,98 +158,161 @@ void playerMove(Player *player, Monster *monster) {
         oss.str("");
         oss.clear();
 
-        cout << endl;
-
         // user_input determine which weapon player uses to attack the monster
         switch (user_input) {
             case 1: {
                 //oss << "Using " << weapons[0].getNAME() <<" to attack and dealt " << weapons[0].getATK() << " damage to " << monster->getNAME() << "!" ;
-                weapons[0].attack(monster, player_action_des);
-                continue_game = true;
+
+                // handling user inputing a weapon slot which does not exist
+                if (weapons.size() < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
+                }
+                else {
+                    weapons[0].attack(monster, player_action_des);
+                    continue_game = true;
+                }
                 }
                 break;
             case 2: {
                 //oss << "Using " << weapons[1].getNAME() <<" to attack and dealt " << weapons[1].getATK() << " damage to " << monster->getNAME() << "!" ;
-                weapons[1].attack(monster, player_action_des);
-                continue_game = true;
+
+                // handling user inputing a weapon slot which does not exist
+                if (weapons.size() < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
+                }
+                else {
+                    weapons[1].attack(monster, player_action_des);
+                    continue_game = true;
+                }
                 }
                 break;
             case 3:{
                 //oss << "Using " << weapons[2].getNAME() <<" to attack and dealt " << weapons[2].getATK() << " damage to " << monster->getNAME() << "!" ;
-                weapons[2].attack(monster, player_action_des);
-                continue_game = true;
+
+                // handling user inputing a weapon slot which does not exist
+                if (weapons.size() < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
+                }
+                else {
+                    weapons[2].attack(monster, player_action_des);
+                    continue_game = true;
+                }
                 }
                 break;
             case 4:{
                 //oss << "Using " << weapons[3].getNAME() <<" to attack and dealt " << weapons[3].getATK() << " damage to " << monster->getNAME() << "!" ;
-                weapons[3].attack(monster, player_action_des);
-                continue_game = true;
+
+                // handling user inputing a weapon slot which does not exist
+                if (weapons.size() < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
                 }
+                else {
+                    weapons[3].attack(monster, player_action_des);
+                    continue_game = true;
+                }
+                }
+                break;
             // --------------- consumables --------------
             case 5:{
-                fruits[0].act(player);
-                continue_game = false;
-                player_action_des = "You consumed " + fruits[0].getNAME() + " and healed " + to_string(fruits[0].getHP()) + " HP!";
-                monster_action_des ="";
-                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
-                // reset description
-                player_action_des = "";
+                // handling user inputing a fruit slot which does not exist
+                if (fruits.size() + 4 < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
+                }
+                else {
+                    fruits[0].act(player);
+                    continue_game = false;
+                    player_action_des = "You consumed " + fruits[0].getNAME() + " and healed " + to_string(fruits[0].getHP()) + " HP!";
+                    monster_action_des ="";
+                    SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+                    // reset description
+                    player_action_des = "";
+                }
             }
             break;
             case 6:{
-                fruits[1].act(player);
-                continue_game = false;
-                player_action_des = "You consumed " + fruits[1].getNAME() + " and healed " + to_string(fruits[1].getHP()) + " HP!";
-                monster_action_des ="";
-                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+                // handling user inputing a fruit slot which does not exist
+                if (fruits.size() + 4 < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
+                }
+                else {
+                    fruits[1].act(player);
+                    continue_game = false;
+                    player_action_des = "You consumed " + fruits[1].getNAME() + " and healed " + to_string(fruits[1].getHP()) + " HP!";
+                    monster_action_des ="";
+                    SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
-                // reset description
-                player_action_des = "";
+                    // reset description
+                    player_action_des = "";
+                }
             }
             break;
             case 7:{
-                fruits[2].act(player);
-                continue_game = false;
-                player_action_des = "You consumed " + fruits[2].getNAME() + " and healed " + to_string(fruits[2].getHP()) + " HP!";
-                monster_action_des ="";
-                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+                // handling user inputing a fruit slot which does not exist
+                if (fruits.size() + 4 < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
+                }
+                else {
+                    fruits[2].act(player);
+                    continue_game = false;
+                    player_action_des = "You consumed " + fruits[2].getNAME() + " and healed " + to_string(fruits[2].getHP()) + " HP!";
+                    monster_action_des ="";
+                    SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
-                // reset description
-                player_action_des = "";
+                    // reset description
+                    player_action_des = "";
+                }
             }
             break;
             case 8:{
-                fruits[3].act(player);
-                continue_game = false;
-                player_action_des = "You consumed " + fruits[3].getNAME() + " and healed " + to_string(fruits[3].getHP()) + " HP!";
-                monster_action_des ="";
-                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+                // handling user inputing a fruit slot which does not exist
+                if (fruits.size() + 4 < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
+                }
+                else {
+                    fruits[3].act(player);
+                    continue_game = false;
+                    player_action_des = "You consumed " + fruits[3].getNAME() + " and healed " + to_string(fruits[3].getHP()) + " HP!";
+                    monster_action_des ="";
+                    SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
-                // reset description
-                player_action_des = "";
+                    // reset description
+                    player_action_des = "";
+                }
             }
             break;
             case 9:{
-                fruits[4].act(player);
-                continue_game = false;
-                player_action_des = "You consumed " + fruits[4].getNAME() + " and healed " + to_string(fruits[4].getHP()) + " HP!";
-                monster_action_des ="";
-                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+                // handling user inputing a fruit slot which does not exist
+                if (fruits.size() + 4 < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
+                }
+                else {
+                    fruits[4].act(player);
+                    continue_game = false;
+                    player_action_des = "You consumed " + fruits[4].getNAME() + " and healed " + to_string(fruits[4].getHP()) + " HP!";
+                    monster_action_des ="";
+                    SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
-                // reset description
-                player_action_des = "";
+                    // reset description
+                    player_action_des = "";
+                }
             }
             break;
             case 10:{
-                fruits[5].act(player);
-                continue_game = false;
-                player_action_des = "You consumed " + fruits[5].getNAME() + " and healed " + to_string(fruits[5].getHP()) + " HP!";
-                monster_action_des ="";
-                SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
+                // handling user inputing a fruit slot which does not exist
+                if (fruits.size() + 4 < user_input) {
+                    cout << "Input invalid. Please try again." << endl;
+                }
+                else {
+                    fruits[5].act(player);
+                    continue_game = false;
+                    player_action_des = "You consumed " + fruits[5].getNAME() + " and healed " + to_string(fruits[5].getHP()) + " HP!";
+                    monster_action_des ="";
+                    SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
-                // reset description
-                player_action_des = "";
+                    // reset description
+                    player_action_des = "";
+                }
             }
             break;
         }
