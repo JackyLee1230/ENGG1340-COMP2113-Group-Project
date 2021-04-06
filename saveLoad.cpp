@@ -96,6 +96,8 @@ void SaveLoad::createNewSaveFile(Player *player) {
     doc.save_file(PLAYER_SAVEFILE);
 }
 
+
+
 // read the savefile to get the stats of the player
 Player* SaveLoad::loadSaveFile() {
 

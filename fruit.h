@@ -36,6 +36,8 @@ public:
 
     std::string getNAME();
 
+    void setQUANTITY(int);
+
     int getDODGE();
 
     int getQUANTITY();

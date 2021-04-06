@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 #include "combatResultScene.h"
 
@@ -13,6 +15,50 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
 
     // load graphics
     SceneManager::loadCombatResultScreen(isPlayerWon);
+
+// --------------------item and fruit drop ---------------------
+    // we don't want the player's level reduces
+    std::vector<Weapon> weapons = player->getWeapons();
+
+    if(isPlayerWon){
+        cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=Monster Drop+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" <<endl;
+
+        if (player->getLEVEL() == monster->getID()) {
+            player->setLEVEL(monster->getID() + 1);
+            Weapon drop = Weapon(monster->getWEAPONDROP());
+            weapons.push_back(drop);
+            player->setWeapons(weapons);
+            cout << "You have collected a weapon " << drop.getNAME() << " from the monster" << endl;
+        }
+
+        // give player fruits after each win
+        std::vector<Fruit> fruits = player->getFruits();
+        srand(unsigned(time(NULL))); // random prob using time
+        int fruit_type = (int) 1 + ( rand() % 5 );
+        srand(unsigned(time(NULL))); // random prob using time
+        int fruit_quantity = (int) 1 + ( rand() % 10 );
+
+        bool added = false;
+
+        for(int i = 0; i< fruits.size(); i++){
+            if(fruits[i].getID() == fruit_type){
+                fruits[i].setQUANTITY(fruits[fruit_type].getQUANTITY() + fruit_quantity);
+                added = true;
+            }
+        }
+        if(added == false){
+            fruits.push_back(Fruit(fruit_type, fruit_quantity));
+            //fruits[fruits.size()-1].setQUANTITY(fruit_quantity);
+        }
+        player->setFruits(fruits);
+
+        SaveLoad::createNewSaveFile(player);
+
+        cout << "You have received " << fruit_quantity << " "<< fruits[fruits.size()-1].getNAME()<< "(s)" << endl;
+        cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=Monster Drop+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" <<endl;
+
+    }
+
 
     string user_input = "";
 
@@ -31,15 +77,6 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
     }
 
     if (isPlayerWon) {
-        // handle savefile stuff
-
-        // we don't want the player's level reduces
-        if (player->getLEVEL() == monster->getID()) {
-            player->setLEVEL(monster->getID() + 1);
-        }
-
-        SaveLoad::createNewSaveFile(player);
-
         // release memory of the monster
         // allow the next monster to be created later
         delete monster;

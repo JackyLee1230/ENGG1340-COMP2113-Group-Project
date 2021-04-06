@@ -9,6 +9,7 @@
     <FLIGHT>0</FLIGHT>
     <SKILL_LOW>1</SKILL_LOW>
     <SKILL_HIGH>4</SKILL_HIGH>
+    <WEAPON_DROP>2</WEAPON_DROP>
 </monster>
 
 <monster id="2">
@@ -20,6 +21,7 @@
     <FLIGHT>0</FLIGHT>
     <SKILL_LOW>4</SKILL_LOW>
     <SKILL_HIGH>7</SKILL_HIGH>
+    <WEAPON_DROP>3</WEAPON_DROP>
 </monster>
 
 <monster id="3">
@@ -31,6 +33,7 @@
     <FLIGHT>1</FLIGHT>
     <SKILL_LOW>7</SKILL_LOW>
     <SKILL_HIGH>9</SKILL_HIGH>
+    <WEAPON_DROP>4</WEAPON_DROP>
 </monster>
 
 <monster id="4">
@@ -42,6 +45,7 @@
     <FLIGHT>0</FLIGHT>
     <SKILL_LOW>10</SKILL_LOW>
     <SKILL_HIGH>11</SKILL_HIGH>
+    <WEAPON_DROP>5</WEAPON_DROP>
 </monster>
 
 <monster id="5">
