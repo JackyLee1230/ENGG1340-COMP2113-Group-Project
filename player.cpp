@@ -23,13 +23,14 @@ using namespace std;
 using namespace pugi;
 
 //const char Player::PLAYER_SAVEFILE[] = "savefile.xml";
-const int Player::HP_MAX = 30; //defauly HP_MAX value
+//defauly HP_MAX value
 
 // constructor called when creating a new game
 Player::Player(int hp, int dodge, int floor, int level) {
 
     this-> HP = hp;
     this-> DODGE = dodge;
+    this-> HP_MAX = 30;
 
     // game progress purpose, current floor and current level
     this-> FLOOR = floor;
@@ -48,6 +49,12 @@ int Player::getHP() { return this->HP; }
 
 void Player::setHP(int newHP){
     Player::HP = newHP;
+}
+
+int Player::getHP_MAX() { return HP_MAX;}
+
+void Player::setHP_MAX(int newHPMax){
+    this->HP_MAX = newHPMax;
 }
 
 int Player::getDODGE(){ return this->DODGE; }

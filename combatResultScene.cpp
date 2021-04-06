@@ -28,6 +28,7 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
             Weapon drop = Weapon(monster->getWEAPONDROP());
             weapons.push_back(drop);
             player->setWeapons(weapons);
+            player->setHP_MAX(player->getHP_MAX() + 10);
             cout << "You have collected a weapon " << drop.getNAME() << " from the monster" << endl;
         }
 
@@ -52,8 +53,8 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
         }
         player->setFruits(fruits);
 
-        SaveLoad::createNewSaveFile(player);
 
+        SaveLoad::createNewSaveFile(player);
         cout << "You have received " << fruit_quantity << " "<< fruits[fruits.size()-1].getNAME()<< "(s)" << endl;
         cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=Monster Drop+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" <<endl;
 
@@ -96,7 +97,7 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
             delete monster;
 
             // refill the HP of the player
-            player->setHP(Player::HP_MAX);
+            player->setHP(player->getHP_MAX());
 
             // load the combat scene again
             CombatScene::playScene(player, newMonster);
@@ -107,7 +108,7 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
             delete monster;
 
             // refill the HP of the player
-            player->setHP(Player::HP_MAX);
+            player->setHP(player->getHP_MAX());
 
             // load the lobby scene
             LobbyScene::playScene(player);
