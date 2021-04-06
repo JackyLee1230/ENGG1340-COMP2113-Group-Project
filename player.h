@@ -29,12 +29,15 @@ class Player {
 
 
     public:
-
         static const char PLAYER_SAVEFILE[];
 
-        static const int HP_MAX;
+        int HP_MAX;
 
         Player(int, int, int, int);
+
+        int getHP_MAX();
+
+        void setHP_MAX(int);
 
         int getHP();
 
