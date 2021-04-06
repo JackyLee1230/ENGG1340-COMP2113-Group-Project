@@ -39,7 +39,7 @@ public:
 
     static void loadInventoryScreen();
 
-    static void loadEncouterMonster(int);
+    static void loadEncouterMonster(Monster *);
 
     static void loadCombatScreen(Player *, Monster *, std::string, std::string);
 

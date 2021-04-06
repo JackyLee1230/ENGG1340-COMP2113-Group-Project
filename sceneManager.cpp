@@ -2,6 +2,9 @@
 // seperate interface and implementation
 
 #include <iostream>
+
+// for setfill() and setwidth()
+#include <iomanip>
 #include <fstream>
 #include <string>
 
@@ -137,15 +140,24 @@ void SceneManager::loadLobbyFloor(int floor_no) {
 }
 
 //load the ASCII Art of the Monster player is fighting
-void SceneManager::loadEncouterMonster(int monster_ID){
+void SceneManager::loadEncouterMonster(Monster *monster){
+
+    int monster_ID = monster->getID();
+
     string file_name = "monster_" + to_string(monster_ID) + ".txt";
     string line;
-    Monster monster = Monster(monster_ID);
     ifstream myfile (SCENES_FOLDER_PATH + file_name);
 
+    // calculate leading spaces to print the name of moster at center
+    int num_of_leading_spaces = (SCENE_WIDTH - monster->getNAME().length()) / 2;
     system("clear");
 
-    monster.loadAsciiArt("monster_" + to_string(monster_ID));
+    // load the name of the monster
+    cout << "+" << string(SCENE_WIDTH - 2, '-')  << "+" << endl;
+    cout << string(num_of_leading_spaces, ' ') << monster->getNAME() << endl;
+    cout << "+" << string(SCENE_WIDTH - 2, '-')  << "+" << endl;
+
+    monster->loadAsciiArt("monster_" + to_string(monster_ID));
     // load the specific scene only
     if (myfile.is_open()) {
         while (getline (myfile, line)) {
