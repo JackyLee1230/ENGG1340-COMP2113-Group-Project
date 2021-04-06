@@ -34,6 +34,6 @@ void MonsterEncounterScene::playScene(Player *player, Monster *monster) {
     }
 
 
-    cout<<"You have chosen to fight " + monster->getNAME() + "! Prepare yourself!" <<endl;
+    cout <<"You have chosen to fight " + monster->getNAME() + "! Prepare yourself!" << endl;
     CombatScene::playScene(player, monster);
 }

@@ -32,8 +32,8 @@ void LobbyScene::playScene(Player *player) {
     SceneManager::loadLobbyFloor(current_floor);
     SceneManager::loadLobbyScreen();
 
-    // // test player object
-    // cout << "Player's HP = " <<  player->getHP() << "; DODGE = " << player->getDODGE() << "; FLOOR = " << player->getFLOOR() << endl;
+    // Show player current status
+    cout << "Player's HP: " <<  player->getHP() << "/" << player->getHP_MAX() << "; LEVEL = " << player->getLEVEL() << endl;
 
     string input = "";
     getline(cin, input);
@@ -98,9 +98,6 @@ void LobbyScene::playScene(Player *player) {
             }
             break;
         case 6: {
-            // release menory of player pointer
-            delete player;
-
             system("clear");
             cout<< "See you next time! We hope you enjoyed your stay!"<<endl;
             exit(0);

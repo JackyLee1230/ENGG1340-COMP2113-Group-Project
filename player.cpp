@@ -25,16 +25,16 @@ using namespace pugi;
 //const char Player::PLAYER_SAVEFILE[] = "savefile.xml";
 //defauly HP_MAX value
 
-// constructor called when creating a new game
+// constructor called when creating a new game / retrieve from savefile
 Player::Player(int hp, int dodge, int floor, int level) {
-
-    this-> HP = hp;
-    this-> DODGE = dodge;
-    this-> HP_MAX = 30;
 
     // game progress purpose, current floor and current level
     this-> FLOOR = floor;
     this-> LEVEL = level;
+
+    this-> HP = hp;
+    this->updateNewHP_MAX();
+    this-> DODGE = dodge;
 
     // remove all existing weapons from player
     // write a new default weapon (the one with id = 1)
@@ -51,10 +51,15 @@ void Player::setHP(int newHP){
     Player::HP = newHP;
 }
 
-int Player::getHP_MAX() { return HP_MAX;}
+int Player::getHP_MAX() { return this->HP_MAX; }
 
 void Player::setHP_MAX(int newHPMax){
     this->HP_MAX = newHPMax;
+}
+
+// update the maximum HP according to the progress of the player
+void Player::updateNewHP_MAX() {
+    this-> HP_MAX = 30 + this->LEVEL * 10;
 }
 
 int Player::getDODGE(){ return this->DODGE; }

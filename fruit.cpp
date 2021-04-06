@@ -52,8 +52,8 @@ void Fruit::setQUANTITY(int newQuantity) {
 int Fruit::act(Player *player){
 
     //heal the player by the the fixed amount from the consumable
-    if(this->HP + player->getHP() > player->HP_MAX){
-        player->setHP(player->HP_MAX);
+    if(this->HP + player->getHP() > player->getHP_MAX()){
+        player->setHP(player->getHP_MAX());
     }else{
         player->setHP( player->getHP() + int(this->HP) );
     }

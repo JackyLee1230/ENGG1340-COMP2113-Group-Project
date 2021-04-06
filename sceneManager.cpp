@@ -179,7 +179,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
 
     // print with the value of HP being green
     printf("Player\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\t\n",
-        player->getHP(), player->HP_MAX
+        player->getHP(), player->getHP_MAX()
     );
     cout << "\n\n";
 

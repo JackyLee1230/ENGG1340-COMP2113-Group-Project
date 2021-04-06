@@ -151,8 +151,8 @@ std::vector<Weapon> SaveLoad::loadPlayerWeapons(xml_node items) {
     for (xml_node item = items.child("weapon"); item; item = item.next_sibling()) {
         cout << "weapon id: " << item.attribute("id").as_int() << endl;
 
-        Weapon *weapon = new Weapon(item.attribute("id").as_int());
-        weapons.push_back(*weapon);
+        Weapon weapon = Weapon(item.attribute("id").as_int());
+        weapons.push_back(weapon);
     }
 
     return weapons;
@@ -166,11 +166,11 @@ std::vector<Fruit> SaveLoad::loadPlayerFruits(xml_node items) {
         cout << "fruits id: " << atoi(item.child_value("id")) << endl;
         cout << "fruits quantity: " << atoi(item.child_value("quantity")) << endl;
 
-        Fruit *fruit = new Fruit(
+        Fruit fruit = Fruit(
             atoi(item.child_value("id")),
             atoi(item.child_value("quantity"))
         );
-        fruits.push_back(*fruit);
+        fruits.push_back(fruit);
     }
 
     return fruits;

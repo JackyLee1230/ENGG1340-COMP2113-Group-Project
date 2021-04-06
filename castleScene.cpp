@@ -7,8 +7,7 @@
 #include "castleScene.h"
 
 #include "sceneManager.h"
-#include "combatScene.h"
-// #include "lobbyScene.h"
+#include "monsterEncounterScene.h"
 #include "saveLoad.h"
 #include "player.h"
 
@@ -42,7 +41,7 @@ void CastleScene::playScene() {
      // create a new save file with default player value
      SaveLoad::createNewSaveFile(player);
 
-     // final goal: load the combat scene to first for the first monster
-     CombatScene::playScene(player, monster);
+     // load the monster encounter scene of that monster
+     MonsterEncounterScene::playScene(player, monster);
 
 }

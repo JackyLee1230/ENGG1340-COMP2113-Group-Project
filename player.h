@@ -15,6 +15,7 @@ class Weapon;
 class Player {
     private:
         int HP;
+        int HP_MAX;
 
         int DODGE;
 
@@ -31,13 +32,13 @@ class Player {
     public:
         static const char PLAYER_SAVEFILE[];
 
-        int HP_MAX;
-
         Player(int, int, int, int);
 
         int getHP_MAX();
 
         void setHP_MAX(int);
+
+        void updateNewHP_MAX();
 
         int getHP();
 

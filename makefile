@@ -21,6 +21,9 @@ weapon.o: weapon.cpp weapon.h pugixml.o player.h monster.h
 fruit.o: fruit.cpp fruit.h player.h pugixml.o
 	g++ $(FLAGS) -c $<
 
+skill.o: skill.cpp skill.h monster.o player.h monster.h pugixml.o
+	g++ $(FLAGS) -c $<
+
 # scenes
 sceneManager.o: sceneManager.cpp sceneManager.h player.h monster.h
 	g++ $(FLAGS) -c $<
@@ -28,7 +31,7 @@ sceneManager.o: sceneManager.cpp sceneManager.h player.h monster.h
 titleScene.o: titleScene.cpp titleScene.h castleScene.h sceneManager.h combatScene.h combatResultScene.h
 	g++ $(FLAGS) -c $<
 
-castleScene.o: castleScene.cpp castleScene.h sceneManager.h player.h combatScene.h
+castleScene.o: castleScene.cpp castleScene.h sceneManager.h player.h monsterEncounterScene.h
 	g++ $(FLAGS) -c $<
 
 lobbyScene.o: lobbyScene.cpp lobbyScene.h sceneManager.h monsterEncounterScene.h player.h
