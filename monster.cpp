@@ -49,6 +49,7 @@ Monster::Monster(int monster_ID) {
     FLIGHT = atoi(monster.child("FLIGHT").child_value());
     SKILL_LOW = atoi(monster.child("SKILL_LOW").child_value());
     SKILL_HIGH = atoi(monster.child("SKILL_HIGH").child_value());
+    WEAPON_DROP = atoi(monster.child("WEAPON_DROP").child_value());
 
     // shield stuff
     SHIELDHP = 0;
@@ -116,6 +117,8 @@ int Monster::getDEF() { return DEF; }
 void Monster::setDEF(int newDEF){
     DEF = newDEF;
 }
+
+int Monster::getWEAPONDROP() { return WEAPON_DROP; }
 
 std::string Monster::getNAME() { return NAME; }
 

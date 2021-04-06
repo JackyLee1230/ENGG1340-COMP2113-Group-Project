@@ -31,6 +31,7 @@ private:
     std::vector<Skill> skills;
     int SKILL_LOW;
     int SKILL_HIGH;
+    int WEAPON_DROP;
 
     int SHIELDHP;
     bool SHIELD_ISMAGIC;
@@ -57,6 +58,8 @@ public:
     int getDEF();
 
     void setDEF(int newDEF);
+
+    int getWEAPONDROP();
 
     // shield part
     int getSHIELDHP();

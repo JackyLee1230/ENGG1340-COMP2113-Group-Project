@@ -42,7 +42,7 @@ void CombatScene::playScene(Player *player, Monster *monster) {
     // generate our first-encounter string here
     oss.str("");
     oss.clear();
-    oss << "You have encountered " << monster->getNAME() << "\n" << "Fight for your survival!!!!" ;
+    oss << "You have encountered " << monster->getNAME() << "\n" << "Fight For Your Survival!!!!" ;
 
     player_action_des = oss.str();
 

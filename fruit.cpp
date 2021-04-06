@@ -44,6 +44,10 @@ int Fruit::getDODGE() { return this->DODGE; }
 
 int Fruit::getQUANTITY() { return this->QUANTITY; }
 
+void Fruit::setQUANTITY(int newQuantity) {
+    this->QUANTITY = newQuantity;
+}
+
 // monster damaging the player and print out the action
 int Fruit::act(Player *player){
 
