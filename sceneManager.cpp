@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
+#include <vector>
 
 #include "sceneManager.h"
 #include "titleScene.h"
@@ -30,6 +31,7 @@ using namespace std;
 #define CYAN    "\033[36m"      /* Cyan */
 #define WHITE   "\033[37m"      /* White */
 #define VICTORY "\xE2\x9C\x8C"
+#define DEFEATED "\xE2\x9C\x94"
 #define WARNING "\xE2\x9A\xA0"
 #define BOSS "\xF0\x9F\x98\x88"
 #define SPARKLE "\xE2\x9D\x87"
@@ -115,20 +117,22 @@ void SceneManager::loadLobbyScreen(Player* player) {
         }
         cout << endl;
     }
-
+    std::vector<string> rooms = {"Library", "Armory", "GuardRoom", "Chapels" ,"GrandHall"};
     //print out the map and the rooms that the player can go
     // and show which boss the player has and has not defeated.
     cout << "=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x" << endl;
     for(int i = 1; i <= 5; i++){
         if( player->getLEVEL() > i ){
-            fprintf(stdout, "[%1i]%2s< Boss Status: %1s  >  ",
+            fprintf(stdout, "[%1i] %-10s %2s< Boss Status: %1s >  ",
                 i,
+                rooms[i-1].c_str(),
                 "",
-                VICTORY
+                DEFEATED
             );
         }else{
-            fprintf(stdout, "[%1i]%2s< Boss Status: %1s >  ",
+            fprintf(stdout, "[%1i] %-10s %2s< Boss Status: %1s>  ",
                 i,
+                rooms[i-1].c_str(),
                 "",
                 BOSS
             );
@@ -137,7 +141,7 @@ void SceneManager::loadLobbyScreen(Player* player) {
             cout << endl;
         }
     }
-    cout << "[6]  Quit  " << endl;
+    cout << "[6] Quit  " << endl;
     cout << "=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x" << endl;
 
     myfile.close();
