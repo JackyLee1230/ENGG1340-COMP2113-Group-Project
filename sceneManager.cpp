@@ -117,7 +117,7 @@ void SceneManager::loadLobbyScreen(Player* player) {
         }
         cout << endl;
     }
-    std::vector<string> rooms = {"Library", "Armory", "GuardRoom", "Chapels" ,"GrandHall"};
+    std::vector<string> rooms = {"Library", "Armory", "Guard Room", "Chapel" ,"Grand Hall"};
     //print out the map and the rooms that the player can go
     // and show which boss the player has and has not defeated.
     cout << "=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x" << endl;
