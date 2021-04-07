@@ -1,27 +1,34 @@
 <?xml version="1.0"?>
 <Player>
-	<HP>20</HP>
+	<HP>60</HP>
 	<DODGE>1</DODGE>
 	<FLOOR>0</FLOOR>
 	<LEVEL>4</LEVEL>
 	<weapons>
 		<weapon id="1" />
+		<weapon id="2" />
 		<weapon id="5" />
-		<weapon id="3" />
-		<weapon id="4" />
 	</weapons>
 	<fruits>
 		<fruit>
 			<id>3</id>
-			<quantity>8</quantity>
+			<quantity>14</quantity>
 		</fruit>
 		<fruit>
 			<id>5</id>
-			<quantity>97</quantity>
+			<quantity>100</quantity>
 		</fruit>
 		<fruit>
 			<id>1</id>
-			<quantity>1</quantity>
+			<quantity>100</quantity>
+		</fruit>
+		<fruit>
+			<id>4</id>
+			<quantity>111</quantity>
+		</fruit>
+		<fruit>
+			<id>2</id>
+			<quantity>107</quantity>
 		</fruit>
 	</fruits>
 </Player>

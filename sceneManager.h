@@ -33,7 +33,7 @@ public:
 
     static void loadSettingScreen();
 
-    static void loadLobbyScreen();
+    static void loadLobbyScreen(Player*);
 
     static void loadLobbyFloor(int);
 

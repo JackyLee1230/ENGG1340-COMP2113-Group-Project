@@ -30,7 +30,7 @@ void LobbyScene::playScene(Player *player) {
 
     // load the graphics
     SceneManager::loadLobbyFloor(current_floor);
-    SceneManager::loadLobbyScreen();
+    SceneManager::loadLobbyScreen(player);
 
     // Show player current status
     cout << "Player's HP: " <<  player->getHP() << "/" << player->getHP_MAX() << "; LEVEL = " << player->getLEVEL() << endl;

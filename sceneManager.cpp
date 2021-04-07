@@ -100,7 +100,7 @@ void SceneManager::loadCastleScreen() {
 }
 
 // load the Lobby screen
-void SceneManager::loadLobbyScreen() {
+void SceneManager::loadLobbyScreen(Player* player) {
     string file_name = LOBBY_SCENE + ".txt";
     string line;
 
@@ -115,6 +115,30 @@ void SceneManager::loadLobbyScreen() {
         }
         cout << endl;
     }
+
+    //print out the map and the rooms that the player can go
+    // and show which boss the player has and has not defeated.
+    cout << "=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x" << endl;
+    for(int i = 1; i <= 5; i++){
+        if( player->getLEVEL() > i ){
+            fprintf(stdout, "[%1i]%2s< Boss Status: %1s  >  ",
+                i,
+                "",
+                VICTORY
+            );
+        }else{
+            fprintf(stdout, "[%1i]%2s< Boss Status: %1s >  ",
+                i,
+                "",
+                BOSS
+            );
+        }
+        if(i % 2 ==0){
+            cout << endl;
+        }
+    }
+    cout << "[6]  Quit  " << endl;
+    cout << "=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x" << endl;
 
     myfile.close();
 }
