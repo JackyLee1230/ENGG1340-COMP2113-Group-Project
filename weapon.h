@@ -9,6 +9,7 @@
 enum WeaponID {
     WOODEN_SWORD = 1,
     SOLDIER_SWORD,
+    DUAL_BLADE,
     BRAVERY_BOW,
     ELDERS_WAND,
     DRAGON_HUNTER
@@ -64,6 +65,9 @@ public:
     void loadWeaponXML(pugi::xml_document&);
 
     void showWeapon();
+
+private:
+    void dealingDmg(Monster *, std::string &);
 
 };
 

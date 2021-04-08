@@ -5,9 +5,9 @@
 	<FLOOR>0</FLOOR>
 	<LEVEL>4</LEVEL>
 	<weapons>
-		<weapon id="1" />
 		<weapon id="2" />
 		<weapon id="5" />
+		<weapon id="6" />
 	</weapons>
 	<fruits>
 		<fruit>

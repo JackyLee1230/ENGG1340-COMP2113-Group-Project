@@ -56,9 +56,6 @@ int Weapon::getMAGIC() { return this->MAGIC; }
 // function for Player to attack monster using the specificed weapon
 // and have a chacne of critical hit and a chance of the monster dodging the attack
 void Weapon::attack(Monster *monster, string& player_action_des){
-    srand(unsigned(time(NULL))); // random prob using time
-    double crt_chance = this->CRT / 100; // get crt chance from weapon stats
-    double crt_roll = (double) (rand() / (RAND_MAX + 1.0)); // generate rand prob with time'
 
     //seed the random again, so that the roll of crit and dodge will not be the same
     srand(unsigned(time(NULL)));
@@ -66,15 +63,12 @@ void Weapon::attack(Monster *monster, string& player_action_des){
     double dodge_roll = (double) (rand() / (RAND_MAX + 1.0)); //generate rand prob with time
 
     bool isDodged =  dodge_prob >  dodge_roll ? true : false;
-    bool isCritical = crt_chance > crt_roll ? true : false;
-
-    int damage_fin = this->getATK();
 
     // check according to the following sequence
     // 1. weapon type (physical or magical)
     // 2. dodge
-    // 3. critical dmg
-    // 4. shield
+    // 3. critical dmg  (in dealing dmg)
+    // 4. shield    (in dealing dmg)
 
     // first check
     // set dodged to false
@@ -95,45 +89,19 @@ void Weapon::attack(Monster *monster, string& player_action_des){
         monster->setHP(monster->getHP());
     }
     else {
-        // third check
-        // if a critical attack is dealt
-        if (isCritical) {
-            // critical attack
-            damage_fin *= 2;
-            player_action_des = "You dealt a critical hit and dealt 2 times damage \n";
-        }
-
-        // our last check
-        // check whether there is a shield and the attack is same type of the shield
-        // not the same type --> break the shield directly
-        if (monster->getSHIELDHP() > 0
-            && this->getMAGIC() != monster->getSHIELD_ISMAGIC()) {
-                player_action_des += "You break the shield!!!\n";
-                monster->setSHIELDHP(0);
-        }
-
-        // check again, whether the shield is broken
-        // run if the shield is not broken
-        if (monster->getSHIELDHP() > 0) {
-
-            monster->setSHIELDHP(monster->getSHIELDHP() - damage_fin);
-
-            // extra damage has been dealt to the monster's shield
-            // remaining damage will be dealt to the HP itself
-            if (monster->getSHIELDHP() < 0) {
-
-                player_action_des += "You break the shield!!!\n";
-
-                monster->setHP(monster->getHP() + monster->getSHIELDHP());
-                monster->setSHIELDHP(0);
+        switch(this->weapon_id) {
+            // weapons that attack twice in a row
+            case WeaponID::DUAL_BLADE:
+            case WeaponID::DRAGON_HUNTER: {
+                // our dmg dealing function
+                dealingDmg(monster, player_action_des);
+                dealingDmg(monster, player_action_des);
             }
+            break;
+            default:
+                // our dmg dealing function
+                dealingDmg(monster, player_action_des);
         }
-        // not hitting on shield
-        else {
-            monster->setHP(monster->getHP() - damage_fin);
-        }
-
-        player_action_des += "Using " + this->getNAME() +  " to attack and dealt " + to_string(damage_fin) + " damage to " + monster->getNAME() + "!" + "\n" ;
 
         if(this->getMAGIC() == 1){
             player_action_des += "You used a Magic Weapon and the Monster could not evade the attack!\n";
@@ -148,6 +116,65 @@ void Weapon::attack(Monster *monster, string& player_action_des){
             player_action_des += "You destroyed the Monster!!\n";
         }
     }
+}
+
+// dealing damage function
+// return the damage deal to the HP of the monster (not the shield one)
+// which will be shown on scene
+void Weapon::dealingDmg(Monster *monster, string& player_action_des) {
+    // our damage
+    int damage_fin = this->getATK();
+    int damage_display = damage_fin;
+
+    srand(unsigned(time(NULL))); // random prob using time
+    double crt_chance = this->CRT / 100; // get crt chance from weapon stats
+    double crt_roll = (double) (rand() / (RAND_MAX + 1.0)); // generate rand prob with time'
+
+    bool isCritical = crt_chance > crt_roll ? true : false;
+
+    // third check
+    // if a critical attack is dealt
+    if (isCritical) {
+        // critical attack
+        damage_fin *= 2;
+        player_action_des = "You dealt a critical hit and dealt 2 times damage \n";
+    }
+
+    // our last check
+    // check whether there is a shield and the attack is same type of the shield
+    // not the same type --> break the shield directly
+    if (monster->getSHIELDHP() > 0
+        && this->getMAGIC() != monster->getSHIELD_ISMAGIC()) {
+            player_action_des += "You break the shield!!!\n";
+            monster->setSHIELDHP(0);
+    }
+
+    // check again, whether the shield is broken
+    // run if the shield is not broken
+    if (monster->getSHIELDHP() > 0) {
+
+        monster->setSHIELDHP(monster->getSHIELDHP() - damage_fin);
+
+        // extra damage has been dealt to the monster's shield
+        // remaining damage will be dealt to the HP itself
+        if (monster->getSHIELDHP() < 0) {
+
+            player_action_des += "You break the shield!!!\n";
+
+            monster->setHP(monster->getHP() + monster->getSHIELDHP());
+
+            damage_display = -monster->getSHIELDHP();
+
+            monster->setSHIELDHP(0);
+        }
+    }
+    // not hitting on shield
+    else {
+        monster->setHP(monster->getHP() - damage_fin);
+    }
+
+    // showing the damage on screen
+    player_action_des += "Using " + this->getNAME() +  " to attack and dealt " + to_string(damage_display) + " damage to " + monster->getNAME() + "!" + "\n" ;
 }
 
 // load the weapon stats from the weapon_stats XML file
@@ -175,14 +202,14 @@ void Weapon::showWeapon() {
     // magic / range / normal type weapon
     if(this->RANGE == 1){
         if(this->MAGIC == 1){ // weapon is ranged and does magic damage
-            fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE, MAGIC: TRUE >",
+            fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE, MAGIC: TRUE >\n",
                 this->NAME.c_str(),
                 "",
                 this->ATK,
                 this->CRT
             );
         }else { // weapon is ranged
-            fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE >",
+            fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d%, RANGE: TRUE >\n",
                 this->NAME.c_str(),
                 "",
                 this->ATK,
@@ -191,12 +218,21 @@ void Weapon::showWeapon() {
         }
     }
     else{ // weapon only deals physical damage
-        fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d% >",
+        fprintf(stdout, "%-16s%4s< ATK: %2d, CRT: %2d% >\n",
             this->NAME.c_str(),
             "",
             this->ATK,
             this->CRT
         );
+    }
+
+    // showing that some weapons can attack twice in a row (their special ability)
+    switch (this->weapon_id) {
+        case DUAL_BLADE:
+        case DRAGON_HUNTER:
+            fprintf(stdout, "%4s%-16s%4s< Attack TWICE in a round >\n",
+                "", "", "");
+            break;
     }
 
 }

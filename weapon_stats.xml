@@ -17,6 +17,14 @@
 </weapon>
 
 <weapon id="3">
+    <name>Dual Blade</name>
+    <ATK>8</ATK>
+    <CRT>40</CRT>
+    <RANGE>0</RANGE>
+    <MAGIC>0</MAGIC>
+</weapon>
+
+<weapon id="4">
     <name>Bravery Bow</name>
     <ATK>10</ATK>
     <CRT>8</CRT>
@@ -24,7 +32,7 @@
     <MAGIC>0</MAGIC>
 </weapon>
 
-<weapon id="4">
+<weapon id="5">
     <name>Elder's Wand</name>
     <ATK>8</ATK>
     <CRT>5</CRT>
@@ -32,9 +40,9 @@
     <MAGIC>1</MAGIC>
 </weapon>
 
-<weapon id="5">
+<weapon id="6">
     <name>Dragon Hunter</name>
-    <ATK>7</ATK>
+    <ATK>14</ATK>
     <CRT>20</CRT>
     <RANGE>1</RANGE>
     <MAGIC>0</MAGIC>
