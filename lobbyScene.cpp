@@ -46,7 +46,7 @@ void LobbyScene::playScene(Player *player) {
         else {
             int user_input = std::stoi(input);
 
-            if (user_input >= 5){
+            if (user_input >= 6){
                 break;
             }
 
@@ -83,19 +83,16 @@ void LobbyScene::playScene(Player *player) {
         }
             break;
         case 4: {
+            Monster *monster = new Monster(user_input + 1);
+            MonsterEncounterScene::playScene(player, monster);
+        }
+            break;
+        case 5: {
             cout << "Now Accessing the LEVEL BOSS!!!" << endl;
             cout << "Prepare for CHAOS!" << endl;
             Monster *monster = new Monster(user_input + 1);
             MonsterEncounterScene::playScene(player, monster);
         }
-            break;
-        case 5:
-        // SAVE GAME
-            system("clear");
-            cout << "SAVING GAME";
-            if(!SaveLoad::checkSaveFileExist()){
-                SaveLoad::createNewSaveFile(player);
-            }
             break;
         case 6: {
             system("clear");
