@@ -76,7 +76,7 @@ void Weapon::attack(Monster *monster, string& player_action_des){
     // 3. shield
     // 4. critical dmg
 
-    if (isDodged) {
+    if (isDodged && this->getRANGE() == 0) {
         player_action_des = "The Monster were quick enough to realised and evaded your attack!!!!";
 
         // when the attack is dodged, no damage will be dealt to the monster
@@ -120,6 +120,10 @@ void Weapon::attack(Monster *monster, string& player_action_des){
         }
 
         player_action_des += "Using " + string(this->NAME) +  " to attack and dealt " + to_string(damage_fin) + " damage to " + monster->getNAME() + "!" ;
+
+        if(this->getRANGE() == 1){
+            player_action_des += "\nYou used a Ranged Weapon and the Monster could not evade the attack!";
+        }
 
         // barely defeated the monster
         if (monster->getHP() == 0) {
