@@ -24,17 +24,23 @@ private:
     int HP;
     int HP_MAX;
     int ATK;
-    int DEF;
     std::string NAME;
     int DODGE;
     int FLIGHT;
+
+    // skills part
     std::vector<Skill> skills;
     int SKILL_LOW;
     int SKILL_HIGH;
     int WEAPON_DROP;
 
+    // shields part
     int SHIELDHP;
     bool SHIELD_ISMAGIC;
+
+    // flight part
+    bool isFlying;
+    int flight_rounds;
 
 public:
     static const std::string MONSTER_ART_FOLDER_PATH;
@@ -55,10 +61,6 @@ public:
 
     void setATK(int newATK);
 
-    int getDEF();
-
-    void setDEF(int newDEF);
-
     int getWEAPONDROP();
 
     // shield part
@@ -70,19 +72,20 @@ public:
 
     void setSHIELD_ISMAGIC(bool);
 
-    int calculateHP(int HP);
-
-    int calculateATK(float ATK);
-
-    int calculateDEF(int DEF);
-
     int calculateDODGE(int DODGE);
 
     int getDODGE();
 
     void setDODGE(int newDODGE);
 
+    // Flight part
     int getFLIGHT();
+
+    void setFLIGHT(int newFLIGHT);
+
+    bool getIsFlying();
+
+    int fly();
 
     std::vector<Skill> getSkills();
 
@@ -90,8 +93,6 @@ public:
 
     int getSKILLLOW();
     int getSKILLHIGH();
-
-    void setFLIGHT(int newFLIGHT);
 
     std::string getNAME();
 

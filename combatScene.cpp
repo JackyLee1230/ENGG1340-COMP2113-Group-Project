@@ -42,13 +42,13 @@ void CombatScene::playScene(Player *player, Monster *monster) {
     // generate our first-encounter string here
     oss.str("");
     oss.clear();
-    oss << "You have encountered " << monster->getNAME() << "\n" << "Fight For Your Survival!!!!" ;
+    oss << "You have encountered " << monster->getNAME() << "\n" << "Fight For Your Survival!!!!" << "\n" ;
 
     player_action_des = oss.str();
 
     oss.str("");
     oss.clear();
-    oss << "The Monster has spotted you! " << "\n" << "Beware of their attacks!" ;
+    oss << "The Monster has spotted you! " << "\n" << "Beware of their attacks!" << "\n" ;
     monster_action_des = oss.str();
 
     // load the graphics
@@ -115,14 +115,34 @@ void monsterMove(Player *player, Monster *monster) {
     if (skill.getType() == Type::DAMAGE) {
         oss << monster->getNAME()
             <<  " casted: " << skill.getNAME()
-            << " and dealt " << skill.getATK() << " damage";
+            << " and dealt " << skill.getATK() << " damage" << "\n";
     }
     else if (skill.getType() == Type::SHIELD) {
         oss << monster->getNAME()
             <<  " casted: " << skill.getNAME()
-            << " and built itself a shield!!" ;
+            << " and built itself a shield!!" << "\n";
     }
 
+    // generate flight movement
+    // only for monsters who have FLIGHT variable
+    if (monster->getFLIGHT()) {
+        switch(monster->fly()) {
+            case 1:
+                oss << monster->getNAME()
+                    << " leaves the ground !!" << "\n";
+                break;
+            case -1:
+                oss << monster->getNAME()
+                    << " lands on the ground !!" << "\n";
+                break;
+            case 0:
+                if (monster->getIsFlying()) {
+                    oss << monster->getNAME()
+                    << " is flying !!" << "\n";
+                }
+                break;
+        }
+    }
 
     // store the action description for displaying
     monster_action_des = oss.str();

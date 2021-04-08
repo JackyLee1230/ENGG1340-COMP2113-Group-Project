@@ -65,7 +65,7 @@ void Weapon::attack(Monster *monster, string& player_action_des){
     double dodge_prob = monster->getDODGE() / 100;// probability of dodge depend on the monster
     double dodge_roll = (double) (rand() / (RAND_MAX + 1.0)); //generate rand prob with time
 
-    bool isDodged =  dodge_roll > dodge_prob ? false : true;
+    bool isDodged =  dodge_prob >  dodge_roll ? true : false;
     bool isCritical = crt_chance > crt_roll ? true : false;
 
     int damage_fin = this->getATK();
@@ -73,16 +73,29 @@ void Weapon::attack(Monster *monster, string& player_action_des){
     // check according to the following sequence
     // 1. weapon type (physical or magical)
     // 2. dodge
-    // 3. shield
-    // 4. critical dmg
+    // 3. critical dmg
+    // 4. shield
 
-    if (isDodged && this->getRANGE() == 0) {
-        player_action_des = "The Monster were quick enough to realised and evaded your attack!!!!";
+    // first check
+    // set dodged to false
+    if (this->getMAGIC())
+        isDodged = false;
+
+    // second check (pt 1)
+    // check whether the monster is flying
+    // and the player is using a non-ranged weapon
+    else if (monster->getIsFlying() && this->getRANGE() == false)
+        isDodged = true;
+
+    // second check (pt 2)
+    if (isDodged) {
+        player_action_des = monster->getNAME() + " was quick enough to realised and evaded your attack!!!!\n";
 
         // when the attack is dodged, no damage will be dealt to the monster
         monster->setHP(monster->getHP());
     }
     else {
+        // third check
         // if a critical attack is dealt
         if (isCritical) {
             // critical attack
@@ -90,6 +103,7 @@ void Weapon::attack(Monster *monster, string& player_action_des){
             player_action_des = "You dealt a critical hit and dealt 2 times damage \n";
         }
 
+        // our last check
         // check whether there is a shield and the attack is same type of the shield
         // not the same type --> break the shield directly
         if (monster->getSHIELDHP() > 0
@@ -119,19 +133,19 @@ void Weapon::attack(Monster *monster, string& player_action_des){
             monster->setHP(monster->getHP() - damage_fin);
         }
 
-        player_action_des += "Using " + string(this->NAME) +  " to attack and dealt " + to_string(damage_fin) + " damage to " + monster->getNAME() + "!" ;
+        player_action_des += "Using " + this->getNAME() +  " to attack and dealt " + to_string(damage_fin) + " damage to " + monster->getNAME() + "!" + "\n" ;
 
-        if(this->getRANGE() == 1){
-            player_action_des += "\nYou used a Ranged Weapon and the Monster could not evade the attack!";
+        if(this->getMAGIC() == 1){
+            player_action_des += "You used a Magic Weapon and the Monster could not evade the attack!\n";
         }
 
         // barely defeated the monster
         if (monster->getHP() == 0) {
-            player_action_des += "\nYou barely defeated the Monster and it died.";
+            player_action_des += "You barely defeated the Monster and it died.\n";
         }
         // defeated the monster
         else if (monster->getHP() < 0) {
-            player_action_des += "\nYou destroyed the Monster!!";
+            player_action_des += "You destroyed the Monster!!\n";
         }
     }
 }

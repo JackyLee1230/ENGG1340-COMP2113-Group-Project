@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Player>
-	<HP>11</HP>
+	<HP>70</HP>
 	<DODGE>1</DODGE>
 	<FLOOR>0</FLOOR>
 	<LEVEL>4</LEVEL>

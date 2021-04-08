@@ -11,6 +11,9 @@
 // for atoi()
 #include <stdlib.h>
 
+// for log()
+#include <cmath>
+
 #include "monster.h"
 #include "skill.h"
 #include "player.h"
@@ -44,7 +47,6 @@ Monster::Monster(int monster_ID) {
     HP = atoi(monster.child("HP").child_value());
     HP_MAX = HP;
     ATK = atoi(monster.child("ATK").child_value());
-    DEF = atoi(monster.child("DEF").child_value());
     DODGE = atoi(monster.child("DODGE").child_value());
     FLIGHT = atoi(monster.child("FLIGHT").child_value());
     SKILL_LOW = atoi(monster.child("SKILL_LOW").child_value());
@@ -54,6 +56,10 @@ Monster::Monster(int monster_ID) {
     // shield stuff
     SHIELDHP = 0;
     SHIELD_ISMAGIC = false;
+
+    // flight stuff
+    this->isFlying = false;
+    this->flight_rounds = 0;
 
     // initialize the skill set of the monster
     // Improve performance in combat scene (w/out the need to read xml repeatly)
@@ -112,12 +118,6 @@ void Monster::setSHIELD_ISMAGIC(bool isMagic) {
     this->SHIELD_ISMAGIC = isMagic;
 }
 
-int Monster::getDEF() { return DEF; }
-
-void Monster::setDEF(int newDEF){
-    DEF = newDEF;
-}
-
 int Monster::getWEAPONDROP() { return WEAPON_DROP; }
 
 std::string Monster::getNAME() { return NAME; }
@@ -132,17 +132,48 @@ void Monster::setSkills(std::vector<Skill> newSkills) {
     this->skills = newSkills;
 }
 
-// int Monster::calculateHP(int HP){
-//     return float(HP) * level * 1.3;
-// }
-//
-// int Monster::calculateATK(float ATK){
-//     return float(ATK) * level * 1.3;
-// }
-//
-// int Monster::calculateDEF(int DEF){
-//     return float(DEF) * level * 1.3;
-// }
+bool Monster::getIsFlying() { return this->isFlying; }
+
+// flight stuff
+// some maths functions to decide when the monster gets down on the ground
+int Monster::fly() {
+    if (!isFlying) {
+        // generate probability to decide whether the monster wants to fly
+        double flight_prob = 0.3;
+        double flight_roll = (double) (rand() / (RAND_MAX + 1.0));
+        bool toFly = flight_prob > flight_roll ? true : false;
+
+        if (toFly) {
+            isFlying = true;
+            flight_rounds = 0;
+            flight_rounds++;
+
+            // return the result to generate corresponding sentences
+            return 1;
+        }
+    }
+    else {
+        // generate probabiity to decide whether the monster wants to land
+        // landing prob will increase with number of isFlying turns
+        // use log function to generate probabiity
+        double land_prob = log10(flight_rounds);
+        double land_roll = (double) (rand() / (RAND_MAX + 1.0));
+        bool toLand = land_prob > land_roll ? true : false;
+
+        if (toLand) {
+            isFlying = false;
+            flight_rounds = 0;
+
+            // return the result to generate corresponding sentences
+            return -1;
+        }
+        else {
+            flight_rounds++;
+        }
+    }
+
+    return 0;
+}
 
 // print the monster art
 // similar to loadTitleScreen
