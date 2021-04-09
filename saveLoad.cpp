@@ -77,8 +77,7 @@ void SaveLoad::createNewSaveFile(Player *player) {
     }
 
     // get the fruits that the player have
-    // and write them to the save file as well
-
+    // and write the id and quantity to the save file as well
     std::vector<Fruit> fruits = player->getFruits();
 
     xml_node fruits_node = player_node.append_child("fruits");
@@ -133,6 +132,7 @@ Player* SaveLoad::loadSaveFile() {
         SaveLoad::loadPlayerWeapons(weapons)
     );
 
+    // load fruits from xml doc
     xml_node fruits = player_node.child("fruits");
 
     player->setFruits(
@@ -158,7 +158,7 @@ std::vector<Weapon> SaveLoad::loadPlayerWeapons(xml_node items) {
     return weapons;
 }
 
-// load the weapons of the player using the weapons vector
+// load the fruits of the player using the fruits vector
 std::vector<Fruit> SaveLoad::loadPlayerFruits(xml_node items) {
     std::vector<Fruit> fruits;
 

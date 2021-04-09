@@ -17,19 +17,6 @@
 
 //main function of the game, call other functions to start the game
 int main(){
-    // loadScene("start");
-    //
-    // // clear screen
-    // system("clear");
-    //
-    // loadMonsterScene("monster_boss");
-    //
-    // system("clear");
-    //
-    // loadScene("end");
-
     // SceneManager::loadTitleScreen();
     TitleScene::playScene();
-    //LobbyScene::playScene();
-
 }

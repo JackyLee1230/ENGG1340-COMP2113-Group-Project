@@ -62,23 +62,15 @@ bool Skill::getISMAGIC() { return this->isMagic; }
 // monster damaging the player and print out the action
 void Skill::act(Player *player, Monster *monster, string& monster_action_des) {
 
-    // // magical damage
-    // if (this->isMagic) {
-    //
-    // }
-    // // physical damage
-    // else {
-    //
-    // }
-
+    // choose whether its a damage action or shield regen action
     switch (this->getType()) {
-        case Type::DAMAGE: {
+        case Type::DAMAGE: { // directly damage the player
             int player_hp = player->getHP();
             int monster_attack = this->getATK();
             player->setHP(player_hp - monster_attack);
         }
             break;
-        case Type::SHIELD: {
+        case Type::SHIELD: { // monster will regenerate the shield HP
             monster->setSHIELDHP(monster->getSHIELDHP() + this->getATK());
             monster->setSHIELD_ISMAGIC(this->getISMAGIC());
         }

@@ -179,6 +179,7 @@ void playerMove(Player *player, Monster *monster) {
 
         // user_input determine which weapon player uses to attack the monster
         switch (user_input) {
+            //-------------------------weapons------------------------------
             case 1: {
                 //oss << "Using " << weapons[0].getNAME() <<" to attack and dealt " << weapons[0].getATK() << " damage to " << monster->getNAME() << "!" ;
 
@@ -231,9 +232,8 @@ void playerMove(Player *player, Monster *monster) {
                 }
                 }
                 break;
-            // --------------- consumables --------------
+            // --------------- consumables(fruits) --------------
             case 5:{
-
                 // handling user inputing a fruit slot which does not exist
                 if (fruits.size() + 4 < user_input) {
                     cout << "Input invalid. Please try again." << endl;
@@ -399,6 +399,7 @@ void playerMove(Player *player, Monster *monster) {
     }
 
     // store the action description for displaying
+    // clear it after each turn to prevent message stacking
     oss.clear();
 
 }

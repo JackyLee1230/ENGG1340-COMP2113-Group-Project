@@ -24,12 +24,13 @@
 using namespace std;
 using namespace pugi;
 
+//play the lobby scene where the map and rooms are shown to the player
 void LobbyScene::playScene(Player *player) {
 
     int current_floor = player->getFLOOR();
 
     // load the graphics
-    SceneManager::loadLobbyFloor(current_floor);
+    SceneManager::loadLobbyFloor(1);
     SceneManager::loadLobbyScreen(player);
 
     // Show player current status

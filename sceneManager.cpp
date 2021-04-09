@@ -120,6 +120,7 @@ void SceneManager::loadLobbyScreen(Player* player) {
     std::vector<string> rooms = {"Library", "Armory", "Guard Room", "Chapel" ,"Grand Hall"};
     //print out the map and the rooms that the player can go
     // and show which boss the player has and has not defeated.
+    // also print out the map and the order of the rooms the player have to follow
     cout << "=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x" << endl;
     for(int i = 1; i <= 5; i++){
         if( player->getLEVEL() > i ){
@@ -213,8 +214,28 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
 
     cout << "> " << monster_action_des << endl;
 
-    printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET,
-        monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX()
+    vector<int> skill_dmg ;
+    int min, max;
+
+    for(int i = monster->getSKILLLOW(); i < monster->getSKILLHIGH(); i++ ){
+        Skill skill = monster->getSkills()[i];
+        if(skill.getATK() != 0){
+            skill_dmg.push_back(skill.getATK());
+        }
+    }
+
+    min = skill_dmg[0]; max = min;
+    for(int i = 0 ; i < skill_dmg.size() ; i++){
+        if (skill_dmg[i] > max){
+            max = skill_dmg[i];
+        }
+        if (skill_dmg[i] < min){
+            min = skill_dmg[i];
+        }
+    }
+
+    printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET RED "\tDamage Range: %d - %d" RESET,
+        monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX(), min, max
     );
 
     // load shieldHP if shieldHP not equal to 0

@@ -5,12 +5,10 @@
         | |   | |___\ \_/ /\ \_/ / |\ \  | |   | |____| | | || |\  |
         \_|   \_____/\___/  \___/\_| \_| \_|   \_____/\_| |_/\_| \_/
 x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
-                                   [ARMORY]
-                                       ^
-                                       |
-                                       |
-             [Food Storage] <--- [YOU ARE HERE] ---> [LEVEL BOSS]
-                                       |
-                                       |
-                                       v
-                                  [Rest Room]
+
+								  
+				[Grand Hall] <---  [Chapel] <--- [Guard Room]
+													^
+													|
+				 [Entrance]  ---> [Library] ---> [Armory]
+

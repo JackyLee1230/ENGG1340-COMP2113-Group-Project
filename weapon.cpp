@@ -99,10 +99,12 @@ void Weapon::attack(Monster *monster, string& player_action_des){
             }
             break;
             default:
+                // if it is not the two above, then only hit once
                 // our dmg dealing function
                 dealingDmg(monster, player_action_des);
         }
 
+         // show when player use a magic weapon
         if(this->getMAGIC() == 1){
             player_action_des += "You used a Magic Weapon and the Monster could not evade the attack!\n";
         }
@@ -120,7 +122,7 @@ void Weapon::attack(Monster *monster, string& player_action_des){
 
 // dealing damage function
 // return the damage deal to the HP of the monster (not the shield one)
-// which will be shown on scene
+// which will be shown on scene message
 void Weapon::dealingDmg(Monster *monster, string& player_action_des) {
     // our damage
     int damage_fin = this->getATK();
@@ -135,7 +137,7 @@ void Weapon::dealingDmg(Monster *monster, string& player_action_des) {
     // third check
     // if a critical attack is dealt
     if (isCritical) {
-        // critical attack
+        // critical attack , deal 2 times the damage
         damage_fin *= 2;
         player_action_des = "You dealt a critical hit and dealt 2 times damage \n";
     }
@@ -159,7 +161,7 @@ void Weapon::dealingDmg(Monster *monster, string& player_action_des) {
         // remaining damage will be dealt to the HP itself
         if (monster->getSHIELDHP() < 0) {
 
-            player_action_des += "You break the shield!!!\n";
+            player_action_des += "You broke the shield of the monster!!!\n";
 
             monster->setHP(monster->getHP() + monster->getSHIELDHP());
 
@@ -168,7 +170,7 @@ void Weapon::dealingDmg(Monster *monster, string& player_action_des) {
             monster->setSHIELDHP(0);
         }
     }
-    // not hitting on shield
+    // not hitting on shield , directly damage the monster
     else {
         monster->setHP(monster->getHP() - damage_fin);
     }
@@ -230,7 +232,7 @@ void Weapon::showWeapon() {
     switch (this->weapon_id) {
         case DUAL_BLADE:
         case DRAGON_HUNTER:
-            fprintf(stdout, "%4s%-16s%4s< Attack TWICE in a round >\n",
+            fprintf(stdout, "%4s%-16s%4s< Attacked TWICE in a round >\n",
                 "", "", "");
             break;
     }

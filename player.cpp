@@ -87,13 +87,6 @@ void Player::setFruits(vector<Fruit> newFruits) {
     this->fruits = newFruits;
 }
 
-
-// int Player::getDEF() { return Player::DEF; }
-//
-// void Player::setDEF(int newDEF) {
-//     Player::DEF = newDEF;
-// }
-
 // set the weapon of the player using a vector
 void Player::setWeapons(std::vector<Weapon> weapons) {
     this->weapons = weapons;
