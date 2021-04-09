@@ -219,7 +219,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
 
     for(int i = monster->getSKILLLOW(); i < monster->getSKILLHIGH(); i++ ){
         Skill skill = monster->getSkills()[i];
-        if(skill.getATK() != 0){
+        if(skill.getATK() != 0 && skill.getType() == 0){
             skill_dmg.push_back(skill.getATK());
         }
     }
@@ -233,10 +233,19 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
             min = skill_dmg[i];
         }
     }
+    
+    //show the damage range of the monster as well
+    // only show it once if the min and max damage is the same
+    if(min == max){
+        printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET RED "\tDamage Range: %d" RESET,
+            monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX(), min
+        );
+    }else{
+        printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET RED "\tDamage Range: %d - %d" RESET,
+            monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX(), min, max
+        );
+    }
 
-    printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET RED "\tDamage Range: %d - %d" RESET,
-        monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX(), min, max
-    );
 
     // load shieldHP if shieldHP not equal to 0
     if (monster->getSHIELDHP() > 0) {
