@@ -106,6 +106,11 @@ void monsterMove(Player *player, Monster *monster) {
     int monster_move =  rand() % (monster->getSkills().size());
     Skill skill = monster->getSkills()[monster_move];
 
+    while(monster->getSHIELDHP() != 0 && skill.getType()== Type::SHIELD && monster->getSHIELD_ISMAGIC() != skill.getISMAGIC() ){
+        monster_move =  rand() % (monster->getSkills().size());
+        skill = monster->getSkills()[monster_move];
+    }
+
     // clear existing stuff in the ostringstream
     oss.str("");
     oss.clear();

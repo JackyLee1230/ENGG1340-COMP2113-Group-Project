@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Player>
-	<HP>60</HP>
+	<HP>30</HP>
 	<DODGE>1</DODGE>
 	<FLOOR>0</FLOOR>
 	<LEVEL>6</LEVEL>
@@ -16,11 +16,11 @@
 		</fruit>
 		<fruit>
 			<id>5</id>
-			<quantity>1634757971</quantity>
+			<quantity>1634757969</quantity>
 		</fruit>
 		<fruit>
 			<id>1</id>
-			<quantity>1684955435</quantity>
+			<quantity>1634757970</quantity>
 		</fruit>
 		<fruit>
 			<id>4</id>
