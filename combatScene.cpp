@@ -186,9 +186,9 @@ void playerMove(Player *player, Monster *monster) {
         switch (user_input) {
             //-------------------------weapons------------------------------
             case 1: {
-                //oss << "Using " << weapons[0].getNAME() <<" to attack and dealt " << weapons[0].getATK() << " damage to " << monster->getNAME() << "!" ;
+                //oss << "Using " << weap(ons[0].getNAME() <<" to attack and dealt " << weapons[0].getATK() << " damage to " << monster->getNAME() << "!" ;
 
-                // handling user inputing a weapon slot which does not exist
+                // handling )user inputing a weapon slot which does not exist
                 if (weapons.size() < user_input) {
                     cout << "Input invalid. Please try again." << endl;
                 }
@@ -258,7 +258,16 @@ void playerMove(Player *player, Monster *monster) {
 
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[0].getNAME() + " and healed " + to_string(fruits[0].getHP()) + " HP!";
-                    monster_action_des ="";
+
+                    // display whether the monster is flying or not
+                    // to give info to player to decide to use which weapon
+                    if (monster->getFLIGHT()) {
+                        monster_action_des = monster->getFlightDescription();
+                    }
+                    else {
+                        monster_action_des = "";
+                    }
+
                     SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
                     // reset description
                     player_action_des = "";
@@ -284,7 +293,14 @@ void playerMove(Player *player, Monster *monster) {
 
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[1].getNAME() + " and healed " + to_string(fruits[1].getHP()) + " HP!";
-                    monster_action_des ="";
+
+                    if (monster->getFLIGHT()) {
+                        monster_action_des = monster->getFlightDescription();
+                    }
+                    else {
+                        monster_action_des = "";
+                    }
+
                     SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
                     // reset description
@@ -311,7 +327,14 @@ void playerMove(Player *player, Monster *monster) {
 
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[2].getNAME() + " and healed " + to_string(fruits[2].getHP()) + " HP!";
-                    monster_action_des ="";
+
+                    if (monster->getFLIGHT()) {
+                        monster_action_des = monster->getFlightDescription();
+                    }
+                    else {
+                        monster_action_des = "";
+                    }
+
                     SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
                     // reset description
@@ -338,7 +361,14 @@ void playerMove(Player *player, Monster *monster) {
 
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[3].getNAME() + " and healed " + to_string(fruits[3].getHP()) + " HP!";
-                    monster_action_des ="";
+
+                    if (monster->getFLIGHT()) {
+                        monster_action_des = monster->getFlightDescription();
+                    }
+                    else {
+                        monster_action_des = "";
+                    }
+
                     SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
                     // reset description
@@ -365,7 +395,14 @@ void playerMove(Player *player, Monster *monster) {
 
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[4].getNAME() + " and healed " + to_string(fruits[4].getHP()) + " HP!";
-                    monster_action_des ="";
+
+                    if (monster->getFLIGHT()) {
+                        monster_action_des = monster->getFlightDescription();
+                    }
+                    else {
+                        monster_action_des = "";
+                    }
+
                     SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
                     // reset description
@@ -392,7 +429,14 @@ void playerMove(Player *player, Monster *monster) {
 
                     continue_game = false;
                     player_action_des = "You consumed " + fruits[5].getNAME() + " and healed " + to_string(fruits[5].getHP()) + " HP!";
-                    monster_action_des ="";
+
+                    if (monster->getFLIGHT()) {
+                        monster_action_des = monster->getFlightDescription();
+                    }
+                    else {
+                        monster_action_des = "";
+                    }
+                    
                     SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
                     // reset description

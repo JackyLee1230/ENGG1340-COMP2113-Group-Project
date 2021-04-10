@@ -87,6 +87,8 @@ public:
 
     int fly();
 
+    std::string getFlightDescription();
+
     std::vector<Skill> getSkills();
 
     void setSkills(std::vector<Skill> skills);

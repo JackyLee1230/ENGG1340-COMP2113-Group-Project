@@ -30,6 +30,13 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
             if(monster->getWEAPONDROP() != -1){
                 Weapon drop = Weapon(monster->getWEAPONDROP());
                 cout << "You have collected a weapon " << drop.getNAME() << " from the monster" << endl;
+
+                // show the stats of the new weapon to give complete information to the player
+                // preserve some spacing
+                cout << "    ";
+                drop.showWeapon();
+                cout << endl;
+
                 // ask the player to drop a weapon if owning four weapons already
                 if (weapons.size() == 4) {
                     string input = "";
@@ -63,6 +70,9 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
 
             player->setWeapons(weapons);
             player->updateNewHP_MAX();
+
+            // auto recover HP when winning
+            player->setHP(player->getHP_MAX());
         }
 
         // give player fruits after each win
@@ -74,9 +84,9 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
 
         bool added = false;
 
-        for(int i = 0; i< fruits.size(); i++){
+        for(int i = 0; i < fruits.size(); i++){
             if(fruits[i].getID() == fruit_type){
-                fruits[i].setQUANTITY(fruits[fruit_type].getQUANTITY() + fruit_quantity);
+                fruits[i].setQUANTITY(fruits[i].getQUANTITY() + fruit_quantity);
                 added = true;
             }
         }

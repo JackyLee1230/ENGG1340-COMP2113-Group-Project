@@ -8,6 +8,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #include "sceneManager.h"
 #include "titleScene.h"
@@ -215,25 +216,19 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
 
     cout << "> " << monster_action_des << endl;
 
-    vector<int> skill_dmg ;
+    vector<int> skill_dmgs;
     int min, max;
 
-    for(int i = monster->getSKILLLOW(); i < monster->getSKILLHIGH(); i++ ){
-        Skill skill = monster->getSkills()[ i - monster->getSKILLLOW() ];
-        if(skill.getATK() != 0 && skill.getType() == 0){
-            skill_dmg.push_back(skill.getATK());
+    vector<Skill>::iterator skill_itr;
+    for (skill_itr = monster->getSkills().begin(); skill_itr != monster->getSkills().end(); skill_itr++) {
+        if((*skill_itr).getType() == 0){
+            skill_dmgs.push_back((*skill_itr).getATK());
         }
     }
 
-    min = skill_dmg[0]; max = min;
-    for(int i = 0 ; i < skill_dmg.size() ; i++){
-        if (skill_dmg[i] > max){
-            max = skill_dmg[i];
-        }
-        if (skill_dmg[i] < min){
-            min = skill_dmg[i];
-        }
-    }
+    sort(skill_dmgs.begin(), skill_dmgs.end());
+    min = skill_dmgs[0];
+    max = skill_dmgs[skill_dmgs.size() - 1];
 
     // show the damage range of the monster as well
     // only show it once if the min and max damage is the same

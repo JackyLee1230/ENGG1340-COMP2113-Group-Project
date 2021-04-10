@@ -175,6 +175,20 @@ int Monster::fly() {
     return 0;
 }
 
+string Monster::getFlightDescription() {
+
+    string flight_description = "";
+
+    if (this->isFlying) {
+        flight_description = this->getNAME() + " is flying !!" + "\n";
+    }
+    else {
+        flight_description = this->getNAME() + " is on ground !!" + "\n";
+    }
+
+    return flight_description;
+}
+
 // print the monster art
 // similar to loadTitleScreen
 void Monster::loadAsciiArt(string fileName) {

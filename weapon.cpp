@@ -59,7 +59,7 @@ void Weapon::attack(Monster *monster, string& player_action_des){
 
     //seed the random again, so that the roll of crit and dodge will not be the same
     srand(unsigned(time(NULL)));
-    double dodge_prob = monster->getDODGE() / 100;// probability of dodge depend on the monster
+    double dodge_prob = static_cast<double>(monster->getDODGE()) / 100;// probability of dodge depend on the monster
     double dodge_roll = (double) (rand() / (RAND_MAX + 1.0)); //generate rand prob with time
 
     bool isDodged =  dodge_prob >  dodge_roll ? true : false;
@@ -129,7 +129,7 @@ void Weapon::dealingDmg(Monster *monster, string& player_action_des) {
     int damage_display = damage_fin;
 
     srand(unsigned(time(NULL))); // random prob using time
-    double crt_chance = this->CRT / 100; // get crt chance from weapon stats
+    double crt_chance = static_cast<double>(this->CRT) / 100; // get crt chance from weapon stats
     double crt_roll = (double) (rand() / (RAND_MAX + 1.0)); // generate rand prob with time'
 
     bool isCritical = crt_chance > crt_roll ? true : false;
@@ -139,7 +139,8 @@ void Weapon::dealingDmg(Monster *monster, string& player_action_des) {
     if (isCritical) {
         // critical attack , deal 2 times the damage
         damage_fin *= 2;
-        player_action_des = "You dealt a critical hit and dealt 2 times damage \n";
+        damage_display = damage_fin;
+        player_action_des += "You dealt a critical hit and dealt 2 times damage \n";
     }
 
     // our last check
