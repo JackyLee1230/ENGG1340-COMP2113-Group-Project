@@ -34,6 +34,7 @@ void TitleScene::playScene() {
 
     // input check
     while(true){
+
         if ((input.length() !=1) || (isdigit(input[0]) == 0) || (std::stoi(input) <= 0) || (std::stoi(input) >= 5)) {
             cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
         }
@@ -73,7 +74,7 @@ void TitleScene::playScene() {
 
                 CastleScene::playScene();
             }
-            else {
+                else{
                 // load the lobby scene
                 LobbyScene::playScene(player);
             }

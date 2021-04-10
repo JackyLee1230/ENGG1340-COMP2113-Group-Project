@@ -29,6 +29,8 @@ public:
 
     static void loadCastleScreen();
 
+    static void loadEndGameScreen();
+
     static void loadTitleScreen();
 
     static void loadSettingScreen();

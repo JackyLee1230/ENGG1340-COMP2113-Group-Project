@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <cstdlib>
 
 #include "combatResultScene.h"
 
@@ -25,37 +26,39 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
         // defeated the monster for the first time
         if (player->getLEVEL() + 1 == monster->getID()) {
             player->setLEVEL(monster->getID());
-            Weapon drop = Weapon(monster->getWEAPONDROP());
 
-            cout << "You have collected a weapon " << drop.getNAME() << " from the monster" << endl;
-            // ask the player to drop a weapon if owning four weapons already
-            if (weapons.size() == 4) {
-                string input = "";
+            if(monster->getWEAPONDROP() != -1){
+                Weapon drop = Weapon(monster->getWEAPONDROP());
+                cout << "You have collected a weapon " << drop.getNAME() << " from the monster" << endl;
+                // ask the player to drop a weapon if owning four weapons already
+                if (weapons.size() == 4) {
+                    string input = "";
 
-                cout << "Please input 1-4 to replace the weapon with the new one" << endl;
+                    cout << "Please input 1-4 to replace the weapon with the new one" << endl;
 
-                // display all weapons
-                for (int i = 0; i < weapons.size(); i++) {
-                    cout << "[" << (i+1) << "] "; // show hint for user input
-                    weapons[i].showWeapon();
-                    cout << endl;
-                }
+                    // display all weapons
+                    for (int i = 0; i < weapons.size(); i++) {
+                        cout << "[" << (i+1) << "] "; // show hint for user input
+                        weapons[i].showWeapon();
+                        cout << endl;
+                    }
 
-                getline(cin, input);
-                // prompt for player input until input is valid
-                while(isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 5){
-                    cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
                     getline(cin, input);
-                 }
+                    // prompt for player input until input is valid
+                    while(isdigit(input[0]) == 0 || std::stoi(input) <= 0 || std::stoi(input) >= 5){
+                        cout << "PLEASE ENTER CHOICE BETWEEN 1 - 4" << endl;
+                        getline(cin, input);
+                     }
 
-                int user_input = std::stoi(input);
+                    int user_input = std::stoi(input);
 
 
-                cout << "You choose to drop " << weapons[user_input - 1].getNAME() << endl;
-                weapons[user_input - 1] = drop;
-            }
-            else {
-                weapons.push_back(drop);
+                    cout << "You choose to drop " << weapons[user_input - 1].getNAME() << endl;
+                    weapons[user_input - 1] = drop;
+                }
+                else {
+                    weapons.push_back(drop);
+                }
             }
 
             player->setWeapons(weapons);
@@ -111,6 +114,13 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
         // release memory of the monster
         // allow the next monster to be created later
         delete monster;
+
+        //quit the game once the player has defeated the final BOSS
+        // and display the final end game scene
+        if (player->getLEVEL() == 6){
+            SceneManager::loadEndGameScreen();
+            exit(0);
+        }
 
         // after finishing the current level, go back to the lobby
         // load the lobby scene

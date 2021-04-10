@@ -117,6 +117,7 @@ void SceneManager::loadLobbyScreen(Player* player) {
         }
         cout << endl;
     }
+
     std::vector<string> rooms = {"Library", "Armory", "Guard Room", "Chapel" ,"Grand Hall"};
     //print out the map and the rooms that the player can go
     // and show which boss the player has and has not defeated.
@@ -128,14 +129,14 @@ void SceneManager::loadLobbyScreen(Player* player) {
                 i,
                 rooms[i-1].c_str(),
                 "",
-                DEFEATED
+                DEFEATED //display the emoji to indicate that the boss was defeated
             );
         }else{
             fprintf(stdout, "[%1i] %-10s %2s< Boss Status: %1s>  ",
                 i,
                 rooms[i-1].c_str(),
                 "",
-                BOSS
+                BOSS //display the emoji to indicate that the boss has not been defeated
             );
         }
         if(i % 2 ==0){
@@ -218,7 +219,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
     int min, max;
 
     for(int i = monster->getSKILLLOW(); i < monster->getSKILLHIGH(); i++ ){
-        Skill skill = monster->getSkills()[i];
+        Skill skill = monster->getSkills()[ i - monster->getSKILLLOW() ];
         if(skill.getATK() != 0 && skill.getType() == 0){
             skill_dmg.push_back(skill.getATK());
         }
@@ -233,8 +234,8 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
             min = skill_dmg[i];
         }
     }
-    
-    //show the damage range of the monster as well
+
+    // show the damage range of the monster as well
     // only show it once if the min and max damage is the same
     if(min == max){
         printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET RED "\tDamage Range: %d" RESET,
@@ -245,6 +246,8 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
             monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX(), min, max
         );
     }
+    // printf("%s\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET,
+    //         monster->getNAME().c_str(), monster->getHP(), monster->getHP_MAX() );
 
 
     // load shieldHP if shieldHP not equal to 0
@@ -277,6 +280,27 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
         cout << endl;
     }
     cout << endl;
+
+}
+
+// scene for end game once player has defeated the final boss of the game
+void SceneManager::loadEndGameScreen(){
+    string file_name = END_SCENE + ".txt";
+    string line;
+
+    ifstream myfile (SCENES_FOLDER_PATH + file_name);
+
+    system("clear");
+
+    // load the end game scene only
+    if (myfile.is_open()) {
+        while (getline (myfile, line)) {
+            cout << line << '\n';
+        }
+        cout << endl;
+    }
+
+    myfile.close();
 
 }
 
