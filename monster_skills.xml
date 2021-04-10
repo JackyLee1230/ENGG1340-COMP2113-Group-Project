@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 
+<!-- Gate Keeper moves -->
 <skill id="1">
     <name>Punch</name>
     <type>0</type>
@@ -10,96 +11,198 @@
 <skill id="2">
     <name>Heavy Punch</name>
     <type>0</type>
-    <ATK>5</ATK>
+    <ATK>6</ATK>
     <isMagic>0</isMagic>
 </skill>
 
+<!-- Predator moves -->
 <skill id="3">
-    <name>Power Slash</name>
+    <name>Punch</name>
     <type>0</type>
-    <ATK>5</ATK>
+    <ATK>6</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="4">
-    <name>Air Gate</name>
-    <type>1</type>
-    <ATK>6</ATK>
+    <name>Heavy Punch</name>
+    <type>0</type>
+    <ATK>9</ATK>
     <isMagic>0</isMagic>
-
 </skill>
 
 <skill id="5">
-    <name>Fire Breath</name>
+    <name>Power Slash</name>
     <type>0</type>
-    <ATK>15</ATK>
-    <isMagic>1</isMagic>
+    <ATK>13</ATK>
+    <isMagic>0</isMagic>
 </skill>
 
+<!-- The Fighter moves -->
 <skill id="6">
-    <name>Cast of Inferno</name>
+    <name>Horizontal Slash</name>
     <type>0</type>
-    <ATK>20</ATK>
-    <isMagic>1</isMagic>
+    <ATK>10</ATK>
+    <isMagic>0</isMagic>
 </skill>
 
 <skill id="7">
-    <name>Dagger Slash</name>
+    <name>Vertical Slash</name>
     <type>0</type>
-    <ATK>20</ATK>
+    <ATK>10</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="8">
-    <name>Typhoon Edge</name>
+    <name>Slant Slash</name>
     <type>0</type>
-    <ATK>20</ATK>
-    <isMagic>1</isMagic>
+    <ATK>13</ATK>
+    <isMagic>0</isMagic>
 </skill>
 
 <skill id="9">
-    <name>Endless Cut</name>
-    <type>0</type>
-    <ATK>20</ATK>
+    <name>Daunted Barrier</name>
+    <type>1</type>
+    <ATK>16</ATK>
     <isMagic>0</isMagic>
 </skill>
 
+<!-- Griffin moves -->
 <skill id="10">
-    <name>Sword Wave</name>
+    <name>Dive Bomb</name>
     <type>0</type>
-    <ATK>20</ATK>
-    <isMagic>0</isMagic>
+    <ATK>25</ATK>
+    <isMagic>1</isMagic>
 </skill>
 
 <skill id="11">
-    <name>Deadly Shot</name>
+    <name>Claw of Wind</name>
     <type>0</type>
     <ATK>20</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="12">
-    <name>Final Fang</name>
-    <type>0</type>
-    <ATK>20</ATK>
+    <name>Wind Gate</name>
+    <type>1</type>
+    <ATK>26</ATK>
     <isMagic>0</isMagic>
 </skill>
 
 <skill id="13">
-    <name>Storm Impact</name>
+    <name>Griffin Thunder</name>
+    <type>0</type>
+    <ATK>22</ATK>
+    <isMagic>1</isMagic>
+</skill>
+
+<!-- Wraith moves -->
+<skill id="14">
+    <name>Void Barrier</name>
+    <type>1</type>
+    <ATK>20</ATK>
+    <isMagic>1</isMagic>
+</skill>
+
+<skill id="15">
+    <name>Hex of Elements</name>
+    <type>1</type>
+    <ATK>20</ATK>
+    <isMagic>1</isMagic>
+</skill>
+
+<skill id="16">
+    <name>Dimensional Curse</name>
     <type>0</type>
     <ATK>20</ATK>
     <isMagic>1</isMagic>
 </skill>
 
-<skill id="14">
+<skill id="17">
+    <name>Chaotic Aura</name>
+    <type>0</type>
+    <ATK>25</ATK>
+    <isMagic>1</isMagic>
+</skill>
+
+<skill id="18">
+    <name>The Mirror</name>
+    <type>1</type>
+    <ATK>30</ATK>
+    <isMagic>0</isMagic>
+</skill>
+
+<skill id="19">
+    <name>Sword Wave</name>
+    <type>0</type>
+    <ATK>20</ATK>
+    <isMagic>0</isMagic>
+</skill>
+
+<!-- Boss : Inferno moves -->
+<skill id="20">
+    <name>Fire Breath</name>
+    <type>0</type>
+    <ATK>20</ATK>
+    <isMagic>1</isMagic>
+</skill>
+
+<skill id="21">
+    <name>Cast of Inferno</name>
+    <type>0</type>
+    <ATK>40</ATK>
+    <isMagic>1</isMagic>
+</skill>
+
+<skill id="22">
+    <name>Molten Wind</name>
+    <type>1</type>
+    <ATK>35</ATK>
+    <isMagic>0</isMagic>
+</skill>
+
+<skill id="23">
+    <name>Typhoon Edge</name>
+    <type>1</type>
+    <ATK>30</ATK>
+    <isMagic>0</isMagic>
+</skill>
+
+<skill id="24">
+    <name>Endless Cut</name>
+    <type>0</type>
+    <ATK>35</ATK>
+    <isMagic>0</isMagic>
+</skill>
+
+<skill id="25">
+    <name>Deadly Shot</name>
+    <type>0</type>
+    <ATK>22</ATK>
+    <isMagic>0</isMagic>
+</skill>
+
+<skill id="26">
+    <name>Final Fang</name>
+    <type>0</type>
+    <ATK>27</ATK>
+    <isMagic>0</isMagic>
+</skill>
+
+<skill id="27">
+    <name>Storm Impact</name>
+    <type>0</type>
+    <ATK>29</ATK>
+    <isMagic>1</isMagic>
+</skill>
+
+<skill id="28">
     <name>Dawn of the Gods</name>
     <type>0</type>
     <ATK>25</ATK>
     <isMagic>1</isMagic>
 </skill>
 
-<skill id="15">
+<skill id="29">
     <name>Eternal Dread</name>
     <type>0</type>
     <ATK>30</ATK>

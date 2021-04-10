@@ -2,66 +2,65 @@
 
 <monster id="1">
     <name>Gate Keeper</name>
-    <HP>35</HP>
+    <HP>20</HP>
     <ATK>5</ATK>
     <DODGE>0</DODGE>
     <FLIGHT>0</FLIGHT>
     <SKILL_LOW>1</SKILL_LOW>
-    <SKILL_HIGH>4</SKILL_HIGH>
+    <SKILL_HIGH>2</SKILL_HIGH>
     <WEAPON_DROP>2</WEAPON_DROP>
 </monster>
 
 <monster id="2">
     <name>Predator</name>
-    <HP>45</HP>
+    <HP>55</HP>
     <ATK>5</ATK>
     <DODGE>5</DODGE>
     <FLIGHT>0</FLIGHT>
-    <SKILL_LOW>4</SKILL_LOW>
-    <SKILL_HIGH>7</SKILL_HIGH>
+    <SKILL_LOW>3</SKILL_LOW>
+    <SKILL_HIGH>5</SKILL_HIGH>
     <WEAPON_DROP>3</WEAPON_DROP>
 </monster>
 
 <monster id="3">
     <name>The Fighter</name>
-    <HP>55</HP>
+    <HP>70</HP>
     <ATK>5</ATK>
     <DODGE>5</DODGE>
     <FLIGHT>0</FLIGHT>
-    <SKILL_LOW>4</SKILL_LOW>
-    <SKILL_HIGH>7</SKILL_HIGH>
+    <SKILL_LOW>6</SKILL_LOW>
+    <SKILL_HIGH>9</SKILL_HIGH>
     <WEAPON_DROP>4</WEAPON_DROP>
 </monster>
 
 <monster id="4">
     <name>Griffin</name>
-    <HP>55</HP>
+    <HP>100</HP>
     <ATK>5</ATK>
     <DODGE>15</DODGE>
     <FLIGHT>1</FLIGHT>
-    <SKILL_LOW>7</SKILL_LOW>
-    <SKILL_HIGH>9</SKILL_HIGH>
+    <SKILL_LOW>10</SKILL_LOW>
+    <SKILL_HIGH>13</SKILL_HIGH>
     <WEAPON_DROP>5</WEAPON_DROP>
 </monster>
 
 <monster id="5">
     <name>Wraith</name>
-    <HP>55</HP>
+    <HP>150</HP>
     <ATK>5</ATK>
-    <DODGE>15</DODGE>
+    <DODGE>60</DODGE>
     <FLIGHT>0</FLIGHT>
-    <SKILL_LOW>10</SKILL_LOW>
-    <SKILL_HIGH>11</SKILL_HIGH>
+    <SKILL_LOW>14</SKILL_LOW>
+    <SKILL_HIGH>19</SKILL_HIGH>
     <WEAPON_DROP>6</WEAPON_DROP>
 </monster>
 
 <monster id="6">
     <name>Boss: Inferno</name>
-    <HP>200</HP>
+    <HP>240</HP>
     <ATK>20</ATK>
     <DODGE>7</DODGE>
     <FLIGHT>1</FLIGHT>
-    <SKILL_LOW>10</SKILL_LOW>
-    <SKILL_HIGH>15</SKILL_HIGH>
-    <WEAPON_DROP>-1</WEAPON_DROP>
+    <SKILL_LOW>20</SKILL_LOW>
+    <SKILL_HIGH>29</SKILL_HIGH>
 </monster>

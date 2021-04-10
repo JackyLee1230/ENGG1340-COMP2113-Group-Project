@@ -6,6 +6,7 @@
 	<LEVEL>6</LEVEL>
 	<weapons>
 		<weapon id="2" />
+		<weapon id="3" />
 		<weapon id="5" />
 		<weapon id="6" />
 	</weapons>
