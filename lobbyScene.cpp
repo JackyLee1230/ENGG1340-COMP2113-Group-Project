@@ -34,7 +34,9 @@ void LobbyScene::playScene(Player *player) {
     SceneManager::loadLobbyScreen(player);
 
     // Show player current status
-    cout << "Player's HP: " <<  player->getHP() << "/" << player->getHP_MAX() << "; LEVEL = " << player->getLEVEL() << endl;
+    cout << "Player's HP: " <<  GREEN << player->getHP() << RESET << "/"
+        << GREEN << player->getHP_MAX() << RESET
+        << "; LEVEL = " << MAGENTA << player->getLEVEL() << RESET << endl;
 
     string input = "";
     getline(cin, input);

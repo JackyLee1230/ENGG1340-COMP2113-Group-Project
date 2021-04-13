@@ -33,7 +33,7 @@ void SaveLoad::createNewSaveFile(Player *player) {
     // remove past save file
     if (checkSaveFileExist()) {
         if (remove(PLAYER_SAVEFILE) == 0) {
-            cout << "Removed existing Save File successfully." << endl;
+            // cout << "Removed existing Save File successfully." << endl;
         }
         else {
             cout << "Error in removing existing Save File. Please do it mannually."  << endl;
@@ -93,6 +93,9 @@ void SaveLoad::createNewSaveFile(Player *player) {
 
     // write the xml file
     doc.save_file(PLAYER_SAVEFILE);
+
+    // output to the screen that the gameplay is saved
+    cout << "Your gameplay is saved." << endl;
 }
 
 
@@ -106,14 +109,14 @@ Player* SaveLoad::loadSaveFile() {
     xml_parse_result result = doc.load_file(PLAYER_SAVEFILE);
 
     // quick check whether we load the file successfully or not
-    if (result) {
-        cout << "XML [" << PLAYER_SAVEFILE << "] parsed without errors" << endl;
-    }
-    else {
-        cout << "XML [" << PLAYER_SAVEFILE << "] parsed with errors, attr value: [" << doc.child("node").attribute("attr").value() << "]\n";
-        cout << "Error description: " << result.description() << "\n";
-        cout << "Error offset: " << result.offset << " (error at [..." << (PLAYER_SAVEFILE + result.offset) << "]\n\n";
-    }
+    // if (result) {
+    //     cout << "XML [" << PLAYER_SAVEFILE << "] parsed without errors" << endl;
+    // }
+    // else {
+    //     cout << "XML [" << PLAYER_SAVEFILE << "] parsed with errors, attr value: [" << doc.child("node").attribute("attr").value() << "]\n";
+    //     cout << "Error description: " << result.description() << "\n";
+    //     cout << "Error offset: " << result.offset << " (error at [..." << (PLAYER_SAVEFILE + result.offset) << "]\n\n";
+    // }
 
     xml_node player_node = doc.child("Player");
 

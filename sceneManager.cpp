@@ -21,22 +21,6 @@
 
 using namespace std;
 
-// for printing coloured text (for HP and other stuff)
-#define RESET   "\033[0m"
-#define BLACK   "\033[30m"      /* Black */
-#define RED     "\033[31m"      /* Red */
-#define GREEN   "\033[32m"      /* Green */
-#define YELLOW  "\033[33m"      /* Yellow */
-#define BLUE    "\033[34m"      /* Blue */
-#define MAGENTA "\033[35m"      /* Magenta */
-#define CYAN    "\033[36m"      /* Cyan */
-#define WHITE   "\033[37m"      /* White */
-#define VICTORY "\xE2\x9C\x8C"
-#define DEFEATED "\xE2\x9C\x94"
-#define WARNING "\xE2\x9A\xA0"
-#define BOSS "\xF0\x9F\x98\x88"
-#define SPARKLE "\xE2\x9D\x87"
-
 // width:height = 16:9
 const int SceneManager::SCENE_WIDTH = 80;
 const int SceneManager::SCENE_HEIGHT = 45;
@@ -206,7 +190,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
     // screen cleaning
     system("clear");
 
-    cout << "> " << player_action_des << endl;
+    cout << player_action_des << endl;
 
     // print with the value of HP being green
     printf("Player\tHP: " GREEN "%d" RESET " / " GREEN "%d" RESET "\t\n",
@@ -214,7 +198,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
     );
     cout << "\n\n";
 
-    cout << "> " << monster_action_des << endl;
+    cout << monster_action_des << endl;
 
     vector<int> skill_dmgs;
     int min, max;
