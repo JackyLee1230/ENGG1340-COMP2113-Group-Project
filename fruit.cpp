@@ -29,7 +29,6 @@ Fruit::Fruit(int fruitID, int quantity) {
     fruit_id = static_cast<FruitID>(fruitID);
     NAME = fruit.child("name").child_value();
     HP = atoi(fruit.child("HP").child_value());
-    DODGE = atoi(fruit.child("DODGE").child_value());
     this->QUANTITY = quantity;
 }
 
@@ -41,8 +40,6 @@ int Fruit::getID() {
 string Fruit::getNAME() { return this->NAME; }
 
 int Fruit::getHP() { return this->HP; }
-
-int Fruit::getDODGE() { return this->DODGE; }
 
 int Fruit::getQUANTITY() { return this->QUANTITY; }
 

@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <cstdlib>
+#include <vector>
+
+// for shuffle()
+#include <algorithm>
+
+#include <random>       // std::default_random_engine
+#include <chrono>       // std::chrono::system_clock
 
 #include "combatResultScene.h"
 
@@ -17,7 +24,7 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
     // load graphics
     SceneManager::loadCombatResultScreen(isPlayerWon);
 
-// --------------------item and fruit drop ---------------------
+    // --------------------item and fruit drop ---------------------
     std::vector<Weapon> weapons = player->getWeapons();
 
     if(isPlayerWon){
@@ -75,30 +82,80 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
             player->setHP(player->getHP_MAX());
         }
 
+        // -------------------------Fruit Drop-------------------------
         // give player fruits after each win
         std::vector<Fruit> fruits = player->getFruits();
-        srand(unsigned(time(NULL))); // random prob using time
-        int fruit_type = (int) 1 + ( rand() % 5 );
-        srand(unsigned(time(NULL))); // random prob using time
-        int fruit_quantity = (int) 1 + ( rand() % 10 );
 
-        bool added = false;
+        // generate random dropping multiple fruits with non-replace fruit types
+        srand(unsigned(time(NULL)));
+        // minimum: 1, maximum: 3
+        int num_of_fruit_types = (int)(rand() % 3) + 1;
 
-        for(int i = 0; i < fruits.size(); i++){
-            if(fruits[i].getID() == fruit_type){
-                fruits[i].setQUANTITY(fruits[i].getQUANTITY() + fruit_quantity);
-                added = true;
+        std::vector<int> fruit_ids;
+        for (int i = 0; i < 5; i++) {
+            fruit_ids.push_back(i + 1);
+        }
+
+        // obtain a time-based seed
+        unsigned seed = unsigned(time(NULL));
+        shuffle(fruit_ids.begin(), fruit_ids.end(), std::default_random_engine(seed));
+
+        srand(unsigned(time(NULL))); // random prob using time
+
+        // for each fruit type...
+        for (int i = 0; i < num_of_fruit_types; i++) {
+            int fruit_quantity;
+
+            // changing the upper and lower bound of number of fruits dropped
+            // for different types of fruits
+            switch(static_cast<FruitID>(fruit_ids[i])) {
+                case DRAGONS_FRUIT:
+                    // lower bound: 5, upper bound: 15
+                    fruit_quantity = (int)(rand() % 10) + 5;
+                    break;
+
+                case PEACH:
+                    // lower bound: 1, upper bound: 5
+                    fruit_quantity = (int)(rand() % 5) + 1;
+                    break;
+
+                default:
+                    // lower bound: 15, upper bound: 30
+                    fruit_quantity = (int)(rand() % 15) + 15;
+
+
             }
+
+            bool added = false;
+
+            // check whether that type of fruit exists or not in the player's inventory
+            for(int j = 0; j < fruits.size(); j++){
+                if(fruits[j].getID() == fruit_ids[i]){
+                    fruits[j].setQUANTITY(fruits[j].getQUANTITY() + fruit_quantity);
+                    added = true;
+
+                    // output to the screen
+                    cout << "You have received " << fruit_quantity << " " << fruits[j].getNAME() << "(s)" << endl;
+
+                    break;
+                }
+            }
+
+            if(!added){
+                fruits.push_back(
+                    Fruit(fruit_ids[i], fruit_quantity)
+                );
+
+                // output to the screen
+                cout << "You have received " << fruit_quantity << " " << fruits[fruits.size() - 1].getNAME() << "(s)" << endl;
+            }
+
+
         }
-        if(added == false){
-            fruits.push_back(Fruit(fruit_type, fruit_quantity));
-            //fruits[fruits.size()-1].setQUANTITY(fruit_quantity);
-        }
+
+        cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=Monster Drop+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" <<endl;
 
         player->setFruits(fruits);
-
-        cout << "You have received " << fruit_quantity << " "<< fruits[fruits.size()-1].getNAME()<< "(s)" << endl;
-        cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=Monster Drop+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" <<endl;
 
         SaveLoad::createNewSaveFile(player);
     }

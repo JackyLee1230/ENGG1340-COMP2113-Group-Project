@@ -21,7 +21,6 @@ private:
     FruitID fruit_id;
     int HP;
     std::string NAME;
-    int DODGE;
     int QUANTITY;
 
 public:
@@ -37,8 +36,6 @@ public:
     std::string getNAME();
 
     void setQUANTITY(int);
-
-    int getDODGE();
 
     int getQUANTITY();
 
