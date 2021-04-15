@@ -15,6 +15,7 @@
 #include "sceneManager.h"
 #include "lobbyScene.h"
 #include "combatScene.h"
+#include "storyScene.h"
 #include "saveLoad.h"
 
 using namespace std;
@@ -178,20 +179,14 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
     }
 
     if (isPlayerWon) {
-        // release memory of the monster
-        // allow the next monster to be created later
-        delete monster;
+        // not the GateKeeper
+        if (monster->getID() != 1)
+            StoryScene::playScene(player, monster);
+        else {
+            delete monster;
 
-        //quit the game once the player has defeated the final BOSS
-        // and display the final end game scene
-        if (player->getLEVEL() == 6){
-            SceneManager::loadEndGameScreen();
-            exit(0);
+            LobbyScene::playScene(player);
         }
-
-        // after finishing the current level, go back to the lobby
-        // load the lobby scene
-        LobbyScene::playScene(player);
     }
     else if (!isPlayerWon) {
 

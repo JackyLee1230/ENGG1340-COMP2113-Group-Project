@@ -16,13 +16,13 @@ Link: https://github.com/u3578552/ENGG1340-COMP2113-Group-Project
 ## **Game Rule:**  
 As a Monster Slayer, you have decided to tackle the castle filled with Ancient Monsters.  
 There are a total of ***6 monsters*** in the game. You will first be greeted by a Gate Keeper which upon defeat  
-will grant you the access to the main Castle. To discover the secret hidden within the castle, you will have to    defeat all of the monster and the final boss of the game.  
+will grant you the access to the Main Castle. To discover the secret hidden within the castle, you will have to defeat all of the monster and the final boss of the game.  
 In each battle, you will be given a choice of using your weapon(s) to attack the monster or consume a healing item to regenerate your health.   
 In this turn-based combat, the player and the monster will take turn attacking or defending.  
-Each weapon in the game have different damage value and some with *"special ability"*.  
+Each weapon in the game has different damage value and some with *"special ability"*.  
 Monster will also equip themselves with shield which can br broken with enough damage or using weapon that deals the opposite damage type.  
 If you have defeated the monster, you will gain access to the next monster in the castle and be transfered back to the main lobby.  
-If you could not defeat the monster, don't feat, you will be able to retry the fight indefinitely.  
+If you cannot defeat the monster, don't fear, you will be able to retry the fight indefinitely.  
 To win the game, you will have to ***defeat all 6 monsters*** and discover the underlying secrets and treasures of the Castle.
 
 > ### The game is best run on **_X2Go / SSH_** using command prompt / terminal <br> in **Full Screen Mode**

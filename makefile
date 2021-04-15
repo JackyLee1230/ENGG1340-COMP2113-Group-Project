@@ -46,11 +46,14 @@ combatScene.o: combatScene.cpp combatScene.h skill.h player.h monster.h
 combatResultScene.o: combatResultScene.cpp combatResultScene.h player.h monster.h
 	g++ $(FLAGS) -c $<
 
+storyScene.o: storyScene.cpp storyScene.h player.h monster.h
+	g++ $(FLAGS) -c $<
+
 # main program to run the game
 main.o: main.cpp
 	g++ $(FLAGS) -c $<
 
-main: main.o sceneManager.o titleScene.o castleScene.o lobbyScene.o monsterEncounterScene.o combatScene.o combatResultScene.o monster.o player.o weapon.o skill.o fruit.o SaveLoad.o
+main: main.o sceneManager.o titleScene.o castleScene.o lobbyScene.o monsterEncounterScene.o combatScene.o combatResultScene.o storyScene.o monster.o player.o weapon.o skill.o fruit.o SaveLoad.o
 	g++ $(FLAGS) $^ -o main
 
 clean:

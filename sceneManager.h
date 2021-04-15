@@ -29,7 +29,10 @@ public:
     static const int SCENE_WIDTH;
     static const int SCENE_HEIGHT;
 
+    // folders name
     static const std::string SCENES_FOLDER_PATH;
+    static const std::string STORIES_FOLDER_PATH;
+
     // filenames for loading a specific scene
     static const std::string TITLE_SCENE;
     static const std::string LOBBY_SCENE;
@@ -63,7 +66,9 @@ public:
 
     static void loadCombatResultScreen(bool);
 
-    // int calculateLeftJustify(int);
+    static void loadStory(Monster *);
+
+    static int calculateLeftJustify(int);
 };
 
 #endif

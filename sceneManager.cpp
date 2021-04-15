@@ -26,6 +26,7 @@ const int SceneManager::SCENE_WIDTH = 80;
 const int SceneManager::SCENE_HEIGHT = 45;
 
 const string SceneManager::SCENES_FOLDER_PATH = "scenes_art/";
+const string SceneManager::STORIES_FOLDER_PATH = "stories/";
 
 // filenames for defined scenes
 const string SceneManager::TITLE_SCENE = "title";
@@ -41,9 +42,9 @@ const string SceneManager::COMBAT_WIN_SCENE = "combat_win";
 const string SceneManager::COMBAT_LOSE_SCENE = "combat_lose";
 
 // return the number of leading space to center align the text
-// int SceneManager::calculateLeftJustify(int string_width) {
-//     return (SceneManager::SCENE_WIDTH - string_width) / 2;
-// }
+int SceneManager::calculateLeftJustify(int string_width) {
+    return (SceneManager::SCENE_WIDTH - string_width) / 2;
+}
 
 
 // load the title screen
@@ -329,4 +330,24 @@ void SceneManager::loadSettingScreen(){
   }
 
   myfile.close();
+}
+
+// load the story scene showing some background stories abt the game
+// after defeating monsters (except the GateKeeper)
+void SceneManager::loadStory(Monster *monster) {
+    string file_name = "story_monster_" + to_string(monster->getID()) + ".txt";
+    string line;
+
+    ifstream myfile (STORIES_FOLDER_PATH + file_name);
+
+    system("clear");
+
+    if (myfile.is_open()) {
+        while (getline(myfile, line)) {
+            cout << line << "\n";
+        }
+        cout << endl;
+    }
+
+    myfile.close();
 }
