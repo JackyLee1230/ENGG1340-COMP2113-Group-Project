@@ -20,11 +20,15 @@
 		</fruit>
 		<fruit>
 			<id>1</id>
-			<quantity>22</quantity>
+			<quantity>64</quantity>
 		</fruit>
 		<fruit>
 			<id>5</id>
-			<quantity>5</quantity>
+			<quantity>7</quantity>
+		</fruit>
+		<fruit>
+			<id>4</id>
+			<quantity>7</quantity>
 		</fruit>
 	</fruits>
 </Player>

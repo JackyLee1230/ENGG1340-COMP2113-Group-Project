@@ -78,9 +78,6 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
 
             player->setWeapons(weapons);
             player->updateNewHP_MAX();
-
-            // auto recover HP when winning
-            player->setHP(player->getHP_MAX());
         }
 
         // -------------------------Fruit Drop-------------------------
@@ -157,6 +154,9 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
         cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=Monster Drop+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" <<endl;
 
         player->setFruits(fruits);
+
+        // auto recover HP when winning
+        player->setHP(player->getHP_MAX());
 
         SaveLoad::createNewSaveFile(player);
     }
