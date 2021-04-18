@@ -1,4 +1,4 @@
-  _____ ______ _______ _______ _____ _   _  _____ 
+  _____ ______ _______ _______ _____ _   _  _____
  / ____|  ____|__   __|__   __|_   _| \ | |/ ____|
 | (___ | |__     | |     | |    | | |  \| | |  __
  \___ \|  __|    | |     | |    | | | . ` | | |_ |
@@ -12,3 +12,5 @@ x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=
 (3) Game Restart/Reset
 (4) Quit Game(Save On Exit)
 x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+Press "n" to return to the title screen.

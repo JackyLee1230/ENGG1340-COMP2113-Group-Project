@@ -11,9 +11,6 @@
 #include <algorithm>
 
 #include "sceneManager.h"
-#include "titleScene.h"
-#include "lobbyScene.h"
-#include "settingScene.h"
 #include "monster.h"
 #include "player.h"
 #include "weapon.h"
@@ -36,7 +33,7 @@ const string SceneManager::FLOOR_SCENE = "floor";
 const string SceneManager::END_SCENE = "end";
 const string SceneManager::MAIN_SCENE = "mainmenu";
 const string SceneManager::COMBAT_SCENE = "combat";
-const string SceneManager::SETTING_SCENE = "setting";
+const string SceneManager::INFO_SCENE = "info";
 const string SceneManager::CASTLE_SCENE = "castle";
 const string SceneManager::COMBAT_WIN_SCENE = "combat_win";
 const string SceneManager::COMBAT_LOSE_SCENE = "combat_lose";
@@ -313,8 +310,8 @@ void SceneManager::loadCombatResultScreen(bool isPlayerWon) {
 }
 
 //load the setting screen
-void SceneManager::loadSettingScreen(){
-  string file_name = SETTING_SCENE + ".txt";
+void SceneManager::loadInfoScreen(){
+  string file_name = INFO_SCENE + ".txt";
   string line;
 
   ifstream myfile (SCENES_FOLDER_PATH + file_name);

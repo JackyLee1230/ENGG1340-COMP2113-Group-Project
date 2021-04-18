@@ -41,7 +41,7 @@ public:
     static const std::string END_SCENE;
     static const std::string MAIN_SCENE;
     static const std::string COMBAT_SCENE;
-    static const std::string SETTING_SCENE;
+    static const std::string INFO_SCENE;
     static const std::string CASTLE_SCENE;
     static const std::string COMBAT_WIN_SCENE;
     static const std::string COMBAT_LOSE_SCENE;
@@ -52,7 +52,7 @@ public:
 
     static void loadTitleScreen();
 
-    static void loadSettingScreen();
+    static void loadInfoScreen();
 
     static void loadLobbyScreen(Player*);
 

@@ -16,7 +16,7 @@
 #include "titleScene.h"
 #include "castleScene.h"
 #include "lobbyScene.h"
-#include "settingScene.h"
+#include "infoScene.h"
 #include "combatScene.h"
 #include "combatResultScene.h"
 
@@ -88,17 +88,8 @@ void TitleScene::playScene() {
             CastleScene::playScene();
         } break;
         case 3: {
-
-            // use for testing new features (like combat scenes)
-            cout << "You inputted: " << user_input << "\n";
-
-            Player *player = SaveLoad::loadSaveFile();
-            Monster *monster = new Monster(1);
-
-            // cout << "Now Accessing SETTINGS";
-            //SettingScene::playScene();
-
-            CombatScene::playScene(player, monster);
+            // the info scene showing game's info/ features implemented
+            InfoScene::playScene();
         } break;
         case 4:
         //exit the game

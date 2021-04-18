@@ -14,7 +14,6 @@
 #include "saveLoad.h"
 #include "sceneManager.h"
 #include "titleScene.h"
-#include "settingScene.h"
 #include "lobbyScene.h"
 #include "monsterEncounterScene.h"
 

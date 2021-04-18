@@ -7,12 +7,12 @@
             You, as an explorer, was willing to discover the secrets and mysteries inside it.
             Equipped with a wooden sword, you are going to embark on an amazing adventure.
             Defeat an array of monsters and take back the castle from the devils.
-			
+
 	    *PLEASE PUT THE TERMINAL/CONSOLE IN FULLSCREEN MODE TO ENJOY THE GAME*
 
 x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 (1) Continue
 (2) New Game (Wipe old game data)
-(3) Settings
+(3) Infos
 (4) Close Game
 x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
