@@ -1,16 +1,39 @@
-  _____ ______ _______ _______ _____ _   _  _____
- / ____|  ____|__   __|__   __|_   _| \ | |/ ____|
-| (___ | |__     | |     | |    | | |  \| | |  __
- \___ \|  __|    | |     | |    | | | . ` | | |_ |
- ____) | |____   | |     | |   _| |_| |\  | |__| |
-|_____/|______|  |_|     |_|  |_____|_| \_|\_____|
+ ______   _______  _______  _______  ______   _______  _______ _________ _       _________
+(  __  \ (  ____ )(  ____ \(  ___  )(  __  \ (  ____ )(  ___  )\__   __/( (    /|\__   __/
+| (  \  )| (    )|| (    \/| (   ) || (  \  )| (    )|| (   ) |   ) (   |  \  ( |   ) (   
+| |   ) || (____)|| (__    | (___) || |   ) || (____)|| |   | |   | |   |   \ | |   | |   
+| |   | ||     __)|  __)   |  ___  || |   | ||  _____)| |   | |   | |   | (\ \) |   | |   
+| |   ) || (\ (   | (      | (   ) || |   ) || (      | |   | |   | |   | | \   |   | |   
+| (__/  )| ) \ \__| (____/\| )   ( || (__/  )| )      | (___) |___) (___| )  \  |   | |   
+(______/ |/   \__/(_______/|/     \|(______/ |/       (_______)\_______/|/    )_)   )_(   
+                                                                                          
 
+			  _________ _        _______  _______ 
+			  \__   __/( (    /|(  ____ \(  ___  )
+			     ) (   |  \  ( || (    \/| (   ) |
+			     | |   |   \ | || (__    | |   | |
+			     | |   | (\ \) ||  __)   | |   | |
+			     | |   | | \   || (      | |   | |
+			  ___) (___| )  \  || )      | (___) |
+			  \_______/|/    )_)|/       (_______)
 
-x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
-(1) Time Played
-(2) Character Status
-(3) Game Restart/Reset
-(4) Quit Game(Save On Exit)
-x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+Game Rule:
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+As a Monster Slayer, you have decided to tackle the castle filled with Ancient Monsters.
 
-Press "n" to return to the title screen.
+There are a total of 6 monsters in the game. You will first be greeted by a Gate Keeper which upon defeat
+will grant you access to the Main Castle. To discover the secret hidden within the castle, you will have to defeat all of the monsters and the final boss of the game.
+
+In each battle, you will be given a choice of using your weapon(s) to attack the monster or consume a healing item to regenerate your health.
+
+In this turn-based combat game, the player and the monster will take turns attacking or defending.
+Each weapon in the game has different damage values and some with *"special ability"*.
+Monster will also equip themselves with a shield which can be destroyed with enough damage or using a weapon that deals the opposite damage type.
+
+If you have defeated the monster, you will gain access to the next monster in the castle and be transfered back to the main lobby.
+If you cannot defeat the monster, don't fear, you will be able to retry the fight indefinitely.
+
+To win the game, you will have to defeat all 6 monsters and discover the underlying secrets and treasures of the Castle.
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+Press "n" to return to the Title Screen.

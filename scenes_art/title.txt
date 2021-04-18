@@ -12,7 +12,7 @@
 
 x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 (1) Continue
-(2) New Game (Wipe old game data)
-(3) Infos
+(2) New Game (Wipe Old Game Data!!!!)
+(3) Info
 (4) Close Game
 x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x

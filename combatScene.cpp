@@ -18,7 +18,6 @@
 
 #include "SceneManager.h"
 #include "titleScene.h"
-#include "settingScene.h"
 #include "lobbyScene.h"
 #include "combatResultScene.h"
 #include "fruit.h"
@@ -74,7 +73,7 @@ void CombatScene::playScene(Player *player, Monster *monster) {
             // load the combat screen with the hp of the monster is set to 0
             // wait for a few seconds
             monster->setHP(0);
-            player_action_des = "You earn the victory.\n";
+            player_action_des = "You earned the victory.\n";
             monster_action_des = "The monster is dead.\n";
 
             SceneManager::loadCombatScreen(
@@ -101,7 +100,7 @@ void CombatScene::playScene(Player *player, Monster *monster) {
             // load the combat screen with the hp of the player is set to 0
             // wait for a few seconds
             player->setHP(0);
-            player_action_des = "You lose the battle.\n";
+            player_action_des = "You lost the battle.\n";
             monster_action_des = "The monster survived.\n";
 
             SceneManager::loadCombatScreen(
