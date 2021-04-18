@@ -4,6 +4,11 @@
 #include <time.h>
 #include <string>
 
+// nanoseconds()
+#include <chrono>
+// sleep_for()
+#include <thread>
+
 #include "combatScene.h"
 
 #include "saveLoad.h"
@@ -68,7 +73,19 @@ void CombatScene::playScene(Player *player, Monster *monster) {
 
             // load the combat screen with the hp of the monster is set to 0
             // wait for a few seconds
+            monster->setHP(0);
+            player_action_des = "You earn the victory.\n";
+            monster_action_des = "The monster is dead.\n";
 
+            SceneManager::loadCombatScreen(
+                player, monster,
+                player_action_des,
+                monster_action_des
+            );
+
+            // decent sleep function
+            // to allow player look the final status of the combat
+            this_thread::sleep_for(chrono::seconds(2));
 
             // load the corresponding scene
             CombatResultScene::playScene(player, monster, true);
@@ -83,7 +100,19 @@ void CombatScene::playScene(Player *player, Monster *monster) {
 
             // load the combat screen with the hp of the player is set to 0
             // wait for a few seconds
+            player->setHP(0);
+            player_action_des = "You lose the battle.\n";
+            monster_action_des = "The monster survived.\n";
 
+            SceneManager::loadCombatScreen(
+                player, monster,
+                player_action_des,
+                monster_action_des
+            );
+
+            // decent sleep function
+            // to allow player look the final status of the combat
+            this_thread::sleep_for(chrono::seconds(2));
 
             // load the corresponding scene
             CombatResultScene::playScene(player, monster, false);
@@ -436,7 +465,7 @@ void playerMove(Player *player, Monster *monster) {
                     else {
                         monster_action_des = "";
                     }
-                    
+
                     SceneManager::loadCombatScreen(player, monster, player_action_des, monster_action_des);
 
                     // reset description
