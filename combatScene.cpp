@@ -16,7 +16,7 @@
 #include "monster.h"
 #include "skill.h"
 
-#include "SceneManager.h"
+#include "sceneManager.h"
 #include "titleScene.h"
 #include "lobbyScene.h"
 #include "combatResultScene.h"

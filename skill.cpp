@@ -18,7 +18,7 @@
 #include "player.h"
 #include "monster.h"
 #include "combatScene.h"
-#include "SceneManager.h"
+#include "sceneManager.h"
 
 // for reading xml
 #include "pugixml/pugixml.hpp"

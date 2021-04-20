@@ -5,14 +5,14 @@ FLAGS = -pedantic-errors -std=c++11
 pugixml.o: pugixml/pugixml.cpp pugixml/pugixml.hpp pugixml/pugiconfig.hpp
 	g++ $(FLAGS) -c $<
 
-SaveLoad.o: saveLoad.cpp saveLoad.h player.h weapon.h pugixml.o
+saveLoad.o: saveLoad.cpp saveLoad.h player.h weapon.h pugixml.o
 	g++ $(FLAGS) -c $<
 
 # game objects
 monster.o: monster.cpp monster.h player.h pugixml.o
 	g++ $(FLAGS) -c $<
 
-player.o: player.cpp player.h fruit.h SaveLoad.h weapon.h pugixml.o
+player.o: player.cpp player.h fruit.h saveLoad.h weapon.h pugixml.o
 	g++ $(FLAGS) -c $<
 
 weapon.o: weapon.cpp weapon.h pugixml.o player.h monster.h
@@ -56,7 +56,7 @@ storyScene.o: storyScene.cpp storyScene.h player.h monster.h
 main.o: main.cpp
 	g++ $(FLAGS) -c $<
 
-main: main.o sceneManager.o titleScene.o infoScene.o castleScene.o lobbyScene.o monsterEncounterScene.o combatScene.o combatResultScene.o storyScene.o monster.o player.o weapon.o skill.o fruit.o SaveLoad.o
+main: main.o sceneManager.o titleScene.o infoScene.o castleScene.o lobbyScene.o monsterEncounterScene.o combatScene.o combatResultScene.o storyScene.o monster.o player.o weapon.o skill.o fruit.o saveLoad.o
 	g++ $(FLAGS) $^ -o main
 
 clean:
