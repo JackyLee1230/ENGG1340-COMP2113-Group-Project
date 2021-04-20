@@ -59,7 +59,7 @@
     <name>Boss: Inferno</name>
     <HP>240</HP>
     <ATK>20</ATK>
-    <DODGE>7</DODGE>
+    <DODGE>10</DODGE>
     <FLIGHT>1</FLIGHT>
     <SKILL_LOW>20</SKILL_LOW>
     <SKILL_HIGH>29</SKILL_HIGH>
