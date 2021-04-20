@@ -100,7 +100,7 @@ void SaveLoad::createNewSaveFile(Player *player) {
 
 
 
-// read the savefile to get the stats of the player
+// Output: read the savefile to get the stats of the player
 Player* SaveLoad::loadSaveFile() {
 
     xml_document doc;
@@ -142,10 +142,10 @@ Player* SaveLoad::loadSaveFile() {
         SaveLoad::loadPlayerFruits(fruits)
     );
 
-
     return player;
 }
 
+// Input: player weapons xml node
 // load the weapons of the player using the weapons vector
 std::vector<Weapon> SaveLoad::loadPlayerWeapons(xml_node items) {
     std::vector<Weapon> weapons;
@@ -161,6 +161,7 @@ std::vector<Weapon> SaveLoad::loadPlayerWeapons(xml_node items) {
     return weapons;
 }
 
+// Input: player fruits xml node
 // load the fruits of the player using the fruits vector
 std::vector<Fruit> SaveLoad::loadPlayerFruits(xml_node items) {
     std::vector<Fruit> fruits;

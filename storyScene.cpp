@@ -11,6 +11,8 @@
 
 using namespace std;
 
+// Input: accept player and monster pointers
+// Output: Show the story of the defeated monster after player won
 void StoryScene::playScene(Player * player, Monster * monster) {
     SceneManager::loadStory(monster);
 

@@ -29,6 +29,8 @@ using namespace pugi;
 const char Skill::MONSTER_SKILLS_FILE[] = "monster_skills.xml";
 
 // constructor
+// Input: accept Skill ID
+// construct a Skill obj from the XML file
 Skill::Skill(int skill_ID) {
     string monster_skill_str = to_string(skill_ID);
 
@@ -59,6 +61,7 @@ Type Skill::getType() { return this->type; }
 
 bool Skill::getISMAGIC() { return this->isMagic; }
 
+// Input: accept player and monster pointers, and string for the monster action description
 // monster damaging the player and print out the action
 void Skill::act(Player *player, Monster *monster, string& monster_action_des) {
 
@@ -78,6 +81,7 @@ void Skill::act(Player *player, Monster *monster, string& monster_action_des) {
     }
 }
 
+// Input: Monster Skills Nodes
 // load the xml file storing the stats of every monster
 void Skill::loadMonsterSkillXML(xml_document& doc) {
     // xml_document doc;

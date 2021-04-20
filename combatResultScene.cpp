@@ -20,6 +20,12 @@
 
 using namespace std;
 
+
+// Input: accpet player, monster pointers, and bool of whether player defeated the monster
+// Output: play the combat result scene
+// either player win or loses
+// if player won , back to lobby
+// if player loss, choose retry or back to lobby
 void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlayerWon) {
 
     // load graphics
@@ -154,7 +160,6 @@ void CombatResultScene::playScene(Player *player, Monster *monster, bool isPlaye
         cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=Monster Drop+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" <<endl;
 
         player->setFruits(fruits);
-
         // auto recover HP when winning
         player->setHP(player->getHP_MAX());
 

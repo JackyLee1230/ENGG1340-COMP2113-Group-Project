@@ -13,6 +13,8 @@
 
 using namespace std;
 
+// Input: -
+// Output: Show the Castle Scene at the beginning of the game
 // play the castle scene at the start of a new game
 void CastleScene::playScene() {
 

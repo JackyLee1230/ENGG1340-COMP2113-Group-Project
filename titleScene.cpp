@@ -22,7 +22,8 @@
 
 using namespace std;
 
-// this function will load the starting scene of the game
+// Input: -
+// Output: this function will load the starting scene of the game
 // and prompt for user input to determine whether player
 // want to start new game, continue, show credit/info or quit
 void TitleScene::playScene() {

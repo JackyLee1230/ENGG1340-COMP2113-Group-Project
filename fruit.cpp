@@ -15,7 +15,7 @@ using namespace std;
 
 const char Fruit::FRUIT_STATS_FILE[] = "fruits_stats.xml";
 
-//constructor for creating a fruit
+//constructor for creating a fruit, using the Fruit ID and quantity
 Fruit::Fruit(int fruitID, int quantity) {
 
     // load the weapon's stats from xml doc
@@ -47,7 +47,7 @@ void Fruit::setQUANTITY(int newQuantity) {
     this->QUANTITY = newQuantity;
 }
 
-
+//Input: accept player pointers
 // using a fruit to heal the player and print out the action
 int Fruit::act(Player *player){
 
@@ -86,6 +86,8 @@ void Fruit::loadFruitXML(xml_document& doc) {
     // }
 }
 
+//Input: Vector element function
+//Output: show all fruits in player inventory
 void Fruit::showFruit() {
     fprintf(stdout, "%-16s%4s< HEALING: %3dHP, QUANTITY: %2d >",
         this->NAME.c_str(),

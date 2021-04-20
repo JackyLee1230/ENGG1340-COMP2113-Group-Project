@@ -23,7 +23,8 @@
 using namespace std;
 using namespace pugi;
 
-//play the lobby scene where the map and rooms are shown to the player
+//Input: accept player pointers
+//Output: play the lobby scene where the map and rooms are shown to the player
 void LobbyScene::playScene(Player *player) {
 
     int current_floor = player->getFLOOR();

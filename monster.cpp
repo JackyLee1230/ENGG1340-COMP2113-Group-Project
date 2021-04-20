@@ -28,7 +28,9 @@ const string Monster::MONSTER_ART_FOLDER_PATH = "monsters_art/";
 const char Monster::MONSTER_STATS_FILE[] = "monster_stats.xml";
 
 // constructor
+// Input: accept monster ID
 // construct a monster given its ID in the xml file
+
 // have to use const char* to match with the child() function
 Monster::Monster(int monster_ID) {
     this->ID = monster_ID;
@@ -42,7 +44,7 @@ Monster::Monster(int monster_ID) {
     // find the specific monster with the id given
     xml_node monster = doc.find_child_by_attribute("monster", "id", monster_ID_str.c_str());
 
-    // get stats and its name
+    // get stats and its name from XML
     NAME = monster.child("name").child_value();
     HP = atoi(monster.child("HP").child_value());
     HP_MAX = HP;
@@ -73,69 +75,94 @@ Monster::Monster(int monster_ID) {
 
 
 //member functions to set the stats of the monster and return the value when needed
+
+// Output: Monster's ID
 int Monster::getID() { return this->ID; }
 
+// Output: Monster's HP
 int Monster::getHP() { return HP; }
 
+// Input: Set Monster's HP
 void Monster::setHP(int newHP) {
     HP = newHP;
 }
 
+// Output: Monster's Max HP
 int Monster::getHP_MAX() { return HP_MAX; }
 
+// Output: Monster's Attack
 int Monster::getATK() { return ATK; }
 
+// Input: Set Monster's Attack
 void Monster::setATK(int newATK) {
     ATK = newATK;
 }
 
+// Output: Monster's Dodge
 int Monster::getDODGE() { return DODGE; }
 
+// Input: Set Monster's Dodge
 void Monster::setDODGE(int newDODGE) {
     DODGE = newDODGE;
 }
 
+// Output: Monster's Flight Mode
 int Monster::getFLIGHT() { return FLIGHT; }
 
+// Input: Set Monster's Flight Mode
 void Monster::setFLIGHT(int newFLIGHT){
     FLIGHT = newFLIGHT;
 }
 
+// Output: Monster's Skill Lower and Upper bound
 int Monster::getSKILLLOW() { return SKILL_LOW; }
-
 int Monster::getSKILLHIGH() { return SKILL_HIGH; }
 
 // shield part
+
+// Output: Monster's Shield HP
 int Monster::getSHIELDHP() { return this->SHIELDHP; }
 
+// Input: set Monster's Shield HP
 void Monster::setSHIELDHP(int newSHIELDHP) {
     this->SHIELDHP = newSHIELDHP;
 }
 
+// Output: Whether Shield is a magic shield
 bool Monster::getSHIELD_ISMAGIC() { return this->SHIELD_ISMAGIC; }
 
+// Input: set Monster's shield to be magic or not
 void Monster::setSHIELD_ISMAGIC(bool isMagic) {
     this->SHIELD_ISMAGIC = isMagic;
 }
 
+// Output: ID of Monster's Weapon Drop
 int Monster::getWEAPONDROP() { return WEAPON_DROP; }
 
+// Output: Monster's Name
 std::string Monster::getNAME() { return NAME; }
 
+// Input: Set Monster's Name
 std::string Monster::setNAME(std::string newNAME){
     NAME = newNAME;
 }
 
+// Output: vector of Monster's Skills
 std::vector<Skill> Monster::getSkills() { return this->skills; }
 
+// Input: vector of Skills
+// set the skills of a monster using a vector
 void Monster::setSkills(std::vector<Skill> newSkills) {
     this->skills = newSkills;
 }
 
+// Output: Whether Monster is Flying
 bool Monster::getIsFlying() { return this->isFlying; }
 
 // flight stuff
-// some maths functions to decide when the monster gets down on the ground
+// Input: -
+// Output: -
+// maths functions to decide when the monster gets down on the ground
 int Monster::fly() {
     if (!isFlying) {
         // generate probability to decide whether the monster wants to fly
@@ -175,6 +202,8 @@ int Monster::fly() {
     return 0;
 }
 
+//Input: -
+//Output: Return string of whether the monster is flying or not
 string Monster::getFlightDescription() {
 
     string flight_description = "";
@@ -189,7 +218,8 @@ string Monster::getFlightDescription() {
     return flight_description;
 }
 
-// print the monster art
+// Input: the name of the file to be print
+// Output: print the monster art from the file
 // similar to loadTitleScreen
 void Monster::loadAsciiArt(string fileName) {
     string file_name = fileName + ".txt";
@@ -208,6 +238,7 @@ void Monster::loadAsciiArt(string fileName) {
     myfile.close();
 }
 
+// Input: Monster Stats XML File
 // load the xml file storing the stats of every monster
 void Monster::loadMonsterXML(xml_document& doc) {
     // xml_document doc;

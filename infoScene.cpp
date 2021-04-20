@@ -7,7 +7,9 @@
 
 using namespace std;
 
-//load the setting scene
+// Input: -
+// Output: load the Info scene
+// and return the main menu when player input "n"
 void InfoScene::playScene() {
     SceneManager::loadInfoScreen();
 

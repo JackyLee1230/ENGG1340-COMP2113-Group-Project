@@ -53,6 +53,8 @@ int Weapon::getRANGE() { return this->RANGE; }
 
 int Weapon::getMAGIC() { return this->MAGIC; }
 
+// Input: accept monster pointer and player action description
+// Output: -
 // function for Player to attack monster using the specificed weapon
 // and have a chacne of critical hit and a chance of the monster dodging the attack
 void Weapon::attack(Monster *monster, string& player_action_des){
@@ -120,6 +122,8 @@ void Weapon::attack(Monster *monster, string& player_action_des){
     }
 }
 
+// Input: accept monster pointer and player action description string
+// Output: -
 // dealing damage function
 // return the damage deal to the HP of the monster (not the shield one)
 // which will be shown on scene message
@@ -180,6 +184,7 @@ void Weapon::dealingDmg(Monster *monster, string& player_action_des) {
     player_action_des += "Using " + this->getNAME() +  " to attack and dealt " + to_string(damage_display) + " damage to " + monster->getNAME() + "!" + "\n" ;
 }
 
+// Input: Weapon Stats file
 // load the weapon stats from the weapon_stats XML file
 // output whether there is an error or not in reading the stats
 void Weapon::loadWeaponXML(xml_document& doc) {
@@ -197,6 +202,8 @@ void Weapon::loadWeaponXML(xml_document& doc) {
     // }
 }
 
+// Input: -
+// Output: Display each weapons depending on their type
 //using a loop, and depending on the weapon Type
 //print out the weapon in different format
 // including NAME, ATK, CRT, RANGE, MAGIC

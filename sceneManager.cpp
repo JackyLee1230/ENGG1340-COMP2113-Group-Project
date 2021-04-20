@@ -182,6 +182,7 @@ void SceneManager::loadEncouterMonster(Monster *monster){
     myfile.close();
 }
 
+// Input: accept player and monster pointers and strings for player & monster actions
 //load the combat screen with the player and monster pointer, together with description of the player and monster actions
 void SceneManager::loadCombatScreen(Player *player, Monster *monster, string player_action_des, string monster_action_des) {
 
@@ -201,6 +202,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
     vector<int> skill_dmgs;
     int min, max;
 
+    // iterate over the skills to show damage range
     vector<Skill>::iterator skill_itr;
     for (skill_itr = monster->getSkills().begin(); skill_itr != monster->getSkills().end(); skill_itr++) {
         if((*skill_itr).getType() == 0){
@@ -208,6 +210,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
         }
     }
 
+    //sort the skill by dmg
     sort(skill_dmgs.begin(), skill_dmgs.end());
     min = skill_dmgs[0];
     max = skill_dmgs[skill_dmgs.size() - 1];
@@ -260,6 +263,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
 
 }
 
+// Input: -
 // scene for end game once player has defeated the final boss of the game
 void SceneManager::loadEndGameScreen(){
     string file_name = END_SCENE + ".txt";
@@ -281,6 +285,7 @@ void SceneManager::loadEndGameScreen(){
 
 }
 
+// Input: boolean for whether player won
 //load the scene if either the player died or killed the monster
 void SceneManager::loadCombatResultScreen(bool isPlayerWon) {
     string file_name = "";
@@ -309,7 +314,9 @@ void SceneManager::loadCombatResultScreen(bool isPlayerWon) {
     myfile.close();
 }
 
-//load the setting screen
+// Input: -
+// Output: Load the Info Screen of the game
+// load the info screen
 void SceneManager::loadInfoScreen(){
   string file_name = INFO_SCENE + ".txt";
   string line;
@@ -329,6 +336,8 @@ void SceneManager::loadInfoScreen(){
   myfile.close();
 }
 
+// Input: accept monster pointers
+// Output: load the story for the defeated monster
 // load the story scene showing some background stories abt the game
 // after defeating monsters (except the GateKeeper)
 void SceneManager::loadStory(Monster *monster) {

@@ -13,7 +13,8 @@
 
 using namespace std;
 
-// load the Scene when the player first encounter this monster
+// Input: accept player and monster pointers
+// Output: load the Scene when the player first encounter this monster
 void MonsterEncounterScene::playScene(Player *player, Monster *monster) {
 
     // load graphics
@@ -21,7 +22,7 @@ void MonsterEncounterScene::playScene(Player *player, Monster *monster) {
 
     cout << "Enter 'n' to continue and fight " + monster->getNAME() << endl;
 
-    // input handling
+    // input handling for continuing
     string input = "";
     getline(cin, input);
 
@@ -35,5 +36,6 @@ void MonsterEncounterScene::playScene(Player *player, Monster *monster) {
 
 
     cout <<"You have chosen to fight " + monster->getNAME() + "! Prepare yourself!" << endl;
+    //play the combat scene for the monster
     CombatScene::playScene(player, monster);
 }
