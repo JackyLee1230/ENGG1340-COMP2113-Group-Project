@@ -44,7 +44,7 @@ int SceneManager::calculateLeftJustify(int string_width) {
 }
 
 
-// load the title screen
+// Output: load the title screen and play the scene
 void SceneManager::loadTitleScreen() {
     string file_name = TITLE_SCENE + ".txt";
     string line;
@@ -64,7 +64,7 @@ void SceneManager::loadTitleScreen() {
     myfile.close();
 }
 
-// load the castle scene and background text
+// Output: load the castle scene and background text
 void SceneManager::loadCastleScreen() {
     string file_name = CASTLE_SCENE + ".txt";
     string line;
@@ -84,7 +84,8 @@ void SceneManager::loadCastleScreen() {
     myfile.close();
 }
 
-// load the Lobby screen
+// Output: load the Lobby screen and the floor plan
+// also show whether a boss is defeated or undefeated
 void SceneManager::loadLobbyScreen(Player* player) {
     string file_name = LOBBY_SCENE + ".txt";
     string line;
@@ -132,7 +133,7 @@ void SceneManager::loadLobbyScreen(Player* player) {
     myfile.close();
 }
 
-//load the lobby floor scene of the player level/floor
+// Output: load the lobby floor scene of the player level/floor
 void SceneManager::loadLobbyFloor(int floor_no) {
     string file_name = "floor_" + to_string(floor_no) + ".txt";
     string line;
@@ -152,7 +153,7 @@ void SceneManager::loadLobbyFloor(int floor_no) {
     myfile.close();
 }
 
-//load the ASCII Art of the Monster player is fighting
+// Output: load the ASCII Art of the Monster player is fighting
 void SceneManager::loadEncouterMonster(Monster *monster){
 
     int monster_ID = monster->getID();
@@ -183,7 +184,7 @@ void SceneManager::loadEncouterMonster(Monster *monster){
 }
 
 // Input: accept player and monster pointers and strings for player & monster actions
-//load the combat screen with the player and monster pointer, together with description of the player and monster actions
+// Output: load the combat screen with the player and monster pointer, together with description of the player and monster actions
 void SceneManager::loadCombatScreen(Player *player, Monster *monster, string player_action_des, string monster_action_des) {
 
     // screen cleaning
@@ -264,7 +265,7 @@ void SceneManager::loadCombatScreen(Player *player, Monster *monster, string pla
 }
 
 // Input: -
-// scene for end game once player has defeated the final boss of the game
+// Output: Show scene for end game once player has defeated the final boss of the game
 void SceneManager::loadEndGameScreen(){
     string file_name = END_SCENE + ".txt";
     string line;
@@ -286,7 +287,8 @@ void SceneManager::loadEndGameScreen(){
 }
 
 // Input: boolean for whether player won
-//load the scene if either the player died or killed the monster
+// Output: load the scene if either the player died or killed the monster
+// and show the respective scene
 void SceneManager::loadCombatResultScreen(bool isPlayerWon) {
     string file_name = "";
     string line;

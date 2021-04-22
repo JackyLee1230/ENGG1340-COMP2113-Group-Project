@@ -39,22 +39,35 @@ Weapon::Weapon(int weaponID) {
     MAGIC = atoi(weapon.child("MAGIC").child_value());
 }
 // member functions that return the stats of the weapon
+
+// Input: -
+// Output: return the ID of the weapon
 int Weapon::getID() {
     return static_cast<int>(this->weapon_id);
 }
 
+// Input: -
+// Output: return the name of the weapon
 string Weapon::getNAME() { return this->NAME; }
 
+// Input: -
+// Output: return the Attack value of the weapon
 int Weapon::getATK() { return this->ATK; }
 
+// Input: -
+// Output: return the critical chance of the weapon
 int Weapon::getCRT() { return this->CRT; }
 
+// Input: -
+// Output: return whether its a RANGE weapon
 int Weapon::getRANGE() { return this->RANGE; }
 
+// Input: -
+// Output: return whether its magic type
 int Weapon::getMAGIC() { return this->MAGIC; }
 
 // Input: accept monster pointer and player action description
-// Output: -
+// Output: calculate the damage dealt to monster by calculating Flight, Dodge, Critical and Shield
 // function for Player to attack monster using the specificed weapon
 // and have a chacne of critical hit and a chance of the monster dodging the attack
 void Weapon::attack(Monster *monster, string& player_action_des){
@@ -123,7 +136,7 @@ void Weapon::attack(Monster *monster, string& player_action_des){
 }
 
 // Input: accept monster pointer and player action description string
-// Output: -
+// Output: return the actual damage that will be dealt to the monster amd update the monster HP
 // dealing damage function
 // return the damage deal to the HP of the monster (not the shield one)
 // which will be shown on scene message
@@ -185,7 +198,7 @@ void Weapon::dealingDmg(Monster *monster, string& player_action_des) {
 }
 
 // Input: Weapon Stats file
-// load the weapon stats from the weapon_stats XML file
+// Output: load the weapon stats from the weapon_stats XML file
 // output whether there is an error or not in reading the stats
 void Weapon::loadWeaponXML(xml_document& doc) {
     // load the xml first

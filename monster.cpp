@@ -29,7 +29,8 @@ const char Monster::MONSTER_STATS_FILE[] = "monster_stats.xml";
 
 // constructor
 // Input: accept monster ID
-// construct a monster given its ID in the xml file
+// Output: construct a monster given its ID in the xml file and save its stats
+// also get the skills of the monsters
 
 // have to use const char* to match with the child() function
 Monster::Monster(int monster_ID) {
@@ -82,7 +83,8 @@ int Monster::getID() { return this->ID; }
 // Output: Monster's HP
 int Monster::getHP() { return HP; }
 
-// Input: Set Monster's HP
+// Input: new Monster's HP
+// Output: Update Monster's HP
 void Monster::setHP(int newHP) {
     HP = newHP;
 }
@@ -93,7 +95,8 @@ int Monster::getHP_MAX() { return HP_MAX; }
 // Output: Monster's Attack
 int Monster::getATK() { return ATK; }
 
-// Input: Set Monster's Attack
+// Input: new Monster's Attack
+// Output: Update Monster's Attack
 void Monster::setATK(int newATK) {
     ATK = newATK;
 }
@@ -101,7 +104,8 @@ void Monster::setATK(int newATK) {
 // Output: Monster's Dodge
 int Monster::getDODGE() { return DODGE; }
 
-// Input: Set Monster's Dodge
+// Input: new Monster's Dodge
+// Output: Update Monster's Dodge
 void Monster::setDODGE(int newDODGE) {
     DODGE = newDODGE;
 }
@@ -123,7 +127,8 @@ int Monster::getSKILLHIGH() { return SKILL_HIGH; }
 // Output: Monster's Shield HP
 int Monster::getSHIELDHP() { return this->SHIELDHP; }
 
-// Input: set Monster's Shield HP
+// Input: new Monster's Shield HP
+// Output: Update Monster's Shield HP
 void Monster::setSHIELDHP(int newSHIELDHP) {
     this->SHIELDHP = newSHIELDHP;
 }
@@ -161,7 +166,7 @@ bool Monster::getIsFlying() { return this->isFlying; }
 
 // flight stuff
 // Input: -
-// Output: -
+// Output: whether the monster is currently flying and how many rounds it has been flying
 // maths functions to decide when the monster gets down on the ground
 int Monster::fly() {
     if (!isFlying) {
@@ -203,7 +208,7 @@ int Monster::fly() {
 }
 
 //Input: -
-//Output: Return string of whether the monster is flying or not
+//Output: Return string of whether the monster is flying or not to the combat scene
 string Monster::getFlightDescription() {
 
     string flight_description = "";
@@ -239,7 +244,7 @@ void Monster::loadAsciiArt(string fileName) {
 }
 
 // Input: Monster Stats XML File
-// load the xml file storing the stats of every monster
+// Output: load the xml file storing the stats of every monster
 void Monster::loadMonsterXML(xml_document& doc) {
     // xml_document doc;
 

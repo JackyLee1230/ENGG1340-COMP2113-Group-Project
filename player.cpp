@@ -26,7 +26,7 @@ using namespace pugi;
 //defauly HP_MAX value
 
 // Input: accept default HP, Floor, LEVEL for setting player value
-// constructor called when creating a new game / retrieve from savefile
+// Output: constructor called when creating a new game / retrieve from savefile
 Player::Player(int hp, int dodge, int floor, int level) {
 
     // game progress purpose, current floor and current level
@@ -51,7 +51,7 @@ Player::Player(int hp, int dodge, int floor, int level) {
 int Player::getHP() { return this->HP; }
 
 // Input: new int HP value
-// Set Player's HP
+// Output: Set Player's HP
 void Player::setHP(int newHP){
     Player::HP = newHP;
 }
@@ -60,7 +60,7 @@ void Player::setHP(int newHP){
 int Player::getHP_MAX() { return this->HP_MAX; }
 
 // Input: New int Max HP value
-// set Player's Max HP
+// Output: set Player's Max HP
 void Player::setHP_MAX(int newHPMax){
     this->HP_MAX = newHPMax;
 }
@@ -74,7 +74,7 @@ void Player::updateNewHP_MAX() {
 int Player::getDODGE(){ return this->DODGE; }
 
 // Input: new int Dodge value
-// Set Player's Dodge
+// Output: Set Player's Dodge
 void Player::setDODGE(int newDODGE) {
     Player::DODGE = newDODGE;
 }
@@ -83,7 +83,7 @@ void Player::setDODGE(int newDODGE) {
 int Player::getFLOOR() { return this->FLOOR; }
 
 // Input: new int Floor value
-// set Player's Floor level
+// Output: set Player's Floor level
 void Player::setFLOOR(int newFLOOR){
     this->FLOOR = newFLOOR;
 }
@@ -101,13 +101,13 @@ void Player::setLEVEL(int newLEVEL) {
 vector<Fruit> Player::getFruits() { return this->fruits; }
 
 // Input: vector of new fruits of the player
-// set Player's Fruits
+// Output: set Player's Fruits
 void Player::setFruits(vector<Fruit> newFruits) {
     this->fruits = newFruits;
 }
 
 // Input: vector of new weapons of the player
-// set the weapon of the player using a vector
+// Output: set the weapon of the player using a vector
 void Player::setWeapons(std::vector<Weapon> weapons) {
     this->weapons = weapons;
 }

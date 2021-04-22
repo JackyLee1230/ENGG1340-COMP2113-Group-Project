@@ -41,6 +41,7 @@ string monster_action_des = "";
 // should pass the player's and monster's detail
 //Input: accept player and monster pointers
 //Output: Play the Scene with player, monster actions, healths
+// and change the player/ monster stats in combat
 void CombatScene::playScene(Player *player, Monster *monster) {
 
     bool isPlayerWon = false;
@@ -129,7 +130,8 @@ void CombatScene::playScene(Player *player, Monster *monster) {
     }
 }
 
-//Input: accept player and monster pointers
+// Input: accept player and monster pointers
+// Output: get the Monster's skill, either shield or attack and update it in the main combat scene
 // randomly generate a monster move
 // and output the monster's move and deal the corresponding damage to the player
 void monsterMove(Player *player, Monster *monster) {
@@ -184,7 +186,8 @@ void monsterMove(Player *player, Monster *monster) {
     monster_action_des = oss.str();
 }
 
-//Input: accept player and monster pointers
+//Input: accept player and monster pointers.
+// Output: get the Player's action, either healing or attack and update it in the main combat scene
 // ask for player weapon use
 // and output the plater's weapon choice and deal the corresponding damage to the monster
 void playerMove(Player *player, Monster *monster) {

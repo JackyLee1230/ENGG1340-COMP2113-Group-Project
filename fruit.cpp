@@ -16,6 +16,8 @@ using namespace std;
 const char Fruit::FRUIT_STATS_FILE[] = "fruits_stats.xml";
 
 //constructor for creating a fruit, using the Fruit ID and quantity
+// Input: int Fruit ID, quantity
+// Output: create a Fruit obj with value read from XML
 Fruit::Fruit(int fruitID, int quantity) {
 
     // load the weapon's stats from xml doc
@@ -33,21 +35,34 @@ Fruit::Fruit(int fruitID, int quantity) {
 }
 
 //member functions to access and set the stats of the fruits
+
+// Input: -
+// Output: get Fruit's ID
 int Fruit::getID() {
     return static_cast<int>(this->fruit_id);
 }
 
+// Input: -
+// Output: get Fruit's Name
 string Fruit::getNAME() { return this->NAME; }
 
+// Input: -
+// Output: get Fruit's Hp healing
 int Fruit::getHP() { return this->HP; }
 
+// Input: -
+// Output: get Fruit's quantity
 int Fruit::getQUANTITY() { return this->QUANTITY; }
 
+// Input: new int Quantity value
+// Output: update the quantity of that fruit
 void Fruit::setQUANTITY(int newQuantity) {
     this->QUANTITY = newQuantity;
 }
 
-//Input: accept player pointers
+// Input: accept player pointers
+// Output: use a Fruit in the player inventory
+// remove 1 fruit and heal the player
 // using a fruit to heal the player and print out the action
 int Fruit::act(Player *player){
 
@@ -69,6 +84,9 @@ int Fruit::act(Player *player){
     }
 }
 
+// Input: -
+// Output: Load the Fruit from XMl file
+// output error in loading if any
 // load the fruits stats from the weapon_stats XML file
 // output whether there is an error or not in reading the stats
 void Fruit::loadFruitXML(xml_document& doc) {
@@ -86,8 +104,8 @@ void Fruit::loadFruitXML(xml_document& doc) {
     // }
 }
 
-//Input: Vector element function
-//Output: show all fruits in player inventory
+// Input: Vector element function
+// Output: show all fruits in player inventory
 void Fruit::showFruit() {
     fprintf(stdout, "%-16s%4s< HEALING: %3dHP, QUANTITY: %2d >",
         this->NAME.c_str(),

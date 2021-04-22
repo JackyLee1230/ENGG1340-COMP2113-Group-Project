@@ -25,6 +25,7 @@ using namespace pugi;
 
 //Input: accept player pointers
 //Output: play the lobby scene where the map and rooms are shown to the player
+// And allow player to enter room to fight the monsters or quit the game
 void LobbyScene::playScene(Player *player) {
 
     int current_floor = player->getFLOOR();
@@ -67,6 +68,7 @@ void LobbyScene::playScene(Player *player) {
         getline(cin, input);
      }
 
+    // accept user input for choice
     int user_input = std::stoi(input);
     switch (user_input) {
         case 1: {

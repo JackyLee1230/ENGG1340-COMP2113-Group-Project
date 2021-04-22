@@ -16,7 +16,8 @@ using namespace pugi;
 
 const char SaveLoad::PLAYER_SAVEFILE[] = "savefile.xml";
 
-// can be used in checking whether the continue button can be pressed
+// Input: -
+// Output: can be used in checking whether the continue button can be pressed
 // by checking whether the save file exist in the directory
 bool SaveLoad::checkSaveFileExist() {
     if (FILE *file = fopen(PLAYER_SAVEFILE, "r")) {
@@ -27,8 +28,10 @@ bool SaveLoad::checkSaveFileExist() {
     }
 }
 
-// create new save file (overwriting original file/ new file)
+// Input: pointer of the player
+// Output: create new save file (overwriting original file/ new file)
 // taking default hp, dodge and user inputted name as input
+// and save the new file as the game save
 void SaveLoad::createNewSaveFile(Player *player) {
     // remove past save file
     if (checkSaveFileExist()) {
@@ -99,8 +102,8 @@ void SaveLoad::createNewSaveFile(Player *player) {
 }
 
 
-
-// Output: read the savefile to get the stats of the player
+// Input: -
+// Output: read the savefile to get the stats of the player and append the new stats
 Player* SaveLoad::loadSaveFile() {
 
     xml_document doc;
@@ -146,7 +149,7 @@ Player* SaveLoad::loadSaveFile() {
 }
 
 // Input: player weapons xml node
-// load the weapons of the player using the weapons vector
+// Output: load the weapons of the player using the weapons vector and return the weapon vector
 std::vector<Weapon> SaveLoad::loadPlayerWeapons(xml_node items) {
     std::vector<Weapon> weapons;
     // weapons.reserve(1);
@@ -162,7 +165,7 @@ std::vector<Weapon> SaveLoad::loadPlayerWeapons(xml_node items) {
 }
 
 // Input: player fruits xml node
-// load the fruits of the player using the fruits vector
+// Output: load the fruits of the player using the fruits vector and return the fruits vector
 std::vector<Fruit> SaveLoad::loadPlayerFruits(xml_node items) {
     std::vector<Fruit> fruits;
 

@@ -30,7 +30,7 @@ const char Skill::MONSTER_SKILLS_FILE[] = "monster_skills.xml";
 
 // constructor
 // Input: accept Skill ID
-// construct a Skill obj from the XML file
+// Output: construct a Skill obj with stats from the XML file
 Skill::Skill(int skill_ID) {
     string monster_skill_str = to_string(skill_ID);
 
@@ -48,21 +48,33 @@ Skill::Skill(int skill_ID) {
     this->isMagic = atoi(skill_node.child("isMagic").child_value());
 }
 
-// member functions to get the stats of the skill that the monster casetd
+// member functions to get the stats of the skill that the monster casted
+
+// Input: -
+// Output: return the attack value of the skill
 int Skill::getATK() { return this->ATK; }
 
+// Input: new int attack value
+// Output: set the new attack value for the skill
 void Skill::setATK(int newATK) {
     this->ATK = newATK;
 }
 
+// Input: -
+// Output: return the name of the skill
 std::string Skill::getNAME() { return this->NAME; }
 
+// Input: -
+// Output: return the type of the skill - Shield or ATK
 Type Skill::getType() { return this->type; }
 
+// Input: -
+// Output: return the its a magic skill or not
 bool Skill::getISMAGIC() { return this->isMagic; }
 
 // Input: accept player and monster pointers, and string for the monster action description
-// monster damaging the player and print out the action
+// Output: monster damaging the player or creating a shield
+// and print out the action and update monster shield HP/ player HP
 void Skill::act(Player *player, Monster *monster, string& monster_action_des) {
 
     // choose whether its a damage action or shield regen action
@@ -82,7 +94,7 @@ void Skill::act(Player *player, Monster *monster, string& monster_action_des) {
 }
 
 // Input: Monster Skills Nodes
-// load the xml file storing the stats of every monster
+// Output: load the xml file storing the stats of every monster
 void Skill::loadMonsterSkillXML(xml_document& doc) {
     // xml_document doc;
 
