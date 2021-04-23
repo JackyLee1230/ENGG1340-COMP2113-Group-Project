@@ -19,6 +19,10 @@ on the way.
 Link: https://github.com/u3578552/ENGG1340-COMP2113-Group-Project
 </pre>
 
+## **Problem Statement**
+When deciding on the project topic, we decided to challenge ourselves with designing a game that includes both stories and intriguing gameplay. To do so, we have finalized the idea of creating a turn-based combat RPG game.<br>
+The main concept of our game is to make a game where the player has a wide-range of freedom in combat and settled on the idea of turn-based combat with various weapon choices and items and have great replay value.
+
 ## **Game Rule:**  
 As a Monster Slayer, you have decided to tackle the castle filled with Ancient Monsters.  
 There are a total of ***6 monsters*** in the game. You will first be greeted by a Gate Keeper which upon defeat  
