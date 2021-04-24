@@ -22,36 +22,47 @@ When deciding on the project topic, we decided to challenge ourselves with desig
 The main concept of our game is to make a game where the player has a wide-range of freedom in combat and settled on the idea of turn-based combat with various weapon choices and items and have great replay value.
 
 ## **Game Rule**  
-As a Monster Slayer, you have decided to tackle the castle filled with Ancient Monsters.
-There are a total of ***6 monsters*** in the game. You will first be greeted by a Gate Keeper which upon defeat, will grant you access to the Main Castle.
+As a Monster Slayer, you have decided to tackle the castle filled with Ancient Monsters. There are a total of ***6 monsters*** in the game.
+
+You will first be greeted by a Gate Keeper which upon defeat, will grant you access to the Main Castle.
+
 In order to discover the secret hidden within the castle, you will have to defeat all of the monsters and the final boss of the game.
-In each battle, you will be given a choice of using your weapon(s) to attack the monster or consume a healing item to regenerate your health.
-In this turn-based combat game, the player and the monster will take turns attacking or defending.
+
+In each battle, you will be given a choice of using your weapon(s) to attack the monster or consume a healing item to regenerate your health. In this turn-based combat game, the player and the monster will take turns attacking or defending.
+
 Each weapon in the game has different damage values and some with*"special ability"*.
+
 Monster will also equip themselves with a shield which can be destroyed with enough damage or using a weapon that deals the opposite damage type.
+
 If you have defeated the monster, you will gain access to the next monster in the castle and be transfered back to the main lobby.
+
 If you cannot defeat the monster, don't fear, you will be able to retry the fight indefinitely.
+
 To win the game, you will have to ***defeat all 6 monsters*** and discover the underlying secrets and treasures of the Castle.
 
 **Reminder: The game is best run on SSH using command prompt / terminal in Full Screen Mode to showcase the arts and elements in the game**
 
 ## Running the game (Quick start)
 1. Type the following in the terminal to clone this repo
+
 `git clone https://github.com/u3578552/ENGG1340-COMP2113-Group-Project.git`
 
 2. Go in to our project directory
+
 `cd ENGG1340-COMP2113-Group-Project`
 
 3. Type the following to compile our game. It takes around a minute.
+
 `make main`
 
 4. Type the following to run the game
+
 `./main`
 
 The procedure was tested in server academy@11
 
-<br>
->Please note that we have made use of **[PugiXML](https://github.com/zeux/pugixml)**, which is around 14500 lines of code, uploaded by Cheng Pak Yim (3035784942)
+
+> Please note that we have made use of **[PugiXML](https://github.com/zeux/pugixml)**, which is around 14500 lines of code, uploaded by Cheng Pak Yim (3035784942)
 > The contribution graph may be affected by the addition of **[PugiXML](https://github.com/zeux/pugixml)**.
 > The use of PugiXML facilitates our implementation of Save File and Save Loading
 </br>
