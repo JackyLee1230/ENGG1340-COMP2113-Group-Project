@@ -70,7 +70,7 @@ The procedure was tested in server academy@11
 
 ## Features of the Proposed Game (and the use of coding elements)
 
-####1. Turn-based combat
+#### 1. Turn-based combat
 * Monsters moves are generated randomly from a pre-load move set and stored in a vector array
 	 * Generation of random game sets or events
 	 * Data structures for storing game status
