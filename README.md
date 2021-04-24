@@ -14,7 +14,7 @@ Game description: DreadPoint is a turn-based RPG game that is focusing on the fu
 In DreadPoint, you, as a Monster Slayer, will have to fight the monsters in a historic Castle to uncover the hidden stories and histories, using the weapons and healing items you collect on the way.
 
 Link to repo: https://github.com/u3578552/ENGG1340-COMP2113-Group-Project
-Link to video: (to be added)
+Link to video: https://youtu.be/mN2M2c3YBu8
 </pre>
 
 ## **Problem Statement**
