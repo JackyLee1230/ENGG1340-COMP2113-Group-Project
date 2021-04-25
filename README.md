@@ -64,6 +64,7 @@ The procedure was tested in server academy@11
 
 > Please note that we have made use of **[PugiXML](https://github.com/zeux/pugixml)**, which is around 14500 lines of code, uploaded by Cheng Pak Yim (3035784942)
 > The contribution graph may be affected by the addition of **[PugiXML](https://github.com/zeux/pugixml)**.
+> The number of lines added by Cheng Pak Yim (u3578494) should be 4999 instead of 19499, while there is no such issue in Lee Chi Ho's (u3578552) contribution graph.
 > The use of PugiXML facilitates our implementation of Save File and Save Loading
 </br>
 
